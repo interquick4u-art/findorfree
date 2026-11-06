@@ -93,6 +93,7 @@ input:focus,textarea:focus,select:focus{outline:2px solid var(--accent);border-c
 .faq summary:after{content:"+";color:var(--accent);font-size:22px;line-height:1}
 .faq details[open] summary:after{content:"–"}
 .faq p{color:var(--muted);margin:10px 0 0}
+footer .legal a{color:var(--muted)}
 footer{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 .trust{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:10px}
 .trust div{text-align:center;padding:18px 10px;border:1px solid var(--line);border-radius:var(--radius);background:rgba(255,255,255,.02)}
@@ -228,14 +229,15 @@ footer{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--muted);f
 </main>
 
 <footer class="wrap">
-  <div>© <span id="year"></span> FindOrFree · י.ג. שיפוצים (עוסק מורשה), Israel</div>
+  <div>© <span id="year"></span> FindOrFree · י. ג. שיפוצים · עוסק מורשה 319246708 · Beer Sheva, Israel</div>
   <div id="contact"></div>
+  <div class="legal"><a href="legal.html#terms" data-i18n="lg_terms"></a> · <a href="legal.html#refund" data-i18n="lg_refund"></a> · <a href="legal.html#privacy" data-i18n="lg_privacy"></a></div>
 </footer>
 
 <script>
 /* ===== НАСТРОЙКИ (меняются в одном месте) ===== */
 const CONFIG = {
-  email: "interquick4u@gmail.com",       // куда приходят заявки
+  email: "support@findorfree.com",       // публичный адрес для клиентов (пересылка в InterQuick)
   whatsapp: "",                           // например "9725XXXXXXX" — без плюса; пусто = кнопка WhatsApp скрыта
   formsubmit: "https://formsubmit.co/ajax/interquick4u@gmail.com", // бесплатная отправка писем (работает на реальном хостинге)
   paypalMe: "",                           // например "https://paypal.me/findora" — пусто = оплата по ссылке в письме
@@ -244,7 +246,7 @@ const CONFIG = {
 };
 
 const I18N = {
-en:{t4h:"Project",t4amt:"Custom quote",t4short:"$?",t4p:"Business, sourcing, logistics, relocation.",t4a:"Describe the task — we quote within 24 h",t4b:"Typically $100–500, agreed before start",t4c:"Dedicated researcher, calls & emails on your behalf",d_text_project:"We'll study your task and reply to {email} within 24 hours with a scope, timeline and fixed quote. You decide — no obligation.",
+en:{lg_terms:"Terms of Service",lg_refund:"Refund policy",lg_privacy:"Privacy",t4h:"Project",t4amt:"Custom quote",t4short:"$?",t4p:"Business, sourcing, logistics, relocation.",t4a:"Describe the task — we quote within 24 h",t4b:"Typically $100–500, agreed before start",t4c:"Dedicated researcher, calls & emails on your behalf",d_text_project:"We'll study your task and reply to {email} within 24 hours with a scope, timeline and fixed quote. You decide — no obligation.",
  eyebrow:"From <b>$5</b> · Not found? <b>Full refund.</b> Pay only after we confirm.",
  rv_h:"Rate your search",rv_sub:"Got your answer? Tell us how it went — it takes 20 seconds and helps the next person decide.",
  rv_empty:"FindOrFree is new. The first client reviews will appear here — honestly, unedited, as they come.",
@@ -275,10 +277,10 @@ en:{t4h:"Project",t4amt:"Custom quote",t4short:"$?",t4p:"Business, sourcing, log
  faq_h:"Questions",
  q1:"What exactly do you do that Google can't?",a1:"We search in languages you don't speak, on sites and marketplaces you've never heard of, call or email when needed, and verify what we find. You get one clear answer instead of 40 tabs.",
  q2:"What if you can't find it? Refund rules",a2:"Nothing found — 100% refund. Found only part — 50% refund. Answer delivered with sources — no refund, but if something is inaccurate we fix it for free. And before you pay, we check that the task is realistic; if not, we say so and you pay nothing.",
- q3:"How do I pay?",a3:"By card or PayPal through a secure link we send after confirming your request. No account needed.",
+ q3:"How do I pay?",a3:"By card (Visa, Mastercard and more) through a secure payment link we send after confirming your request. No account needed.",
  q4:"What won't you do?",a4:"We don't look for private individuals' personal data, anything illegal, or medical/legal decisions that require a licensed professional. Everything else — ask.",
  contact:"Contact:"},
-ru:{t4h:"Проект",t4amt:"Цена по запросу",t4short:"$?",t4p:"Бизнес, закупки, логистика, переезд.",t4a:"Опишите задачу — смета за 24 ч",t4b:"Обычно $100–500, согласуем до начала",t4c:"Отдельный исследователь, звонки и письма от вашего имени",d_text_project:"Изучим задачу и ответим на {email} в течение 24 часов: объём, сроки и фиксированная цена. Решение за вами — без обязательств.",
+ru:{lg_terms:"Условия пользования",lg_refund:"Отмена и возврат",lg_privacy:"Конфиденциальность",t4h:"Проект",t4amt:"Цена по запросу",t4short:"$?",t4p:"Бизнес, закупки, логистика, переезд.",t4a:"Опишите задачу — смета за 24 ч",t4b:"Обычно $100–500, согласуем до начала",t4c:"Отдельный исследователь, звонки и письма от вашего имени",d_text_project:"Изучим задачу и ответим на {email} в течение 24 часов: объём, сроки и фиксированная цена. Решение за вами — без обязательств.",
  eyebrow:"От <b>$5</b> · Не нашли? <b>Полный возврат.</b> Платите только после подтверждения.",
  rv_h:"Оцените поиск",rv_sub:"Получили ответ? Расскажите, как прошло — 20 секунд, и следующему человеку будет проще решиться.",
  rv_empty:"FindOrFree только стартовал. Первые отзывы клиентов появятся здесь — честно, без правок, по мере поступления.",
@@ -309,10 +311,10 @@ ru:{t4h:"Проект",t4amt:"Цена по запросу",t4short:"$?",t4p:"Б
  faq_h:"Вопросы",
  q1:"Что вы делаете такого, чего не может Google?",a1:"Мы ищем на языках, которых вы не знаете, на сайтах и площадках, о которых вы не слышали, при необходимости звоним и пишем, и проверяем найденное. Вы получаете один понятный ответ вместо 40 вкладок.",
  q2:"А если не найдёте? Правила возврата",a2:"Не нашли ничего — 100% назад. Нашли частично — 50% назад. Прислали ответ с источниками — возврата нет, но если что-то неточно, бесплатно дорабатываем. И до оплаты мы проверяем, реальна ли задача; если нет — говорим сразу, и вы ничего не платите.",
- q3:"Как оплатить?",a3:"Картой или PayPal по защищённой ссылке, которую мы пришлём после подтверждения запроса. Регистрация не нужна.",
+ q3:"Как оплатить?",a3:"Картой (Visa, Mastercard и др.) по защищённой ссылке, которую мы пришлём после подтверждения запроса. Регистрация не нужна.",
  q4:"Что вы не делаете?",a4:"Не ищем личные данные частных лиц, ничего незаконного и не принимаем медицинских/юридических решений, требующих лицензированного специалиста. Всё остальное — спрашивайте.",
  contact:"Связь:"},
-he:{t4h:"פרויקט",t4amt:"הצעת מחיר",t4short:"$?",t4p:"עסקים, רכש, לוגיסטיקה, רילוקיישן.",t4a:"תארו את המשימה — הצעת מחיר תוך 24 שע'",t4b:"בדרך כלל $100–500, מסוכם מראש",t4c:"חוקר ייעודי, שיחות ומיילים בשמכם",d_text_project:"נלמד את המשימה ונענה ל-{email} תוך 24 שעות עם היקף, לוח זמנים ומחיר קבוע. ההחלטה שלכם — ללא התחייבות.",
+he:{lg_terms:"תקנון",lg_refund:"מדיניות ביטולים",lg_privacy:"פרטיות",t4h:"פרויקט",t4amt:"הצעת מחיר",t4short:"$?",t4p:"עסקים, רכש, לוגיסטיקה, רילוקיישן.",t4a:"תארו את המשימה — הצעת מחיר תוך 24 שע'",t4b:"בדרך כלל $100–500, מסוכם מראש",t4c:"חוקר ייעודי, שיחות ומיילים בשמכם",d_text_project:"נלמד את המשימה ונענה ל-{email} תוך 24 שעות עם היקף, לוח זמנים ומחיר קבוע. ההחלטה שלכם — ללא התחייבות.",
  eyebrow:"החל מ-<b>$5</b> · לא נמצא? <b>החזר מלא.</b> משלמים רק אחרי אישור.",
  rv_h:"דרגו את החיפוש",rv_sub:"קיבלתם תשובה? ספרו איך היה — 20 שניות, וזה עוזר לבא אחריכם להחליט.",
  rv_empty:"FindOrFree חדש. הביקורות הראשונות של לקוחות יופיעו כאן — בכנות, בלי עריכה, לפי הסדר.",
@@ -343,10 +345,10 @@ he:{t4h:"פרויקט",t4amt:"הצעת מחיר",t4short:"$?",t4p:"עסקים, �
  faq_h:"שאלות",
  q1:"מה אתם עושים שגוגל לא יכול?",a1:"אנחנו מחפשים בשפות שאתם לא דוברים, באתרים ובפלטפורמות שלא שמעתם עליהם, מתקשרים או כותבים כשצריך, ומאמתים את מה שמצאנו. אתם מקבלים תשובה אחת ברורה במקום 40 טאבים.",
  q2:"ואם לא תמצאו? כללי החזר",a2:"לא נמצא כלום — החזר 100%. נמצא חלקית — החזר 50%. נשלחה תשובה עם מקורות — אין החזר, אבל אם משהו לא מדויק נתקן בחינם. ולפני התשלום אנחנו בודקים שהמשימה ריאלית; אם לא — אומרים מיד ולא משלמים.",
- q3:"איך משלמים?",a3:"בכרטיס או PayPal דרך קישור מאובטח שנשלח אחרי אישור הבקשה. בלי הרשמה.",
+ q3:"איך משלמים?",a3:"בכרטיס אשראי דרך קישור תשלום מאובטח שנשלח אחרי אישור הבקשה. בלי הרשמה.",
  q4:"מה אתם לא עושים?",a4:"לא מחפשים מידע אישי על אנשים פרטיים, שום דבר לא חוקי, ולא מקבלים החלטות רפואיות/משפטיות שדורשות מומחה מורשה. כל השאר — תשאלו.",
  contact:"קשר:"},
-es:{t4h:"Proyecto",t4amt:"Presupuesto",t4short:"$?",t4p:"Negocios, compras, logística, mudanza.",t4a:"Describe la tarea — presupuesto en 24 h",t4b:"Normalmente $100–500, acordado antes",t4c:"Investigador dedicado, llamadas y correos en tu nombre",d_text_project:"Estudiaremos tu tarea y responderemos a {email} en 24 horas con alcance, plazo y precio fijo. Tú decides, sin compromiso.",
+es:{lg_terms:"Términos",lg_refund:"Reembolsos",lg_privacy:"Privacidad",t4h:"Proyecto",t4amt:"Presupuesto",t4short:"$?",t4p:"Negocios, compras, logística, mudanza.",t4a:"Describe la tarea — presupuesto en 24 h",t4b:"Normalmente $100–500, acordado antes",t4c:"Investigador dedicado, llamadas y correos en tu nombre",d_text_project:"Estudiaremos tu tarea y responderemos a {email} en 24 horas con alcance, plazo y precio fijo. Tú decides, sin compromiso.",
  eyebrow:"Desde <b>$5</b> · ¿No se encuentra? <b>Reembolso total.</b> Pagas solo tras la confirmación.",
  rv_h:"Valora tu búsqueda",rv_sub:"¿Ya tienes tu respuesta? Cuéntanos cómo fue — 20 segundos que ayudan al siguiente a decidirse.",
  rv_empty:"FindOrFree es nuevo. Las primeras reseñas de clientes aparecerán aquí — sinceras, sin editar, según lleguen.",
@@ -377,10 +379,10 @@ es:{t4h:"Proyecto",t4amt:"Presupuesto",t4short:"$?",t4p:"Negocios, compras, log�
  faq_h:"Preguntas",
  q1:"¿Qué hacen que Google no pueda?",a1:"Buscamos en idiomas que no hablas, en sitios y mercados que no conoces, llamamos o escribimos si hace falta y verificamos lo encontrado. Recibes una respuesta clara en vez de 40 pestañas.",
  q2:"¿Y si no lo encuentran? Reglas de reembolso",a2:"Nada encontrado — reembolso del 100%. Encontrado en parte — 50%. Respuesta entregada con fuentes — sin reembolso, pero si algo es inexacto lo corregimos gratis. Y antes de pagar comprobamos que la tarea sea realista; si no, te lo decimos y no pagas nada.",
- q3:"¿Cómo pago?",a3:"Con tarjeta o PayPal mediante un enlace seguro que enviamos tras confirmar tu solicitud. Sin cuenta.",
+ q3:"¿Cómo pago?",a3:"Con tarjeta (Visa, Mastercard y más) mediante un enlace de pago seguro que enviamos tras confirmar tu solicitud. Sin cuenta.",
  q4:"¿Qué no hacen?",a4:"No buscamos datos personales de particulares, nada ilegal, ni decisiones médicas/legales que requieran un profesional colegiado. Todo lo demás, pregunta.",
  contact:"Contacto:"},
-de:{t4h:"Projekt",t4amt:"Auf Anfrage",t4short:"$?",t4p:"Business, Einkauf, Logistik, Umzug.",t4a:"Aufgabe beschreiben — Angebot in 24 Std.",t4b:"Meist $100–500, vorab vereinbart",t4c:"Eigener Rechercheur, Anrufe und E-Mails in Ihrem Namen",d_text_project:"Wir prüfen Ihre Aufgabe und antworten an {email} innerhalb von 24 Stunden mit Umfang, Zeitplan und Festpreis. Sie entscheiden — unverbindlich.",
+de:{lg_terms:"AGB",lg_refund:"Erstattung",lg_privacy:"Datenschutz",t4h:"Projekt",t4amt:"Auf Anfrage",t4short:"$?",t4p:"Business, Einkauf, Logistik, Umzug.",t4a:"Aufgabe beschreiben — Angebot in 24 Std.",t4b:"Meist $100–500, vorab vereinbart",t4c:"Eigener Rechercheur, Anrufe und E-Mails in Ihrem Namen",d_text_project:"Wir prüfen Ihre Aufgabe und antworten an {email} innerhalb von 24 Stunden mit Umfang, Zeitplan und Festpreis. Sie entscheiden — unverbindlich.",
  eyebrow:"Ab <b>$5</b> · Nicht gefunden? <b>Volle Erstattung.</b> Zahlung erst nach Bestätigung.",
  rv_h:"Bewerten Sie Ihre Suche",rv_sub:"Antwort erhalten? Erzählen Sie, wie es lief — 20 Sekunden, die dem Nächsten die Entscheidung erleichtern.",
  rv_empty:"FindOrFree ist neu. Die ersten Kundenbewertungen erscheinen hier — ehrlich, unbearbeitet, der Reihe nach.",
@@ -411,7 +413,7 @@ de:{t4h:"Projekt",t4amt:"Auf Anfrage",t4short:"$?",t4p:"Business, Einkauf, Logis
  faq_h:"Fragen",
  q1:"Was können Sie, was Google nicht kann?",a1:"Wir suchen in Sprachen, die Sie nicht sprechen, auf Seiten und Marktplätzen, die Sie nicht kennen, rufen an oder schreiben, wenn nötig, und prüfen das Gefundene. Sie bekommen eine klare Antwort statt 40 Tabs.",
  q2:"Und wenn Sie nichts finden? Erstattungsregeln",a2:"Nichts gefunden — 100% zurück. Teilweise gefunden — 50% zurück. Antwort mit Quellen geliefert — keine Erstattung, aber Ungenauigkeiten bessern wir kostenlos nach. Und vor der Zahlung prüfen wir, ob die Aufgabe realistisch ist; wenn nicht, sagen wir es sofort und Sie zahlen nichts.",
- q3:"Wie bezahle ich?",a3:"Per Karte oder PayPal über einen sicheren Link, den wir nach Bestätigung senden. Kein Konto nötig.",
+ q3:"Wie bezahle ich?",a3:"Per Karte (Visa, Mastercard u. a.) über einen sicheren Zahlungslink, den wir nach Bestätigung senden. Kein Konto nötig.",
  q4:"Was machen Sie nicht?",a4:"Keine Suche nach persönlichen Daten von Privatpersonen, nichts Illegales, keine medizinischen/rechtlichen Entscheidungen, die einen zugelassenen Fachmann erfordern. Alles andere — fragen Sie.",
  contact:"Kontakt:"}
 };
