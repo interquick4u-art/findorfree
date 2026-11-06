@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FindOrFree — No find, no pay. We find anything, in any language</title>
+<meta name="description" content="FindOrFree: a paid human-verified search service. No find, no pay. Tell us what to find — a product, a supplier, a contact, a fact — in any language. Answer within hours. Money back if we fail.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600&family=Heebo:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b1020;--bg2:#121a33;--card:#161f3d;--line:#263057;
+  --ink:#f3f5ff;--muted:#a9b2d6;--accent:#ffb347;--accent2:#ff7a59;--ok:#4ad295;
+  --radius:18px;--font:'Inter',system-ui,sans-serif;--display:'Fraunces',Georgia,serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(1200px 600px at 80% -10%,#243266 0%,transparent 60%),var(--bg);color:var(--ink);font-family:var(--font);line-height:1.55;-webkit-font-smoothing:antialiased}
+html[dir=rtl] body{font-family:'Heebo',var(--font)}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:20;background:rgba(11,16,32,.75);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:-.02em}
+.logo svg{width:30px;height:30px}
+.logo .tag-line{font-family:var(--font);font-weight:500;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-inline-start:6px;padding-inline-start:10px;border-inline-start:1px solid var(--line)}
+@media(max-width:600px){.logo .tag-line{display:none}}
+.lang{display:flex;gap:4px;flex-wrap:wrap}
+.lang button{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:5px 10px;font-size:13px;cursor:pointer}
+.lang button.on{background:var(--accent);color:#1a1200;border-color:var(--accent);font-weight:600}
+.hero{padding:72px 0 40px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;background:rgba(74,210,149,.12);border:1px solid rgba(74,210,149,.45);color:#9ff0c9;border-radius:999px;padding:9px 16px;font-size:15px;font-weight:600;margin-bottom:20px}
+.eyebrow b{color:var(--ok)}
+.stars{display:flex;gap:6px;justify-content:center;margin:12px 0 6px}
+.stars button{background:transparent;border:0;font-size:38px;cursor:pointer;color:#3a4670;transition:.15s;line-height:1}
+.stars button.on{color:var(--accent);transform:scale(1.1)}
+.rv-empty{border:1px dashed var(--line);border-radius:var(--radius);padding:22px;text-align:center;color:var(--muted);font-size:15px;margin-bottom:24px}
+.hero h1{font-family:var(--display);font-size:clamp(38px,6vw,68px);line-height:1.02;margin:0 0 18px;letter-spacing:-.03em}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p.lead{font-size:19px;color:var(--muted);margin:0 0 28px;max-width:560px}
+.cta{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#1a1200;text-decoration:none;font-weight:600;padding:16px 26px;border-radius:999px;font-size:17px;box-shadow:0 10px 30px rgba(255,150,80,.3)}
+.cta:hover{transform:translateY(-1px)}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.badge{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:6px 12px;background:rgba(255,255,255,.02)}
+.glass{position:relative;border-radius:26px;padding:26px;background:linear-gradient(160deg,rgba(255,255,255,.10),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(20px);box-shadow:0 30px 80px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.25)}
+.glass .q{font-size:14px;color:var(--muted);margin-bottom:8px}
+.glass .msg{background:rgba(0,0,0,.25);border-radius:14px;padding:14px 16px;font-size:15px;margin-bottom:12px;border:1px solid rgba(255,255,255,.08)}
+.glass .msg.a{border-color:rgba(74,210,149,.35)}
+.glass .tag{display:inline-block;font-size:12px;color:var(--ok);margin-bottom:6px;font-weight:600}
+.typing{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent);animation:blink 1s infinite}
+@keyframes blink{50%{opacity:.2}}
+section{padding:56px 0}
+h2{font-family:var(--display);font-size:clamp(28px,4vw,40px);letter-spacing:-.02em;margin:0 0 10px}
+.sub{color:var(--muted);margin:0 0 30px;font-size:17px;max-width:620px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+#pricing .grid3{grid-template-columns:repeat(4,1fr)}
+@media(max-width:1000px){#pricing .grid3{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){#pricing .grid3{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.card .n{width:38px;height:38px;border-radius:12px;background:rgba(255,179,71,.15);color:var(--accent);display:grid;place-items:center;font-weight:700;margin-bottom:14px;font-family:var(--display);font-size:18px}
+.card h3{margin:0 0 8px;font-size:19px}
+.card p{margin:0;color:var(--muted);font-size:15px}
+.price{position:relative;cursor:pointer;transition:.2s;border-width:2px}
+.price:hover,.price.sel{border-color:var(--accent);transform:translateY(-3px)}
+.price .amt{font-family:var(--display);font-size:44px;font-weight:800;letter-spacing:-.03em;margin:6px 0}
+.price .amt small{font-size:16px;color:var(--muted);font-weight:500;font-family:var(--font)}
+.price ul{margin:14px 0 0;padding:0;list-style:none}
+.price li{color:var(--muted);font-size:14px;padding:5px 0;padding-inline-start:22px;position:relative}
+.price li:before{content:"✓";position:absolute;inset-inline-start:0;color:var(--ok);font-weight:700}
+.price .pop{position:absolute;top:-12px;inset-inline-end:16px;background:var(--accent);color:#1a1200;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px}
+.ex{display:flex;flex-wrap:wrap;gap:10px}
+.ex span{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:14px;color:var(--muted)}
+form{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:30px;max-width:720px;margin:0 auto}
+label{display:block;font-size:14px;color:var(--muted);margin:16px 0 6px;font-weight:500}
+input,textarea,select{width:100%;background:#0e1530;border:1px solid var(--line);color:var(--ink);border-radius:12px;padding:13px 14px;font-size:16px;font-family:inherit}
+textarea{min-height:130px;resize:vertical}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--accent);border-color:transparent}
+.tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.tier{border:2px solid var(--line);border-radius:14px;padding:12px;cursor:pointer;text-align:center;background:#0e1530}
+.tier.sel{border-color:var(--accent);background:rgba(255,179,71,.08)}
+.tier b{display:block;font-size:20px;font-family:var(--display)}
+.tier span{font-size:12px;color:var(--muted)}
+.btn{width:100%;margin-top:22px;border:0;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#1a1200;font-weight:700;font-size:17px;padding:16px;border-radius:999px;cursor:pointer}
+.btn:disabled{opacity:.6;cursor:wait}
+.note{font-size:13px;color:var(--muted);margin-top:12px;text-align:center}
+.done{display:none;text-align:center;padding:10px 0}
+.done h3{font-family:var(--display);font-size:28px;margin:10px 0}
+.done .alt{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:18px}
+.done .alt a,.done .alt button{text-decoration:none;border:1px solid var(--line);background:#0e1530;color:var(--ink);border-radius:999px;padding:12px 18px;font-size:15px;cursor:pointer;font-family:inherit}
+.done pre{text-align:start;white-space:pre-wrap;background:#0e1530;border:1px solid var(--line);border-radius:12px;padding:14px;font-size:13px;color:var(--muted);max-height:220px;overflow:auto}
+.faq details{border-bottom:1px solid var(--line);padding:16px 0}
+.faq summary{cursor:pointer;font-weight:600;font-size:17px;list-style:none;display:flex;justify-content:space-between}
+.faq summary:after{content:"+";color:var(--accent);font-size:22px;line-height:1}
+.faq details[open] summary:after{content:"–"}
+.faq p{color:var(--muted);margin:10px 0 0}
+footer{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:10px}
+.trust div{text-align:center;padding:18px 10px;border:1px solid var(--line);border-radius:var(--radius);background:rgba(255,255,255,.02)}
+.trust b{display:block;font-family:var(--display);font-size:30px;color:var(--accent)}
+.trust span{font-size:13px;color:var(--muted)}
+@media(max-width:820px){
+  .hero{grid-template-columns:1fr;padding-top:40px}
+  .grid3,.trust{grid-template-columns:1fr}
+  .tiers{grid-template-columns:1fr 1fr}
+  form{padding:22px}
+  .lang button{padding:4px 8px;font-size:12px}
+}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <div class="logo"><svg viewBox="0 0 32 32" fill="none"><circle cx="14" cy="14" r="9" stroke="#ffb347" stroke-width="3.2"/><path d="M21 21l7 7" stroke="#ff7a59" stroke-width="3.6" stroke-linecap="round"/><circle cx="14" cy="14" r="3" fill="#ffb347"/></svg><span>Find<span style="color:var(--accent)">Or</span>Free</span><small class="tag-line">no find · no pay</small></div>
+  <div class="lang" id="lang"></div>
+</div></header>
+
+<main class="wrap">
+<section class="hero">
+  <div>
+    <div class="eyebrow">💸 <span data-i18n="eyebrow"></span></div>
+    <h1 data-i18n="h1"></h1>
+    <p class="lead" data-i18n="lead"></p>
+    <a class="cta" href="#request" data-i18n="cta"></a>
+    <div class="badges"><span class="badge" data-i18n="b1"></span><span class="badge" data-i18n="b2"></span><span class="badge" data-i18n="b3"></span></div>
+  </div>
+  <div class="glass">
+    <div class="q" data-i18n="demo_q"></div>
+    <div class="msg" data-i18n="demo_msg"></div>
+    <div class="msg a"><span class="tag" data-i18n="demo_tag"></span><div data-i18n="demo_ans"></div></div>
+    <div class="q"><span class="typing"></span> <span data-i18n="demo_time"></span></div>
+  </div>
+</section>
+
+<section id="how">
+  <h2 data-i18n="how_h"></h2><p class="sub" data-i18n="how_sub"></p>
+  <div class="grid3">
+    <div class="card"><div class="n">1</div><h3 data-i18n="s1h"></h3><p data-i18n="s1p"></p></div>
+    <div class="card"><div class="n">2</div><h3 data-i18n="s2h"></h3><p data-i18n="s2p"></p></div>
+    <div class="card"><div class="n">3</div><h3 data-i18n="s3h"></h3><p data-i18n="s3p"></p></div>
+  </div>
+</section>
+
+<section id="pricing">
+  <h2 data-i18n="pr_h"></h2><p class="sub" data-i18n="pr_sub"></p>
+  <div class="grid3">
+    <div class="card price" data-tier="simple"><h3 data-i18n="t1h"></h3><div class="amt">$5</div><p data-i18n="t1p"></p><ul><li data-i18n="t1a"></li><li data-i18n="t1b"></li><li data-i18n="t1c"></li></ul></div>
+    <div class="card price" data-tier="standard"><span class="pop" data-i18n="pop"></span><h3 data-i18n="t2h"></h3><div class="amt">$15</div><p data-i18n="t2p"></p><ul><li data-i18n="t2a"></li><li data-i18n="t2b"></li><li data-i18n="t2c"></li></ul></div>
+    <div class="card price" data-tier="deep"><h3 data-i18n="t3h"></h3><div class="amt">$30</div><p data-i18n="t3p"></p><ul><li data-i18n="t3a"></li><li data-i18n="t3b"></li><li data-i18n="t3c"></li></ul></div>
+    <div class="card price" data-tier="project"><h3 data-i18n="t4h"></h3><div class="amt" style="font-size:30px;padding:8px 0" data-i18n="t4amt"></div><p data-i18n="t4p"></p><ul><li data-i18n="t4a"></li><li data-i18n="t4b"></li><li data-i18n="t4c"></li></ul></div>
+  </div>
+  <div class="trust">
+    <div><b>5+</b><span data-i18n="tr1"></span></div>
+    <div><b>&lt;24h</b><span data-i18n="tr2"></span></div>
+    <div><b>100%</b><span data-i18n="tr3"></span></div>
+    <div><b>1</b><span data-i18n="tr4"></span></div>
+  </div>
+</section>
+
+<section id="examples">
+  <h2 data-i18n="ex_h"></h2><p class="sub" data-i18n="ex_sub"></p>
+  <div class="ex" id="exlist"></div>
+</section>
+
+<section id="request">
+  <h2 data-i18n="f_h"></h2><p class="sub" data-i18n="f_sub"></p>
+  <form id="form" novalidate>
+    <div id="formbody">
+      <label data-i18n="f_tier"></label>
+      <div class="tiers">
+        <div class="tier" data-tier="simple"><b>$5</b><span data-i18n="t1h"></span></div>
+        <div class="tier sel" data-tier="standard"><b>$15</b><span data-i18n="t2h"></span></div>
+        <div class="tier" data-tier="deep"><b>$30</b><span data-i18n="t3h"></span></div>
+        <div class="tier" data-tier="project"><b data-i18n="t4short"></b><span data-i18n="t4h"></span></div>
+      </div>
+      <label for="req" data-i18n="f_req"></label>
+      <textarea id="req" name="request" required></textarea>
+      <label for="email" data-i18n="f_email"></label>
+      <input id="email" name="email" type="email" required>
+      <label for="name" data-i18n="f_name"></label>
+      <input id="name" name="name" type="text">
+      <label for="deadline" data-i18n="f_when"></label>
+      <select id="deadline" name="deadline">
+        <option value="24h" data-i18n="w1"></option>
+        <option value="3d" data-i18n="w2"></option>
+        <option value="1w" data-i18n="w3"></option>
+      </select>
+      <button class="btn" type="submit" data-i18n="f_btn"></button>
+      <p class="note" data-i18n="f_note"></p>
+    </div>
+    <div class="done" id="done">
+      <div style="font-size:48px">🔎</div>
+      <h3 data-i18n="d_h"></h3>
+      <p class="sub" style="margin:0 auto 10px" id="d_text"></p>
+      <div class="alt" id="alt"></div>
+      <pre id="summary"></pre>
+    </div>
+  </form>
+</section>
+
+<section id="reviews">
+  <h2 data-i18n="rv_h"></h2><p class="sub" data-i18n="rv_sub"></p>
+  <div class="rv-empty" data-i18n="rv_empty"></div>
+  <form id="rvform" novalidate>
+    <div id="rvbody">
+      <label style="text-align:center" data-i18n="rv_rate"></label>
+      <div class="stars" id="stars"><button type="button" data-s="1">★</button><button type="button" data-s="2">★</button><button type="button" data-s="3">★</button><button type="button" data-s="4">★</button><button type="button" data-s="5">★</button></div>
+      <label for="rvtext" data-i18n="rv_text"></label>
+      <textarea id="rvtext" style="min-height:90px"></textarea>
+      <label for="rvname" data-i18n="rv_name"></label>
+      <input id="rvname" type="text">
+      <button class="btn" type="submit" data-i18n="rv_btn"></button>
+    </div>
+    <div class="done" id="rvdone">
+      <div style="font-size:48px">⭐</div>
+      <h3 data-i18n="rv_thanks"></h3>
+      <p class="sub" style="margin:0 auto 10px" id="rv_dtext"></p>
+      <div class="alt" id="rvalt"></div>
+    </div>
+  </form>
+</section>
+
+<section class="faq" id="faq">
+  <h2 data-i18n="faq_h"></h2>
+  <details><summary data-i18n="q1"></summary><p data-i18n="a1"></p></details>
+  <details><summary data-i18n="q2"></summary><p data-i18n="a2"></p></details>
+  <details><summary data-i18n="q3"></summary><p data-i18n="a3"></p></details>
+  <details><summary data-i18n="q4"></summary><p data-i18n="a4"></p></details>
+</section>
+</main>
+
+<footer class="wrap">
+  <div>© <span id="year"></span> FindOrFree · י.ג. שיפוצים (עוסק מורשה), Israel</div>
+  <div id="contact"></div>
+</footer>
+
+<script>
+/* ===== НАСТРОЙКИ (меняются в одном месте) ===== */
+const CONFIG = {
+  email: "interquick4u@gmail.com",       // куда приходят заявки
+  whatsapp: "",                           // например "9725XXXXXXX" — без плюса; пусто = кнопка WhatsApp скрыта
+  formsubmit: "https://formsubmit.co/ajax/interquick4u@gmail.com", // бесплатная отправка писем (работает на реальном хостинге)
+  paypalMe: "",                           // например "https://paypal.me/findora" — пусто = оплата по ссылке в письме
+  gumroad: { simple:"", standard:"", deep:"" }, // ссылки Gumroad на тарифы, если нужны
+  prices: { simple:5, standard:15, deep:30, project:"quote" }
+};
+
+const I18N = {
+en:{t4h:"Project",t4amt:"Custom quote",t4short:"$?",t4p:"Business, sourcing, logistics, relocation.",t4a:"Describe the task — we quote within 24 h",t4b:"Typically $100–500, agreed before start",t4c:"Dedicated researcher, calls & emails on your behalf",d_text_project:"We'll study your task and reply to {email} within 24 hours with a scope, timeline and fixed quote. You decide — no obligation.",
+ eyebrow:"From <b>$5</b> · Not found? <b>Full refund.</b> Pay only after we confirm.",
+ rv_h:"Rate your search",rv_sub:"Got your answer? Tell us how it went — it takes 20 seconds and helps the next person decide.",
+ rv_empty:"FindOrFree is new. The first client reviews will appear here — honestly, unedited, as they come.",
+ rv_rate:"Your rating",rv_text:"A few words (optional)",rv_name:"Name or initials (optional)",rv_btn:"Send review",rv_thanks:"Thank you!",
+ rv_sent:"Your review is in. We'll publish it here and, with your OK, on our Google profile.",
+ rv_fallback:"Automatic sending didn't go through from this page — send it with one tap:",
+ dir:"ltr",name:"English",
+ h1:"Can't find it? <em>We will.</em>",lead:"Tell us what you need — a product, a supplier, a contact, a price, a fact — in any language. A real person verifies the answer and sends it to you within hours. If we fail, you pay nothing.",
+ cta:"Start a search →",b1:"Any language",b2:"Human-verified",b3:"Money-back guarantee",
+ demo_q:"Request · Spanish",demo_msg:"«Necesito un proveedor de azulejos porcelánicos en Turquía que envíe a Argentina, pedido mínimo bajo.»",demo_tag:"Answer · 2 h 14 min",demo_ans:"3 verified manufacturers in Kütahya and Bilecik, English-speaking export contacts, minimum order from 1 pallet, indicative FOB prices, shipping options to Buenos Aires.",demo_time:"Working on the next request…",
+ how_h:"How it works",how_sub:"Three steps. No account, no app, no waiting on hold.",
+ s1h:"Describe what to find",s1p:"Write it in your own words and language. Attach details, links, photos if you have them.",
+ s2h:"Pay a fixed price",s2p:"$5, $15 or $30 depending on complexity. You know the price before we start. No hourly surprises.",
+ s3h:"Get a verified answer",s3p:"We search across languages, markets and sources, check it by hand and send a clear answer to your email.",
+ pr_h:"Simple, fixed prices",pr_sub:"Pick the level that fits. Not sure? Choose Standard — we'll adjust if it's simpler and refund the difference.",
+ t1h:"Quick find",t1p:"One specific thing.",t1a:"A product, contact, price or fact",t1b:"Answer within ~1 hour",t1c:"Up to 3 verified sources",
+ t2h:"Standard search",t2p:"Compare and choose.",t2a:"3–5 options compared side by side",t2b:"Answer within ~3 hours",t2c:"Pros, cons and our recommendation",
+ t3h:"Deep research",t3p:"When it really matters.",t3a:"Multi-country, multi-language search",t3b:"Written report within 24 hours",t3c:"Follow-up question included",
+ pop:"Most popular",tr1:"languages we work in",tr2:"typical turnaround",tr3:"refund if not found",tr4:"fixed price, no surprises",
+ ex_h:"What people ask us to find",ex_sub:"Anything that can be found online — we find faster, in more languages, and double-check it.",
+ ex:["A supplier of a specific part in Europe","The cheapest flight + hotel combo for exact dates","A Russian-speaking dentist in Berlin","Whether this company is real and trustworthy","A replacement for a discontinued product","Visa requirements for a specific passport & route","Original price of an item sold to you abroad","An apartment rental agent in a city you don't know","Where a photo was taken","A manual for an old appliance in your language"],
+ f_h:"Start your search",f_sub:"Fill in the form. We confirm by email within an hour and send a payment link. Work starts the moment payment arrives.",
+ f_tier:"Choose a level",f_req:"What should we find? Be as specific as you can.",f_email:"Your email (answer goes here)",f_name:"Your name (optional)",f_when:"When do you need it?",
+ w1:"Within 24 hours",w2:"Within 3 days",w3:"Within a week",f_btn:"Send my request",f_note:"You pay only after we confirm we can take the job. Not found = full refund.",
+ d_h:"Request received!",d_text:"We'll reply to {email} within an hour with a payment link for {price}. Work starts as soon as payment arrives.",
+ d_fallback:"Our automatic sending didn't go through from this page. Send the request yourself with one tap — the text is ready below:",
+ d_wa:"Send via WhatsApp",d_mail:"Send by email",d_copy:"Copy text",d_copied:"Copied ✓",
+ faq_h:"Questions",
+ q1:"What exactly do you do that Google can't?",a1:"We search in languages you don't speak, on sites and marketplaces you've never heard of, call or email when needed, and verify what we find. You get one clear answer instead of 40 tabs.",
+ q2:"What if you can't find it? Refund rules",a2:"Nothing found — 100% refund. Found only part — 50% refund. Answer delivered with sources — no refund, but if something is inaccurate we fix it for free. And before you pay, we check that the task is realistic; if not, we say so and you pay nothing.",
+ q3:"How do I pay?",a3:"By card or PayPal through a secure link we send after confirming your request. No account needed.",
+ q4:"What won't you do?",a4:"We don't look for private individuals' personal data, anything illegal, or medical/legal decisions that require a licensed professional. Everything else — ask.",
+ contact:"Contact:"},
+ru:{t4h:"Проект",t4amt:"Цена по запросу",t4short:"$?",t4p:"Бизнес, закупки, логистика, переезд.",t4a:"Опишите задачу — смета за 24 ч",t4b:"Обычно $100–500, согласуем до начала",t4c:"Отдельный исследователь, звонки и письма от вашего имени",d_text_project:"Изучим задачу и ответим на {email} в течение 24 часов: объём, сроки и фиксированная цена. Решение за вами — без обязательств.",
+ eyebrow:"От <b>$5</b> · Не нашли? <b>Полный возврат.</b> Платите только после подтверждения.",
+ rv_h:"Оцените поиск",rv_sub:"Получили ответ? Расскажите, как прошло — 20 секунд, и следующему человеку будет проще решиться.",
+ rv_empty:"FindOrFree только стартовал. Первые отзывы клиентов появятся здесь — честно, без правок, по мере поступления.",
+ rv_rate:"Ваша оценка",rv_text:"Пару слов (необязательно)",rv_name:"Имя или инициалы (необязательно)",rv_btn:"Отправить отзыв",rv_thanks:"Спасибо!",
+ rv_sent:"Отзыв получен. Опубликуем его здесь и, с вашего согласия, в нашем профиле Google.",
+ rv_fallback:"Автоматическая отправка с этой страницы не прошла — отправьте одним нажатием:",
+ dir:"ltr",name:"Русский",
+ h1:"Не можете найти? <em>Найдём мы.</em>",lead:"Напишите, что нужно — товар, поставщика, контакт, цену, факт — на любом языке. Живой человек проверит ответ и пришлёт его за несколько часов. Не нашли — вы ничего не платите.",
+ cta:"Заказать поиск →",b1:"Любой язык",b2:"Проверяет человек",b3:"Гарантия возврата",
+ demo_q:"Запрос · испанский",demo_msg:"«Нужен поставщик керамогранита в Турции с доставкой в Аргентину и небольшим минимальным заказом.»",demo_tag:"Ответ · 2 ч 14 мин",demo_ans:"3 проверенных производителя в Кютахье и Биледжике, англоговорящие экспорт-менеджеры, минимальный заказ от 1 паллеты, ориентировочные цены FOB, варианты доставки в Буэнос-Айрес.",demo_time:"Работаем над следующим запросом…",
+ how_h:"Как это работает",how_sub:"Три шага. Без регистрации, без приложений, без ожидания на линии.",
+ s1h:"Опишите, что найти",s1p:"Своими словами, на своём языке. Приложите детали, ссылки, фото, если есть.",
+ s2h:"Оплатите фиксированную цену",s2p:"$5, $15 или $30 в зависимости от сложности. Цену вы знаете до начала работы. Никаких почасовых сюрпризов.",
+ s3h:"Получите проверенный ответ",s3p:"Мы ищем на разных языках, рынках и источниках, проверяем вручную и присылаем понятный ответ на почту.",
+ pr_h:"Простые фиксированные цены",pr_sub:"Выберите уровень. Не уверены? Берите «Стандарт» — если окажется проще, вернём разницу.",
+ t1h:"Быстрый поиск",t1p:"Одна конкретная вещь.",t1a:"Товар, контакт, цена или факт",t1b:"Ответ за ~1 час",t1c:"До 3 проверенных источников",
+ t2h:"Стандартный поиск",t2p:"Сравнить и выбрать.",t2a:"3–5 вариантов в сравнении",t2b:"Ответ за ~3 часа",t2c:"Плюсы, минусы и наша рекомендация",
+ t3h:"Глубокое исследование",t3p:"Когда это действительно важно.",t3a:"Поиск по нескольким странам и языкам",t3b:"Письменный отчёт за 24 часа",t3c:"Один уточняющий вопрос включён",
+ pop:"Популярный",tr1:"языков в работе",tr2:"обычный срок",tr3:"возврат, если не нашли",tr4:"фикс-цена без сюрпризов",
+ ex_h:"Что нас просят найти",ex_sub:"Всё, что можно найти онлайн — мы находим быстрее, на большем числе языков и перепроверяем.",
+ ex:["Поставщика конкретной детали в Европе","Самое дешёвое сочетание перелёт + отель на точные даты","Русскоговорящего стоматолога в Берлине","Реальна ли эта компания и можно ли ей доверять","Замену снятому с производства товару","Визовые требования для конкретного паспорта и маршрута","Реальную цену вещи, которую вам продали за границей","Агента по аренде в незнакомом городе","Где сделана фотография","Инструкцию к старой технике на вашем языке"],
+ f_h:"Заказать поиск",f_sub:"Заполните форму. В течение часа подтвердим по почте и пришлём ссылку на оплату. Работа начинается сразу после оплаты.",
+ f_tier:"Выберите уровень",f_req:"Что нужно найти? Как можно конкретнее.",f_email:"Ваша почта (сюда придёт ответ)",f_name:"Ваше имя (необязательно)",f_when:"Когда нужно?",
+ w1:"В течение 24 часов",w2:"В течение 3 дней",w3:"В течение недели",f_btn:"Отправить запрос",f_note:"Вы платите только после того, как мы подтвердим, что берём задачу. Не нашли — полный возврат.",
+ d_h:"Запрос получен!",d_text:"Ответим на {email} в течение часа и пришлём ссылку на оплату {price}. Работа начнётся сразу после оплаты.",
+ d_fallback:"Автоматическая отправка с этой страницы не прошла. Отправьте запрос сами одним нажатием — текст уже готов:",
+ d_wa:"Отправить в WhatsApp",d_mail:"Отправить по почте",d_copy:"Скопировать текст",d_copied:"Скопировано ✓",
+ faq_h:"Вопросы",
+ q1:"Что вы делаете такого, чего не может Google?",a1:"Мы ищем на языках, которых вы не знаете, на сайтах и площадках, о которых вы не слышали, при необходимости звоним и пишем, и проверяем найденное. Вы получаете один понятный ответ вместо 40 вкладок.",
+ q2:"А если не найдёте? Правила возврата",a2:"Не нашли ничего — 100% назад. Нашли частично — 50% назад. Прислали ответ с источниками — возврата нет, но если что-то неточно, бесплатно дорабатываем. И до оплаты мы проверяем, реальна ли задача; если нет — говорим сразу, и вы ничего не платите.",
+ q3:"Как оплатить?",a3:"Картой или PayPal по защищённой ссылке, которую мы пришлём после подтверждения запроса. Регистрация не нужна.",
+ q4:"Что вы не делаете?",a4:"Не ищем личные данные частных лиц, ничего незаконного и не принимаем медицинских/юридических решений, требующих лицензированного специалиста. Всё остальное — спрашивайте.",
+ contact:"Связь:"},
+he:{t4h:"פרויקט",t4amt:"הצעת מחיר",t4short:"$?",t4p:"עסקים, רכש, לוגיסטיקה, רילוקיישן.",t4a:"תארו את המשימה — הצעת מחיר תוך 24 שע'",t4b:"בדרך כלל $100–500, מסוכם מראש",t4c:"חוקר ייעודי, שיחות ומיילים בשמכם",d_text_project:"נלמד את המשימה ונענה ל-{email} תוך 24 שעות עם היקף, לוח זמנים ומחיר קבוע. ההחלטה שלכם — ללא התחייבות.",
+ eyebrow:"החל מ-<b>$5</b> · לא נמצא? <b>החזר מלא.</b> משלמים רק אחרי אישור.",
+ rv_h:"דרגו את החיפוש",rv_sub:"קיבלתם תשובה? ספרו איך היה — 20 שניות, וזה עוזר לבא אחריכם להחליט.",
+ rv_empty:"FindOrFree חדש. הביקורות הראשונות של לקוחות יופיעו כאן — בכנות, בלי עריכה, לפי הסדר.",
+ rv_rate:"הדירוג שלכם",rv_text:"כמה מילים (לא חובה)",rv_name:"שם או ראשי תיבות (לא חובה)",rv_btn:"שליחת ביקורת",rv_thanks:"תודה!",
+ rv_sent:"הביקורת התקבלה. נפרסם אותה כאן, ובאישורכם גם בפרופיל גוגל שלנו.",
+ rv_fallback:"השליחה האוטומטית מהעמוד לא עברה — שלחו בלחיצה אחת:",
+ dir:"rtl",name:"עברית",
+ h1:"לא מוצאים? <em>אנחנו נמצא.</em>",lead:"ספרו לנו מה צריך — מוצר, ספק, איש קשר, מחיר, עובדה — בכל שפה. אדם אמיתי מאמת את התשובה ושולח אותה תוך שעות. לא מצאנו — לא משלמים.",
+ cta:"להתחיל חיפוש ←",b1:"בכל שפה",b2:"אימות אנושי",b3:"החזר כספי מובטח",
+ demo_q:"בקשה · ספרדית",demo_msg:"«צריך ספק אריחי פורצלן בטורקיה שמשלח לארגנטינה, עם מינימום הזמנה נמוך.»",demo_tag:"תשובה · 2 שע' 14 דק'",demo_ans:"3 יצרנים מאומתים בקוטהיה ובילג'יק, אנשי ייצוא דוברי אנגלית, מינימום הזמנה ממשטח אחד, מחירי FOB משוערים, אפשרויות שילוח לבואנוס איירס.",demo_time:"עובדים על הבקשה הבאה…",
+ how_h:"איך זה עובד",how_sub:"שלושה צעדים. בלי הרשמה, בלי אפליקציה, בלי להמתין על הקו.",
+ s1h:"תארו מה למצוא",s1p:"במילים שלכם, בשפה שלכם. הוסיפו פרטים, קישורים, תמונות אם יש.",
+ s2h:"שלמו מחיר קבוע",s2p:"$5, $15 או $30 לפי המורכבות. המחיר ידוע לפני שמתחילים. בלי הפתעות לפי שעה.",
+ s3h:"קבלו תשובה מאומתת",s3p:"אנחנו מחפשים בשפות, שווקים ומקורות שונים, בודקים ידנית ושולחים תשובה ברורה למייל.",
+ pr_h:"מחירים פשוטים וקבועים",pr_sub:"בחרו רמה. לא בטוחים? בחרו «סטנדרט» — אם זה פשוט יותר, נחזיר את ההפרש.",
+ t1h:"חיפוש מהיר",t1p:"דבר אחד ספציפי.",t1a:"מוצר, איש קשר, מחיר או עובדה",t1b:"תשובה תוך כשעה",t1c:"עד 3 מקורות מאומתים",
+ t2h:"חיפוש סטנדרטי",t2p:"להשוות ולבחור.",t2a:"3–5 אפשרויות בהשוואה",t2b:"תשובה תוך כ-3 שעות",t2c:"יתרונות, חסרונות וההמלצה שלנו",
+ t3h:"מחקר מעמיק",t3p:"כשזה באמת חשוב.",t3a:"חיפוש בכמה מדינות ושפות",t3b:"דוח כתוב תוך 24 שעות",t3c:"שאלת המשך כלולה",
+ pop:"הפופולרי",tr1:"שפות עבודה",tr2:"זמן טיפוסי",tr3:"החזר אם לא נמצא",tr4:"מחיר קבוע, בלי הפתעות",
+ ex_h:"מה מבקשים מאיתנו למצוא",ex_sub:"כל מה שאפשר למצוא אונליין — אנחנו מוצאים מהר יותר, ביותר שפות, ובודקים פעמיים.",
+ ex:["ספק של חלק ספציפי באירופה","השילוב הזול ביותר של טיסה + מלון לתאריכים מדויקים","רופא שיניים דובר רוסית בברלין","האם החברה הזו אמיתית ואמינה","תחליף למוצר שהופסק ייצורו","דרישות ויזה לדרכון ומסלול ספציפיים","המחיר המקורי של פריט שקניתם בחו\"ל","סוכן שכירות בעיר לא מוכרת","איפה צולמה תמונה","הוראות הפעלה למכשיר ישן בשפה שלכם"],
+ f_h:"להתחיל חיפוש",f_sub:"מלאו את הטופס. נאשר במייל תוך שעה ונשלח קישור לתשלום. העבודה מתחילה מיד עם קבלת התשלום.",
+ f_tier:"בחרו רמה",f_req:"מה למצוא? כמה שיותר ספציפי.",f_email:"המייל שלכם (לכאן תגיע התשובה)",f_name:"שם (לא חובה)",f_when:"מתי צריך?",
+ w1:"תוך 24 שעות",w2:"תוך 3 ימים",w3:"תוך שבוע",f_btn:"שליחת הבקשה",f_note:"משלמים רק אחרי שנאשר שאנחנו לוקחים את המשימה. לא נמצא — החזר מלא.",
+ d_h:"הבקשה התקבלה!",d_text:"נענה ל-{email} תוך שעה עם קישור לתשלום של {price}. העבודה תתחיל מיד עם התשלום.",
+ d_fallback:"השליחה האוטומטית מהעמוד הזה לא עברה. שלחו את הבקשה בעצמכם בלחיצה אחת — הטקסט מוכן למטה:",
+ d_wa:"לשלוח בוואטסאפ",d_mail:"לשלוח במייל",d_copy:"להעתיק טקסט",d_copied:"הועתק ✓",
+ faq_h:"שאלות",
+ q1:"מה אתם עושים שגוגל לא יכול?",a1:"אנחנו מחפשים בשפות שאתם לא דוברים, באתרים ובפלטפורמות שלא שמעתם עליהם, מתקשרים או כותבים כשצריך, ומאמתים את מה שמצאנו. אתם מקבלים תשובה אחת ברורה במקום 40 טאבים.",
+ q2:"ואם לא תמצאו? כללי החזר",a2:"לא נמצא כלום — החזר 100%. נמצא חלקית — החזר 50%. נשלחה תשובה עם מקורות — אין החזר, אבל אם משהו לא מדויק נתקן בחינם. ולפני התשלום אנחנו בודקים שהמשימה ריאלית; אם לא — אומרים מיד ולא משלמים.",
+ q3:"איך משלמים?",a3:"בכרטיס או PayPal דרך קישור מאובטח שנשלח אחרי אישור הבקשה. בלי הרשמה.",
+ q4:"מה אתם לא עושים?",a4:"לא מחפשים מידע אישי על אנשים פרטיים, שום דבר לא חוקי, ולא מקבלים החלטות רפואיות/משפטיות שדורשות מומחה מורשה. כל השאר — תשאלו.",
+ contact:"קשר:"},
+es:{t4h:"Proyecto",t4amt:"Presupuesto",t4short:"$?",t4p:"Negocios, compras, logística, mudanza.",t4a:"Describe la tarea — presupuesto en 24 h",t4b:"Normalmente $100–500, acordado antes",t4c:"Investigador dedicado, llamadas y correos en tu nombre",d_text_project:"Estudiaremos tu tarea y responderemos a {email} en 24 horas con alcance, plazo y precio fijo. Tú decides, sin compromiso.",
+ eyebrow:"Desde <b>$5</b> · ¿No se encuentra? <b>Reembolso total.</b> Pagas solo tras la confirmación.",
+ rv_h:"Valora tu búsqueda",rv_sub:"¿Ya tienes tu respuesta? Cuéntanos cómo fue — 20 segundos que ayudan al siguiente a decidirse.",
+ rv_empty:"FindOrFree es nuevo. Las primeras reseñas de clientes aparecerán aquí — sinceras, sin editar, según lleguen.",
+ rv_rate:"Tu valoración",rv_text:"Unas palabras (opcional)",rv_name:"Nombre o iniciales (opcional)",rv_btn:"Enviar reseña",rv_thanks:"¡Gracias!",
+ rv_sent:"Reseña recibida. La publicaremos aquí y, con tu permiso, en nuestro perfil de Google.",
+ rv_fallback:"El envío automático desde esta página no funcionó — envíala con un toque:",
+ dir:"ltr",name:"Español",
+ h1:"¿No lo encuentras? <em>Nosotros sí.</em>",lead:"Dinos qué necesitas — un producto, un proveedor, un contacto, un precio, un dato — en cualquier idioma. Una persona real verifica la respuesta y te la envía en horas. Si fallamos, no pagas nada.",
+ cta:"Empezar una búsqueda →",b1:"Cualquier idioma",b2:"Verificado por humanos",b3:"Garantía de devolución",
+ demo_q:"Solicitud · español",demo_msg:"«Necesito un proveedor de azulejos porcelánicos en Turquía que envíe a Argentina, pedido mínimo bajo.»",demo_tag:"Respuesta · 2 h 14 min",demo_ans:"3 fabricantes verificados en Kütahya y Bilecik, contactos de exportación que hablan inglés, pedido mínimo desde 1 palé, precios FOB orientativos, opciones de envío a Buenos Aires.",demo_time:"Trabajando en la siguiente solicitud…",
+ how_h:"Cómo funciona",how_sub:"Tres pasos. Sin cuenta, sin app, sin esperas al teléfono.",
+ s1h:"Describe qué buscar",s1p:"Con tus palabras y en tu idioma. Añade detalles, enlaces o fotos si los tienes.",
+ s2h:"Paga un precio fijo",s2p:"$5, $15 o $30 según la complejidad. Conoces el precio antes de empezar. Sin sorpresas por hora.",
+ s3h:"Recibe una respuesta verificada",s3p:"Buscamos en varios idiomas, mercados y fuentes, lo comprobamos a mano y te enviamos una respuesta clara por email.",
+ pr_h:"Precios fijos y simples",pr_sub:"Elige el nivel. ¿Dudas? Elige Estándar: si resulta más simple, te devolvemos la diferencia.",
+ t1h:"Búsqueda rápida",t1p:"Una cosa concreta.",t1a:"Un producto, contacto, precio o dato",t1b:"Respuesta en ~1 hora",t1c:"Hasta 3 fuentes verificadas",
+ t2h:"Búsqueda estándar",t2p:"Comparar y elegir.",t2a:"3–5 opciones comparadas",t2b:"Respuesta en ~3 horas",t2c:"Pros, contras y nuestra recomendación",
+ t3h:"Investigación profunda",t3p:"Cuando realmente importa.",t3a:"Búsqueda en varios países e idiomas",t3b:"Informe escrito en 24 horas",t3c:"Una pregunta de seguimiento incluida",
+ pop:"Más popular",tr1:"idiomas de trabajo",tr2:"plazo habitual",tr3:"reembolso si no se encuentra",tr4:"precio fijo, sin sorpresas",
+ ex_h:"Qué nos piden encontrar",ex_sub:"Todo lo que se puede encontrar en línea: lo hallamos más rápido, en más idiomas y lo verificamos.",
+ ex:["Un proveedor de una pieza concreta en Europa","El combo vuelo + hotel más barato para fechas exactas","Un dentista que hable ruso en Berlín","Si esta empresa es real y de confianza","Un sustituto de un producto descontinuado","Requisitos de visado para un pasaporte y ruta","El precio real de algo que te vendieron en el extranjero","Un agente de alquiler en una ciudad desconocida","Dónde se tomó una foto","El manual de un aparato antiguo en tu idioma"],
+ f_h:"Empieza tu búsqueda",f_sub:"Rellena el formulario. Confirmamos por email en una hora y enviamos un enlace de pago. El trabajo empieza al recibir el pago.",
+ f_tier:"Elige un nivel",f_req:"¿Qué debemos encontrar? Sé lo más específico posible.",f_email:"Tu email (aquí llega la respuesta)",f_name:"Tu nombre (opcional)",f_when:"¿Para cuándo?",
+ w1:"En 24 horas",w2:"En 3 días",w3:"En una semana",f_btn:"Enviar mi solicitud",f_note:"Pagas solo cuando confirmamos que aceptamos el trabajo. No encontrado = reembolso total.",
+ d_h:"¡Solicitud recibida!",d_text:"Responderemos a {email} en una hora con un enlace de pago de {price}. El trabajo empieza al recibir el pago.",
+ d_fallback:"El envío automático desde esta página no funcionó. Envía la solicitud tú mismo con un toque — el texto ya está listo:",
+ d_wa:"Enviar por WhatsApp",d_mail:"Enviar por email",d_copy:"Copiar texto",d_copied:"Copiado ✓",
+ faq_h:"Preguntas",
+ q1:"¿Qué hacen que Google no pueda?",a1:"Buscamos en idiomas que no hablas, en sitios y mercados que no conoces, llamamos o escribimos si hace falta y verificamos lo encontrado. Recibes una respuesta clara en vez de 40 pestañas.",
+ q2:"¿Y si no lo encuentran? Reglas de reembolso",a2:"Nada encontrado — reembolso del 100%. Encontrado en parte — 50%. Respuesta entregada con fuentes — sin reembolso, pero si algo es inexacto lo corregimos gratis. Y antes de pagar comprobamos que la tarea sea realista; si no, te lo decimos y no pagas nada.",
+ q3:"¿Cómo pago?",a3:"Con tarjeta o PayPal mediante un enlace seguro que enviamos tras confirmar tu solicitud. Sin cuenta.",
+ q4:"¿Qué no hacen?",a4:"No buscamos datos personales de particulares, nada ilegal, ni decisiones médicas/legales que requieran un profesional colegiado. Todo lo demás, pregunta.",
+ contact:"Contacto:"},
+de:{t4h:"Projekt",t4amt:"Auf Anfrage",t4short:"$?",t4p:"Business, Einkauf, Logistik, Umzug.",t4a:"Aufgabe beschreiben — Angebot in 24 Std.",t4b:"Meist $100–500, vorab vereinbart",t4c:"Eigener Rechercheur, Anrufe und E-Mails in Ihrem Namen",d_text_project:"Wir prüfen Ihre Aufgabe und antworten an {email} innerhalb von 24 Stunden mit Umfang, Zeitplan und Festpreis. Sie entscheiden — unverbindlich.",
+ eyebrow:"Ab <b>$5</b> · Nicht gefunden? <b>Volle Erstattung.</b> Zahlung erst nach Bestätigung.",
+ rv_h:"Bewerten Sie Ihre Suche",rv_sub:"Antwort erhalten? Erzählen Sie, wie es lief — 20 Sekunden, die dem Nächsten die Entscheidung erleichtern.",
+ rv_empty:"FindOrFree ist neu. Die ersten Kundenbewertungen erscheinen hier — ehrlich, unbearbeitet, der Reihe nach.",
+ rv_rate:"Ihre Bewertung",rv_text:"Ein paar Worte (optional)",rv_name:"Name oder Initialen (optional)",rv_btn:"Bewertung senden",rv_thanks:"Danke!",
+ rv_sent:"Bewertung erhalten. Wir veröffentlichen sie hier und, mit Ihrem OK, in unserem Google-Profil.",
+ rv_fallback:"Der automatische Versand von dieser Seite hat nicht funktioniert — senden Sie mit einem Tipp:",
+ dir:"ltr",name:"Deutsch",
+ h1:"Nicht gefunden? <em>Wir finden es.</em>",lead:"Sagen Sie uns, was Sie brauchen — ein Produkt, einen Lieferanten, einen Kontakt, einen Preis, eine Information — in jeder Sprache. Ein Mensch prüft die Antwort und schickt sie innerhalb von Stunden. Finden wir nichts, zahlen Sie nichts.",
+ cta:"Suche starten →",b1:"Jede Sprache",b2:"Von Menschen geprüft",b3:"Geld-zurück-Garantie",
+ demo_q:"Anfrage · Spanisch",demo_msg:"«Ich brauche einen Lieferanten für Feinsteinzeug in der Türkei, der nach Argentinien liefert, mit niedriger Mindestbestellmenge.»",demo_tag:"Antwort · 2 Std. 14 Min.",demo_ans:"3 geprüfte Hersteller in Kütahya und Bilecik, englischsprachige Exportkontakte, Mindestbestellung ab 1 Palette, FOB-Richtpreise, Versandoptionen nach Buenos Aires.",demo_time:"Nächste Anfrage in Arbeit…",
+ how_h:"So funktioniert es",how_sub:"Drei Schritte. Kein Konto, keine App, keine Warteschleife.",
+ s1h:"Beschreiben Sie, was zu finden ist",s1p:"In Ihren Worten, in Ihrer Sprache. Details, Links, Fotos — falls vorhanden.",
+ s2h:"Festpreis zahlen",s2p:"$5, $15 oder $30 je nach Aufwand. Der Preis steht vor Beginn fest. Keine Stunden-Überraschungen.",
+ s3h:"Geprüfte Antwort erhalten",s3p:"Wir suchen in mehreren Sprachen, Märkten und Quellen, prüfen von Hand und senden eine klare Antwort per E-Mail.",
+ pr_h:"Einfache Festpreise",pr_sub:"Wählen Sie die Stufe. Unsicher? Nehmen Sie Standard — ist es einfacher, erstatten wir die Differenz.",
+ t1h:"Schnellsuche",t1p:"Eine konkrete Sache.",t1a:"Produkt, Kontakt, Preis oder Fakt",t1b:"Antwort in ~1 Stunde",t1c:"Bis zu 3 geprüfte Quellen",
+ t2h:"Standardsuche",t2p:"Vergleichen und wählen.",t2a:"3–5 Optionen im Vergleich",t2b:"Antwort in ~3 Stunden",t2c:"Vor- und Nachteile, unsere Empfehlung",
+ t3h:"Tiefenrecherche",t3p:"Wenn es wirklich zählt.",t3a:"Suche in mehreren Ländern und Sprachen",t3b:"Schriftlicher Bericht in 24 Stunden",t3c:"Eine Rückfrage inklusive",
+ pop:"Beliebt",tr1:"Arbeitssprachen",tr2:"übliche Dauer",tr3:"Erstattung, wenn nicht gefunden",tr4:"Festpreis ohne Überraschungen",
+ ex_h:"Was wir finden sollen",ex_sub:"Alles, was online zu finden ist — wir finden es schneller, in mehr Sprachen und prüfen es doppelt.",
+ ex:["Einen Lieferanten für ein bestimmtes Teil in Europa","Die günstigste Flug+Hotel-Kombination für feste Daten","Einen russischsprachigen Zahnarzt in Berlin","Ob diese Firma echt und vertrauenswürdig ist","Ersatz für ein eingestelltes Produkt","Visabestimmungen für einen bestimmten Pass und Route","Den echten Preis einer im Ausland gekauften Sache","Einen Mietmakler in einer fremden Stadt","Wo ein Foto aufgenommen wurde","Eine Anleitung für ein altes Gerät in Ihrer Sprache"],
+ f_h:"Suche starten",f_sub:"Formular ausfüllen. Wir bestätigen innerhalb einer Stunde per E-Mail und senden einen Zahlungslink. Die Arbeit beginnt mit Zahlungseingang.",
+ f_tier:"Stufe wählen",f_req:"Was sollen wir finden? So konkret wie möglich.",f_email:"Ihre E-Mail (hierhin kommt die Antwort)",f_name:"Ihr Name (optional)",f_when:"Bis wann?",
+ w1:"Innerhalb von 24 Stunden",w2:"Innerhalb von 3 Tagen",w3:"Innerhalb einer Woche",f_btn:"Anfrage senden",f_note:"Sie zahlen erst, wenn wir bestätigen, dass wir den Auftrag übernehmen. Nicht gefunden = volle Erstattung.",
+ d_h:"Anfrage erhalten!",d_text:"Wir antworten an {email} innerhalb einer Stunde mit einem Zahlungslink über {price}. Die Arbeit beginnt mit Zahlungseingang.",
+ d_fallback:"Der automatische Versand von dieser Seite hat nicht funktioniert. Senden Sie die Anfrage selbst mit einem Tipp — der Text ist fertig:",
+ d_wa:"Per WhatsApp senden",d_mail:"Per E-Mail senden",d_copy:"Text kopieren",d_copied:"Kopiert ✓",
+ faq_h:"Fragen",
+ q1:"Was können Sie, was Google nicht kann?",a1:"Wir suchen in Sprachen, die Sie nicht sprechen, auf Seiten und Marktplätzen, die Sie nicht kennen, rufen an oder schreiben, wenn nötig, und prüfen das Gefundene. Sie bekommen eine klare Antwort statt 40 Tabs.",
+ q2:"Und wenn Sie nichts finden? Erstattungsregeln",a2:"Nichts gefunden — 100% zurück. Teilweise gefunden — 50% zurück. Antwort mit Quellen geliefert — keine Erstattung, aber Ungenauigkeiten bessern wir kostenlos nach. Und vor der Zahlung prüfen wir, ob die Aufgabe realistisch ist; wenn nicht, sagen wir es sofort und Sie zahlen nichts.",
+ q3:"Wie bezahle ich?",a3:"Per Karte oder PayPal über einen sicheren Link, den wir nach Bestätigung senden. Kein Konto nötig.",
+ q4:"Was machen Sie nicht?",a4:"Keine Suche nach persönlichen Daten von Privatpersonen, nichts Illegales, keine medizinischen/rechtlichen Entscheidungen, die einen zugelassenen Fachmann erfordern. Alles andere — fragen Sie.",
+ contact:"Kontakt:"}
+};
+
+let lang="en", tier="standard";
+function detect(){
+  try{const s=localStorage.getItem("fof_lang"); if(s&&I18N[s]) return s;}catch(e){}
+  const l=(navigator.language||"en").slice(0,2).toLowerCase();
+  if(I18N[l]) return l; if(l==="iw") return "he"; return "en";
+}
+function t(k){return I18N[lang][k]??I18N.en[k]??"";}
+function render(){
+  const d=I18N[lang];
+  document.documentElement.lang=lang; document.documentElement.dir=d.dir;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{el.innerHTML=t(el.dataset.i18n);});
+  document.getElementById("exlist").innerHTML=(d.ex||I18N.en.ex).map(x=>`<span>${x}</span>`).join("");
+  document.getElementById("lang").innerHTML=Object.keys(I18N).map(k=>`<button class="${k===lang?'on':''}" data-l="${k}">${I18N[k].name}</button>`).join("");
+  document.getElementById("contact").textContent=t("contact")+" "+CONFIG.email;
+  document.getElementById("year").textContent=new Date().getFullYear();
+}
+document.getElementById("lang").addEventListener("click",e=>{
+  const b=e.target.closest("button"); if(!b) return; lang=b.dataset.l;
+  try{localStorage.setItem("fof_lang",lang);}catch(e){} render();
+});
+function selTier(x){
+  tier=x;
+  document.querySelectorAll(".tier,.price").forEach(el=>el.classList.toggle("sel",el.dataset.tier===x));
+}
+document.addEventListener("click",e=>{
+  const el=e.target.closest(".tier,.price"); if(!el) return; selTier(el.dataset.tier);
+  if(el.classList.contains("price")) document.getElementById("request").scrollIntoView({behavior:"smooth"});
+});
+
+document.getElementById("form").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const req=document.getElementById("req"), email=document.getElementById("email");
+  if(!req.value.trim()){req.focus();req.style.outline="2px solid #ff7a59";return;}
+  if(!email.value.trim()||!/\S+@\S+\.\S+/.test(email.value)){email.focus();email.style.outline="2px solid #ff7a59";return;}
+  const btn=document.querySelector(".btn"); btn.disabled=true;
+  const price=tier==="project"?t("t4amt"):"$"+CONFIG.prices[tier];
+  const payload={
+    _subject:`[FindOrFree] ${tier.toUpperCase()} ${price} — new request`,
+    tier, price, request:req.value.trim(), email:email.value.trim(),
+    name:document.getElementById("name").value.trim(),
+    deadline:document.getElementById("deadline").value, language:lang, page:location.href
+  };
+  const text=`FINDORFREE REQUEST\nLevel: ${tier} (${price})\nDeadline: ${payload.deadline}\nLanguage: ${lang}\nName: ${payload.name||"-"}\nEmail: ${payload.email}\n\n${payload.request}`;
+  let sent=false;
+  try{
+    const ctrl=new AbortController(); setTimeout(()=>ctrl.abort(),8000);
+    const r=await fetch(CONFIG.formsubmit,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(payload),signal:ctrl.signal});
+    sent=r.ok;
+  }catch(err){sent=false;}
+  document.getElementById("formbody").style.display="none";
+  const done=document.getElementById("done"); done.style.display="block";
+  const alt=document.getElementById("alt"); alt.innerHTML="";
+  if(sent){
+    document.getElementById("d_text").textContent=(tier==="project"?t("d_text_project"):t("d_text")).replace("{email}",payload.email).replace("{price}",price);
+    document.getElementById("summary").style.display="none";
+  }else{
+    document.getElementById("d_text").textContent=t("d_fallback");
+    if(CONFIG.whatsapp){const a=document.createElement("a");a.href="https://wa.me/"+CONFIG.whatsapp+"?text="+encodeURIComponent(text);a.target="_blank";a.rel="noopener";a.textContent=t("d_wa");alt.appendChild(a);}
+    const m=document.createElement("a");m.href="mailto:"+CONFIG.email+"?subject="+encodeURIComponent(payload._subject)+"&body="+encodeURIComponent(text);m.textContent=t("d_mail")+" · "+CONFIG.email;alt.appendChild(m);
+    const c=document.createElement("button");c.type="button";c.textContent=t("d_copy");
+    c.onclick=async()=>{try{await navigator.clipboard.writeText(text);c.textContent=t("d_copied");}catch(e){}};alt.appendChild(c);
+    document.getElementById("summary").textContent=text;
+  }
+  done.scrollIntoView({behavior:"smooth",block:"center"});
+});
+
+
+/* ===== Рейтинг ===== */
+let stars=0;
+document.getElementById("stars").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;stars=+b.dataset.s;
+  document.querySelectorAll("#stars button").forEach(x=>x.classList.toggle("on",+x.dataset.s<=stars));});
+document.getElementById("rvform").addEventListener("submit",async e=>{
+  e.preventDefault(); if(!stars){document.getElementById("stars").style.outline="2px solid #ff7a59";return;}
+  const txt=document.getElementById("rvtext").value.trim(), nm=document.getElementById("rvname").value.trim();
+  const payload={_subject:`[FindOrFree] Review ${stars}/5`,stars,review:txt,name:nm,language:lang,page:location.href};
+  const text=`FINDORFREE REVIEW\nRating: ${stars}/5\nName: ${nm||"-"}\n\n${txt}`;
+  let sent=false;
+  try{const ctrl=new AbortController();setTimeout(()=>ctrl.abort(),8000);
+    const r=await fetch(CONFIG.formsubmit,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(payload),signal:ctrl.signal});sent=r.ok;}catch(err){}
+  document.getElementById("rvbody").style.display="none";const d=document.getElementById("rvdone");d.style.display="block";
+  const alt=document.getElementById("rvalt");alt.innerHTML="";
+  if(sent){document.getElementById("rv_dtext").textContent=t("rv_sent");}
+  else{document.getElementById("rv_dtext").textContent=t("rv_fallback");
+    if(CONFIG.whatsapp){const a=document.createElement("a");a.href="https://wa.me/"+CONFIG.whatsapp+"?text="+encodeURIComponent(text);a.target="_blank";a.rel="noopener";a.textContent=t("d_wa");alt.appendChild(a);}
+    const m=document.createElement("a");m.href="mailto:"+CONFIG.email+"?subject="+encodeURIComponent(payload._subject)+"&body="+encodeURIComponent(text);m.textContent=t("d_mail")+" · "+CONFIG.email;alt.appendChild(m);
+    const c=document.createElement("button");c.type="button";c.textContent=t("d_copy");c.onclick=async()=>{try{await navigator.clipboard.writeText(text);c.textContent=t("d_copied");}catch(e){}};alt.appendChild(c);}
+  d.scrollIntoView({behavior:"smooth",block:"center"});
+});
+
+lang=detect(); render(); selTier("standard");
+</script>
+</body>
+</html>
