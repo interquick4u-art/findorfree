@@ -239,7 +239,8 @@ footer{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--muted);f
 const CONFIG = {
   email: "support@findorfree.com",       // публичный адрес для клиентов (пересылка в InterQuick)
   whatsapp: "",                           // например "9725XXXXXXX" — без плюса; пусто = кнопка WhatsApp скрыта
-  formsubmit: "https://formsubmit.co/ajax/interquick4u@gmail.com", // бесплатная отправка писем (работает на реальном хостинге)
+  formEndpoint: "https://api.web3forms.com/submit", // бесплатная отправка заявок на почту (Web3Forms; FormSubmit перестал отвечать 06.11.2026)
+  web3formsKey: "0ad34af6-e6b2-4814-a5aa-7f0a5641ce1d",       // ключ доступа Web3Forms (приходит на interquick4u@gmail.com)
   paypalMe: "",                           // например "https://paypal.me/findora" — пусто = оплата по ссылке в письме
   gumroad: { simple:"", standard:"", deep:"" }, // ссылки Gumroad на тарифы, если нужны
   prices: { simple:5, standard:15, deep:30, project:"quote" }
@@ -447,6 +448,24 @@ document.addEventListener("click",e=>{
   if(el.classList.contains("price")) document.getElementById("request").scrollIntoView({behavior:"smooth"});
 });
 
+/* ===== Отправка заявок через Web3Forms (api.web3forms.com) =====
+   FormData без JSON — браузер не делает предварительный запрос OPTIONS. Не вышло за 15 с — показываем запасной вариант (письмо/копирование). */
+async function sendForm(payload){
+  if(!CONFIG.web3formsKey) return false;
+  try{
+    const fd=new FormData();
+    fd.append("access_key",CONFIG.web3formsKey);
+    fd.append("subject",payload._subject||"[FindOrFree] new message");
+    fd.append("from_name","FindOrFree website");
+    Object.entries(payload).forEach(([k,v])=>{if(k!=="_subject") fd.append(k,v==null?"":String(v));});
+    const ctrl=new AbortController(); const tm=setTimeout(()=>ctrl.abort(),15000);
+    const r=await fetch(CONFIG.formEndpoint,{method:"POST",headers:{"Accept":"application/json"},body:fd,signal:ctrl.signal});
+    clearTimeout(tm);
+    let j={}; try{j=await r.json();}catch(_){}
+    return r.ok && j.success!==false;
+  }catch(err){return false;}
+}
+
 document.getElementById("form").addEventListener("submit",async e=>{
   e.preventDefault();
   const req=document.getElementById("req"), email=document.getElementById("email");
@@ -461,12 +480,7 @@ document.getElementById("form").addEventListener("submit",async e=>{
     deadline:document.getElementById("deadline").value, language:lang, page:location.href
   };
   const text=`FINDORFREE REQUEST\nLevel: ${tier} (${price})\nDeadline: ${payload.deadline}\nLanguage: ${lang}\nName: ${payload.name||"-"}\nEmail: ${payload.email}\n\n${payload.request}`;
-  let sent=false;
-  try{
-    const ctrl=new AbortController(); setTimeout(()=>ctrl.abort(),8000);
-    const r=await fetch(CONFIG.formsubmit,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(payload),signal:ctrl.signal});
-    sent=r.ok;
-  }catch(err){sent=false;}
+  const sent=await sendForm(payload);
   document.getElementById("formbody").style.display="none";
   const done=document.getElementById("done"); done.style.display="block";
   const alt=document.getElementById("alt"); alt.innerHTML="";
@@ -494,9 +508,7 @@ document.getElementById("rvform").addEventListener("submit",async e=>{
   const txt=document.getElementById("rvtext").value.trim(), nm=document.getElementById("rvname").value.trim();
   const payload={_subject:`[FindOrFree] Review ${stars}/5`,stars,review:txt,name:nm,language:lang,page:location.href};
   const text=`FINDORFREE REVIEW\nRating: ${stars}/5\nName: ${nm||"-"}\n\n${txt}`;
-  let sent=false;
-  try{const ctrl=new AbortController();setTimeout(()=>ctrl.abort(),8000);
-    const r=await fetch(CONFIG.formsubmit,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(payload),signal:ctrl.signal});sent=r.ok;}catch(err){}
+  const sent=await sendForm(payload);
   document.getElementById("rvbody").style.display="none";const d=document.getElementById("rvdone");d.style.display="block";
   const alt=document.getElementById("rvalt");alt.innerHTML="";
   if(sent){document.getElementById("rv_dtext").textContent=t("rv_sent");}
