@@ -30,6 +30,11 @@ header{position:sticky;top:0;z-index:20;background:rgba(11,16,32,.75);backdrop-f
 .lang select{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:5px 8px;font-size:13px;cursor:pointer;width:58px}
 .lang select option{background:#0b1020;color:#e8ecf7}
 .lang select.on{background:var(--accent);color:#1a1200;border-color:var(--accent);font-weight:600;width:auto;max-width:120px}
+.swbar{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:50;display:none;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;max-width:calc(100% - 32px);background:#141b33;border:1px solid var(--accent);border-radius:16px;padding:12px 14px;box-shadow:0 10px 40px rgba(0,0,0,.5);color:#e8ecf7;font-size:14px}
+.swbar.show{display:flex}
+.swbar small{color:var(--muted);display:block;font-size:12px}
+.swbar button{border-radius:999px;padding:7px 14px;font-size:14px;cursor:pointer;border:1px solid var(--line);background:transparent;color:#e8ecf7}
+.swbar button.yes{background:var(--accent);color:#1a1200;border-color:var(--accent);font-weight:600}
 .lang button.on{background:var(--accent);color:#1a1200;border-color:var(--accent);font-weight:600}
 .hero{padding:72px 0 40px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;background:rgba(74,210,149,.12);border:1px solid rgba(74,210,149,.45);color:#9ff0c9;border-radius:999px;padding:9px 16px;font-size:15px;font-weight:600;margin-bottom:20px}
@@ -110,6 +115,7 @@ footer{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--muted);f
   .lang button{padding:4px 8px;font-size:12px}
   .lang select{padding:4px 4px;font-size:12px;width:46px}
   .lang{justify-content:flex-end}
+  .swbar{width:calc(100% - 32px)}
 }
 </style>
 </head>
@@ -239,6 +245,7 @@ footer{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--muted);f
   <div class="legal"><a href="legal.html#terms" data-i18n="lg_terms"></a> · <a href="legal.html#refund" data-i18n="lg_refund"></a> · <a href="legal.html#privacy" data-i18n="lg_privacy"></a></div>
 </footer>
 
+<div class="swbar" id="swbar" role="dialog" aria-live="polite"><div><span id="sw_q"></span><small id="sw_t"></small></div><button class="yes" id="sw_yes" type="button"></button><button id="sw_no" type="button"></button></div>
 <script src="i18n-extra.js"></script>
 <script>
 /* ===== НАСТРОЙКИ (меняются в одном месте) ===== */
@@ -253,7 +260,7 @@ const CONFIG = {
 };
 
 const I18N = {
-en:{lg_terms:"Terms of Service",lg_refund:"Refund policy",lg_privacy:"Privacy",t4h:"Project",t4amt:"Custom quote",t4short:"$?",t4p:"Business, sourcing, logistics, relocation.",t4a:"Describe the task — we quote within 24 h",t4b:"Typically $100–500, agreed before start",t4c:"Dedicated researcher, calls & emails on your behalf",d_text_project:"We'll study your task and reply to {email} within 24 hours with a scope, timeline and fixed quote. You decide — no obligation.",
+en:{sw_q:"View this site in English?",sw_auto:"Switching in {s} s",sw_no:"Stay in English",lg_terms:"Terms of Service",lg_refund:"Refund policy",lg_privacy:"Privacy",t4h:"Project",t4amt:"Custom quote",t4short:"$?",t4p:"Business, sourcing, logistics, relocation.",t4a:"Describe the task — we quote within 24 h",t4b:"Typically $100–500, agreed before start",t4c:"Dedicated researcher, calls & emails on your behalf",d_text_project:"We'll study your task and reply to {email} within 24 hours with a scope, timeline and fixed quote. You decide — no obligation.",
  eyebrow:"From <b>$5</b> · Not found? <b>Full refund.</b> Pay only after we confirm.",
  rv_h:"Rate your search",rv_sub:"Got your answer? Tell us how it went — it takes 20 seconds and helps the next person decide.",
  rv_empty:"FindOrFree is new. The first client reviews will appear here — honestly, unedited, as they come.",
@@ -287,7 +294,7 @@ en:{lg_terms:"Terms of Service",lg_refund:"Refund policy",lg_privacy:"Privacy",t
  q3:"How do I pay?",a3:"By card (Visa, Mastercard and more) through a secure payment link we send after confirming your request. No account needed.",
  q4:"What won't you do?",a4:"We don't look for private individuals' personal data, anything illegal, or medical/legal decisions that require a licensed professional. Everything else — ask.",
  contact:"Contact:"},
-ru:{lg_terms:"Условия пользования",lg_refund:"Отмена и возврат",lg_privacy:"Конфиденциальность",t4h:"Проект",t4amt:"Цена по запросу",t4short:"$?",t4p:"Бизнес, закупки, логистика, переезд.",t4a:"Опишите задачу — смета за 24 ч",t4b:"Обычно $100–500, согласуем до начала",t4c:"Отдельный исследователь, звонки и письма от вашего имени",d_text_project:"Изучим задачу и ответим на {email} в течение 24 часов: объём, сроки и фиксированная цена. Решение за вами — без обязательств.",
+ru:{sw_q:"Показать сайт на русском?",sw_auto:"Переключим через {s} с",sw_no:"Остаться на английском",lg_terms:"Условия пользования",lg_refund:"Отмена и возврат",lg_privacy:"Конфиденциальность",t4h:"Проект",t4amt:"Цена по запросу",t4short:"$?",t4p:"Бизнес, закупки, логистика, переезд.",t4a:"Опишите задачу — смета за 24 ч",t4b:"Обычно $100–500, согласуем до начала",t4c:"Отдельный исследователь, звонки и письма от вашего имени",d_text_project:"Изучим задачу и ответим на {email} в течение 24 часов: объём, сроки и фиксированная цена. Решение за вами — без обязательств.",
  eyebrow:"От <b>$5</b> · Не нашли? <b>Полный возврат.</b> Платите только после подтверждения.",
  rv_h:"Оцените поиск",rv_sub:"Получили ответ? Расскажите, как прошло — 20 секунд, и следующему человеку будет проще решиться.",
  rv_empty:"FindOrFree только стартовал. Первые отзывы клиентов появятся здесь — честно, без правок, по мере поступления.",
@@ -321,7 +328,7 @@ ru:{lg_terms:"Условия пользования",lg_refund:"Отмена и 
  q3:"Как оплатить?",a3:"Картой (Visa, Mastercard и др.) по защищённой ссылке, которую мы пришлём после подтверждения запроса. Регистрация не нужна.",
  q4:"Что вы не делаете?",a4:"Не ищем личные данные частных лиц, ничего незаконного и не принимаем медицинских/юридических решений, требующих лицензированного специалиста. Всё остальное — спрашивайте.",
  contact:"Связь:"},
-he:{lg_terms:"תקנון",lg_refund:"מדיניות ביטולים",lg_privacy:"פרטיות",t4h:"פרויקט",t4amt:"הצעת מחיר",t4short:"$?",t4p:"עסקים, רכש, לוגיסטיקה, רילוקיישן.",t4a:"תארו את המשימה — הצעת מחיר תוך 24 שע'",t4b:"בדרך כלל $100–500, מסוכם מראש",t4c:"חוקר ייעודי, שיחות ומיילים בשמכם",d_text_project:"נלמד את המשימה ונענה ל-{email} תוך 24 שעות עם היקף, לוח זמנים ומחיר קבוע. ההחלטה שלכם — ללא התחייבות.",
+he:{sw_q:"להציג את האתר בעברית?",sw_auto:"נעבור בעוד {s} שניות",sw_no:"להישאר באנגלית",lg_terms:"תקנון",lg_refund:"מדיניות ביטולים",lg_privacy:"פרטיות",t4h:"פרויקט",t4amt:"הצעת מחיר",t4short:"$?",t4p:"עסקים, רכש, לוגיסטיקה, רילוקיישן.",t4a:"תארו את המשימה — הצעת מחיר תוך 24 שע'",t4b:"בדרך כלל $100–500, מסוכם מראש",t4c:"חוקר ייעודי, שיחות ומיילים בשמכם",d_text_project:"נלמד את המשימה ונענה ל-{email} תוך 24 שעות עם היקף, לוח זמנים ומחיר קבוע. ההחלטה שלכם — ללא התחייבות.",
  eyebrow:"החל מ-<b>$5</b> · לא נמצא? <b>החזר מלא.</b> משלמים רק אחרי אישור.",
  rv_h:"דרגו את החיפוש",rv_sub:"קיבלתם תשובה? ספרו איך היה — 20 שניות, וזה עוזר לבא אחריכם להחליט.",
  rv_empty:"FindOrFree חדש. הביקורות הראשונות של לקוחות יופיעו כאן — בכנות, בלי עריכה, לפי הסדר.",
@@ -355,7 +362,7 @@ he:{lg_terms:"תקנון",lg_refund:"מדיניות ביטולים",lg_privacy:"
  q3:"איך משלמים?",a3:"בכרטיס אשראי דרך קישור תשלום מאובטח שנשלח אחרי אישור הבקשה. בלי הרשמה.",
  q4:"מה אתם לא עושים?",a4:"לא מחפשים מידע אישי על אנשים פרטיים, שום דבר לא חוקי, ולא מקבלים החלטות רפואיות/משפטיות שדורשות מומחה מורשה. כל השאר — תשאלו.",
  contact:"קשר:"},
-es:{lg_terms:"Términos",lg_refund:"Reembolsos",lg_privacy:"Privacidad",t4h:"Proyecto",t4amt:"Presupuesto",t4short:"$?",t4p:"Negocios, compras, logística, mudanza.",t4a:"Describe la tarea — presupuesto en 24 h",t4b:"Normalmente $100–500, acordado antes",t4c:"Investigador dedicado, llamadas y correos en tu nombre",d_text_project:"Estudiaremos tu tarea y responderemos a {email} en 24 horas con alcance, plazo y precio fijo. Tú decides, sin compromiso.",
+es:{sw_q:"¿Ver este sitio en español?",sw_auto:"Cambiamos en {s} s",sw_no:"Seguir en inglés",lg_terms:"Términos",lg_refund:"Reembolsos",lg_privacy:"Privacidad",t4h:"Proyecto",t4amt:"Presupuesto",t4short:"$?",t4p:"Negocios, compras, logística, mudanza.",t4a:"Describe la tarea — presupuesto en 24 h",t4b:"Normalmente $100–500, acordado antes",t4c:"Investigador dedicado, llamadas y correos en tu nombre",d_text_project:"Estudiaremos tu tarea y responderemos a {email} en 24 horas con alcance, plazo y precio fijo. Tú decides, sin compromiso.",
  eyebrow:"Desde <b>$5</b> · ¿No se encuentra? <b>Reembolso total.</b> Pagas solo tras la confirmación.",
  rv_h:"Valora tu búsqueda",rv_sub:"¿Ya tienes tu respuesta? Cuéntanos cómo fue — 20 segundos que ayudan al siguiente a decidirse.",
  rv_empty:"FindOrFree es nuevo. Las primeras reseñas de clientes aparecerán aquí — sinceras, sin editar, según lleguen.",
@@ -389,7 +396,7 @@ es:{lg_terms:"Términos",lg_refund:"Reembolsos",lg_privacy:"Privacidad",t4h:"Pro
  q3:"¿Cómo pago?",a3:"Con tarjeta (Visa, Mastercard y más) mediante un enlace de pago seguro que enviamos tras confirmar tu solicitud. Sin cuenta.",
  q4:"¿Qué no hacen?",a4:"No buscamos datos personales de particulares, nada ilegal, ni decisiones médicas/legales que requieran un profesional colegiado. Todo lo demás, pregunta.",
  contact:"Contacto:"},
-de:{lg_terms:"AGB",lg_refund:"Erstattung",lg_privacy:"Datenschutz",t4h:"Projekt",t4amt:"Auf Anfrage",t4short:"$?",t4p:"Business, Einkauf, Logistik, Umzug.",t4a:"Aufgabe beschreiben — Angebot in 24 Std.",t4b:"Meist $100–500, vorab vereinbart",t4c:"Eigener Rechercheur, Anrufe und E-Mails in Ihrem Namen",d_text_project:"Wir prüfen Ihre Aufgabe und antworten an {email} innerhalb von 24 Stunden mit Umfang, Zeitplan und Festpreis. Sie entscheiden — unverbindlich.",
+de:{sw_q:"Diese Seite auf Deutsch anzeigen?",sw_auto:"Wechsel in {s} Sek.",sw_no:"Auf Englisch bleiben",lg_terms:"AGB",lg_refund:"Erstattung",lg_privacy:"Datenschutz",t4h:"Projekt",t4amt:"Auf Anfrage",t4short:"$?",t4p:"Business, Einkauf, Logistik, Umzug.",t4a:"Aufgabe beschreiben — Angebot in 24 Std.",t4b:"Meist $100–500, vorab vereinbart",t4c:"Eigener Rechercheur, Anrufe und E-Mails in Ihrem Namen",d_text_project:"Wir prüfen Ihre Aufgabe und antworten an {email} innerhalb von 24 Stunden mit Umfang, Zeitplan und Festpreis. Sie entscheiden — unverbindlich.",
  eyebrow:"Ab <b>$5</b> · Nicht gefunden? <b>Volle Erstattung.</b> Zahlung erst nach Bestätigung.",
  rv_h:"Bewerten Sie Ihre Suche",rv_sub:"Antwort erhalten? Erzählen Sie, wie es lief — 20 Sekunden, die dem Nächsten die Entscheidung erleichtern.",
  rv_empty:"FindOrFree ist neu. Die ersten Kundenbewertungen erscheinen hier — ehrlich, unbearbeitet, der Reihe nach.",
@@ -430,14 +437,34 @@ de:{lg_terms:"AGB",lg_refund:"Erstattung",lg_privacy:"Datenschutz",t4h:"Projekt"
 const MAIN_LANGS=["en","ru","he","es","de"];
 Object.assign(I18N, window.I18N_EXTRA||{});
 let lang="en", tier="standard";
-function detect(){
-  try{const s=localStorage.getItem("fof_lang"); if(s&&I18N[s]) return s;}catch(e){}
+/* Сайт у всех открывается на английском. Если язык браузера другой и он у нас есть —
+   внизу плашка на языке посетителя: через 10 секунд переключаем сам, можно отказаться. Выбор запоминается. */
+function savedLang(){try{const s=localStorage.getItem("fof_lang"); if(s&&I18N[s]) return s;}catch(e){} return null;}
+function browserLang(){
   const list=(navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||"en"]);
   for(const x of list){
     let l=String(x).slice(0,2).toLowerCase(); if(l==="iw") l="he";
     if(I18N[l]) return l;
   }
   return "en";
+}
+function detect(){ return savedLang()||"en"; }
+let swTimer=null;
+function hideSwitch(){ clearInterval(swTimer); swTimer=null; document.getElementById("swbar").classList.remove("show"); }
+function offerSwitch(){
+  if(savedLang()) return;
+  const c=browserLang(); if(c==="en") return;
+  const L=I18N[c], tx=k=>L[k]??I18N.en[k];
+  const bar=document.getElementById("swbar"); bar.dir=L.dir; bar.lang=c;
+  document.getElementById("sw_q").textContent=tx("sw_q");
+  document.getElementById("sw_yes").textContent=L.name;
+  document.getElementById("sw_no").textContent=tx("sw_no");
+  let left=10; const tEl=document.getElementById("sw_t");
+  const tick=()=>{tEl.textContent=tx("sw_auto").replace("{s}",left);};
+  tick(); bar.classList.add("show");
+  swTimer=setInterval(()=>{left--; if(left<=0){hideSwitch(); setLang(c);} else tick();},1000);
+  document.getElementById("sw_yes").onclick=()=>{hideSwitch(); setLang(c);};
+  document.getElementById("sw_no").onclick=()=>{hideSwitch(); setLang("en");};
 }
 function t(k){return I18N[lang][k]??I18N.en[k]??"";}
 function render(){
@@ -451,7 +478,7 @@ function render(){
   document.getElementById("contact").textContent=t("contact")+" "+CONFIG.email;
   document.getElementById("year").textContent=new Date().getFullYear();
 }
-function setLang(l){ if(!I18N[l]) return; lang=l; try{localStorage.setItem("fof_lang",lang);}catch(e){} render(); }
+function setLang(l){ if(!I18N[l]) return; hideSwitch(); lang=l; try{localStorage.setItem("fof_lang",lang);}catch(e){} render(); }
 document.getElementById("lang").addEventListener("click",e=>{
   const b=e.target.closest("button"); if(!b) return; setLang(b.dataset.l);
 });
@@ -538,7 +565,7 @@ document.getElementById("rvform").addEventListener("submit",async e=>{
   d.scrollIntoView({behavior:"smooth",block:"center"});
 });
 
-lang=detect(); render(); selTier("standard");
+lang=detect(); render(); selTier("standard"); offerSwitch();
 </script>
 </body>
 </html>
