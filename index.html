@@ -35,6 +35,8 @@ header{position:sticky;top:0;z-index:20;background:rgba(11,16,32,.75);backdrop-f
 .swbar small{color:var(--muted);display:block;font-size:12px}
 .swbar button{border-radius:999px;padding:7px 14px;font-size:14px;cursor:pointer;border:1px solid var(--line);background:transparent;color:#e8ecf7}
 .swbar button.yes{background:var(--accent);color:#1a1200;border-color:var(--accent);font-weight:600}
+.gline{margin:-6px 0 22px;padding:10px 14px;border-left:3px solid var(--accent);background:rgba(255,179,71,.07);border-radius:8px;color:#e8ecf7;font-size:16px;line-height:1.5;max-width:560px}
+html[dir=rtl] .gline{border-left:0;border-right:3px solid var(--accent)}
 .lang button.on{background:var(--accent);color:#1a1200;border-color:var(--accent);font-weight:600}
 .hero{padding:72px 0 40px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;background:rgba(74,210,149,.12);border:1px solid rgba(74,210,149,.45);color:#9ff0c9;border-radius:999px;padding:9px 16px;font-size:15px;font-weight:600;margin-bottom:20px}
@@ -131,6 +133,7 @@ footer{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--muted);f
     <div class="eyebrow">💸 <span data-i18n="eyebrow"></span></div>
     <h1 data-i18n="h1"></h1>
     <p class="lead" data-i18n="lead"></p>
+    <p class="gline" data-i18n="gline"></p>
     <a class="cta" href="#request" data-i18n="cta"></a>
     <div class="badges"><span class="badge" data-i18n="b1"></span><span class="badge" data-i18n="b2"></span><span class="badge" data-i18n="b3"></span></div>
   </div>
@@ -154,9 +157,9 @@ footer{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--muted);f
 <section id="pricing">
   <h2 data-i18n="pr_h"></h2><p class="sub" data-i18n="pr_sub"></p>
   <div class="grid3">
-    <div class="card price" data-tier="simple"><h3 data-i18n="t1h"></h3><div class="amt">$5</div><p data-i18n="t1p"></p><ul><li data-i18n="t1a"></li><li data-i18n="t1b"></li><li data-i18n="t1c"></li></ul></div>
-    <div class="card price" data-tier="standard"><span class="pop" data-i18n="pop"></span><h3 data-i18n="t2h"></h3><div class="amt">$15</div><p data-i18n="t2p"></p><ul><li data-i18n="t2a"></li><li data-i18n="t2b"></li><li data-i18n="t2c"></li></ul></div>
-    <div class="card price" data-tier="deep"><h3 data-i18n="t3h"></h3><div class="amt">$30</div><p data-i18n="t3p"></p><ul><li data-i18n="t3a"></li><li data-i18n="t3b"></li><li data-i18n="t3c"></li></ul></div>
+    <div class="card price" data-tier="simple"><h3 data-i18n="t1h"></h3><div class="amt">$10</div><p data-i18n="t1p"></p><ul><li data-i18n="t1a"></li><li data-i18n="t1b"></li><li data-i18n="t1c"></li></ul></div>
+    <div class="card price" data-tier="standard"><span class="pop" data-i18n="pop"></span><h3 data-i18n="t2h"></h3><div class="amt">$25</div><p data-i18n="t2p"></p><ul><li data-i18n="t2a"></li><li data-i18n="t2b"></li><li data-i18n="t2c"></li></ul></div>
+    <div class="card price" data-tier="deep"><h3 data-i18n="t3h"></h3><div class="amt">$60</div><p data-i18n="t3p"></p><ul><li data-i18n="t3a"></li><li data-i18n="t3b"></li><li data-i18n="t3c"></li></ul></div>
     <div class="card price" data-tier="project"><h3 data-i18n="t4h"></h3><div class="amt" style="font-size:30px;padding:8px 0" data-i18n="t4amt"></div><p data-i18n="t4p"></p><ul><li data-i18n="t4a"></li><li data-i18n="t4b"></li><li data-i18n="t4c"></li></ul></div>
   </div>
   <div class="trust">
@@ -178,9 +181,9 @@ footer{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--muted);f
     <div id="formbody">
       <label data-i18n="f_tier"></label>
       <div class="tiers">
-        <div class="tier" data-tier="simple"><b>$5</b><span data-i18n="t1h"></span></div>
-        <div class="tier sel" data-tier="standard"><b>$15</b><span data-i18n="t2h"></span></div>
-        <div class="tier" data-tier="deep"><b>$30</b><span data-i18n="t3h"></span></div>
+        <div class="tier" data-tier="simple"><b>$10</b><span data-i18n="t1h"></span></div>
+        <div class="tier sel" data-tier="standard"><b>$25</b><span data-i18n="t2h"></span></div>
+        <div class="tier" data-tier="deep"><b>$60</b><span data-i18n="t3h"></span></div>
         <div class="tier" data-tier="project"><b data-i18n="t4short"></b><span data-i18n="t4h"></span></div>
       </div>
       <label for="req" data-i18n="f_req"></label>
@@ -256,12 +259,12 @@ const CONFIG = {
   web3formsKey: "0ad34af6-e6b2-4814-a5aa-7f0a5641ce1d",       // ключ доступа Web3Forms (приходит на interquick4u@gmail.com)
   paypalMe: "",                           // например "https://paypal.me/findora" — пусто = оплата по ссылке в письме
   gumroad: { simple:"", standard:"", deep:"" }, // ссылки Gumroad на тарифы, если нужны
-  prices: { simple:5, standard:15, deep:30, project:"quote" }
+  prices: { simple:10, standard:25, deep:60, project:"quote" }
 };
 
 const I18N = {
-en:{sw_q:"View this site in English?",sw_auto:"Switching in {s} s",sw_no:"Stay in English",lg_terms:"Terms of Service",lg_refund:"Refund policy",lg_privacy:"Privacy",t4h:"Project",t4amt:"Custom quote",t4short:"$?",t4p:"Business, sourcing, logistics, relocation.",t4a:"Describe the task — we quote within 24 h",t4b:"Typically $100–500, agreed before start",t4c:"Dedicated researcher, calls & emails on your behalf",d_text_project:"We'll study your task and reply to {email} within 24 hours with a scope, timeline and fixed quote. You decide — no obligation.",
- eyebrow:"From <b>$5</b> · Not found? <b>Full refund.</b> Pay only after we confirm.",
+en:{gline:"Searched Google, asked ChatGPT — and still nothing? Give us a chance: we'll find it, or you pay nothing.",sw_q:"View this site in English?",sw_auto:"Switching in {s} s",sw_no:"Stay in English",lg_terms:"Terms of Service",lg_refund:"Refund policy",lg_privacy:"Privacy",t4h:"Project",t4amt:"Custom quote",t4short:"$?",t4p:"Business, sourcing, logistics, relocation.",t4a:"Describe the task — we quote within 24 h",t4b:"Typically $150–500, agreed before start",t4c:"Dedicated researcher, calls & emails on your behalf",d_text_project:"We'll study your task and reply to {email} within 24 hours with a scope, timeline and fixed quote. You decide — no obligation.",
+ eyebrow:"From <b>$10</b> · Not found? <b>Full refund.</b> Pay only after we confirm.",
  rv_h:"Rate your search",rv_sub:"Got your answer? Tell us how it went — it takes 20 seconds and helps the next person decide.",
  rv_empty:"FindOrFree is new. The first client reviews will appear here — honestly, unedited, as they come.",
  rv_rate:"Your rating",rv_text:"A few words (optional)",rv_name:"Name or initials (optional)",rv_btn:"Send review",rv_thanks:"Thank you!",
@@ -273,7 +276,7 @@ en:{sw_q:"View this site in English?",sw_auto:"Switching in {s} s",sw_no:"Stay i
  demo_q:"Request · Spanish",demo_msg:"«Necesito un proveedor de azulejos porcelánicos en Turquía que envíe a Argentina, pedido mínimo bajo.»",demo_tag:"Answer · 2 h 14 min",demo_ans:"3 verified manufacturers in Kütahya and Bilecik, English-speaking export contacts, minimum order from 1 pallet, indicative FOB prices, shipping options to Buenos Aires.",demo_time:"Working on the next request…",
  how_h:"How it works",how_sub:"Three steps. No account, no app, no waiting on hold.",
  s1h:"Describe what to find",s1p:"Write it in your own words and language. Attach details, links, photos if you have them.",
- s2h:"Pay a fixed price",s2p:"$5, $15 or $30 depending on complexity. You know the price before we start. No hourly surprises.",
+ s2h:"Pay a fixed price",s2p:"$10, $25 or $60 depending on complexity. You know the price before we start. No hourly surprises.",
  s3h:"Get a verified answer",s3p:"We search across languages, markets and sources, check it by hand and send a clear answer to your email.",
  pr_h:"Simple, fixed prices",pr_sub:"Pick the level that fits. Not sure? Choose Standard — we'll adjust if it's simpler and refund the difference.",
  t1h:"Quick find",t1p:"One specific thing.",t1a:"A product, contact, price or fact",t1b:"Answer within ~1 hour",t1c:"Up to 3 verified sources",
@@ -294,8 +297,8 @@ en:{sw_q:"View this site in English?",sw_auto:"Switching in {s} s",sw_no:"Stay i
  q3:"How do I pay?",a3:"By card (Visa, Mastercard and more) through a secure payment link we send after confirming your request. No account needed.",
  q4:"What won't you do?",a4:"We don't look for private individuals' personal data, anything illegal, or medical/legal decisions that require a licensed professional. Everything else — ask.",
  contact:"Contact:"},
-ru:{sw_q:"Показать сайт на русском?",sw_auto:"Переключим через {s} с",sw_no:"Остаться на английском",lg_terms:"Условия пользования",lg_refund:"Отмена и возврат",lg_privacy:"Конфиденциальность",t4h:"Проект",t4amt:"Цена по запросу",t4short:"$?",t4p:"Бизнес, закупки, логистика, переезд.",t4a:"Опишите задачу — смета за 24 ч",t4b:"Обычно $100–500, согласуем до начала",t4c:"Отдельный исследователь, звонки и письма от вашего имени",d_text_project:"Изучим задачу и ответим на {email} в течение 24 часов: объём, сроки и фиксированная цена. Решение за вами — без обязательств.",
- eyebrow:"От <b>$5</b> · Не нашли? <b>Полный возврат.</b> Платите только после подтверждения.",
+ru:{gline:"Искали в Google, спрашивали ChatGPT — и всё равно не нашли? Дайте шанс нам: найдём — или не платите ничего.",sw_q:"Показать сайт на русском?",sw_auto:"Переключим через {s} с",sw_no:"Остаться на английском",lg_terms:"Условия пользования",lg_refund:"Отмена и возврат",lg_privacy:"Конфиденциальность",t4h:"Проект",t4amt:"Цена по запросу",t4short:"$?",t4p:"Бизнес, закупки, логистика, переезд.",t4a:"Опишите задачу — смета за 24 ч",t4b:"Обычно $150–500, согласуем до начала",t4c:"Отдельный исследователь, звонки и письма от вашего имени",d_text_project:"Изучим задачу и ответим на {email} в течение 24 часов: объём, сроки и фиксированная цена. Решение за вами — без обязательств.",
+ eyebrow:"От <b>$10</b> · Не нашли? <b>Полный возврат.</b> Платите только после подтверждения.",
  rv_h:"Оцените поиск",rv_sub:"Получили ответ? Расскажите, как прошло — 20 секунд, и следующему человеку будет проще решиться.",
  rv_empty:"FindOrFree только стартовал. Первые отзывы клиентов появятся здесь — честно, без правок, по мере поступления.",
  rv_rate:"Ваша оценка",rv_text:"Пару слов (необязательно)",rv_name:"Имя или инициалы (необязательно)",rv_btn:"Отправить отзыв",rv_thanks:"Спасибо!",
@@ -307,7 +310,7 @@ ru:{sw_q:"Показать сайт на русском?",sw_auto:"Перекл�
  demo_q:"Запрос · испанский",demo_msg:"«Нужен поставщик керамогранита в Турции с доставкой в Аргентину и небольшим минимальным заказом.»",demo_tag:"Ответ · 2 ч 14 мин",demo_ans:"3 проверенных производителя в Кютахье и Биледжике, англоговорящие экспорт-менеджеры, минимальный заказ от 1 паллеты, ориентировочные цены FOB, варианты доставки в Буэнос-Айрес.",demo_time:"Работаем над следующим запросом…",
  how_h:"Как это работает",how_sub:"Три шага. Без регистрации, без приложений, без ожидания на линии.",
  s1h:"Опишите, что найти",s1p:"Своими словами, на своём языке. Приложите детали, ссылки, фото, если есть.",
- s2h:"Оплатите фиксированную цену",s2p:"$5, $15 или $30 в зависимости от сложности. Цену вы знаете до начала работы. Никаких почасовых сюрпризов.",
+ s2h:"Оплатите фиксированную цену",s2p:"$10, $25 или $60 в зависимости от сложности. Цену вы знаете до начала работы. Никаких почасовых сюрпризов.",
  s3h:"Получите проверенный ответ",s3p:"Мы ищем на разных языках, рынках и источниках, проверяем вручную и присылаем понятный ответ на почту.",
  pr_h:"Простые фиксированные цены",pr_sub:"Выберите уровень. Не уверены? Берите «Стандарт» — если окажется проще, вернём разницу.",
  t1h:"Быстрый поиск",t1p:"Одна конкретная вещь.",t1a:"Товар, контакт, цена или факт",t1b:"Ответ за ~1 час",t1c:"До 3 проверенных источников",
@@ -328,8 +331,8 @@ ru:{sw_q:"Показать сайт на русском?",sw_auto:"Перекл�
  q3:"Как оплатить?",a3:"Картой (Visa, Mastercard и др.) по защищённой ссылке, которую мы пришлём после подтверждения запроса. Регистрация не нужна.",
  q4:"Что вы не делаете?",a4:"Не ищем личные данные частных лиц, ничего незаконного и не принимаем медицинских/юридических решений, требующих лицензированного специалиста. Всё остальное — спрашивайте.",
  contact:"Связь:"},
-he:{sw_q:"להציג את האתר בעברית?",sw_auto:"נעבור בעוד {s} שניות",sw_no:"להישאר באנגלית",lg_terms:"תקנון",lg_refund:"מדיניות ביטולים",lg_privacy:"פרטיות",t4h:"פרויקט",t4amt:"הצעת מחיר",t4short:"$?",t4p:"עסקים, רכש, לוגיסטיקה, רילוקיישן.",t4a:"תארו את המשימה — הצעת מחיר תוך 24 שע'",t4b:"בדרך כלל $100–500, מסוכם מראש",t4c:"חוקר ייעודי, שיחות ומיילים בשמכם",d_text_project:"נלמד את המשימה ונענה ל-{email} תוך 24 שעות עם היקף, לוח זמנים ומחיר קבוע. ההחלטה שלכם — ללא התחייבות.",
- eyebrow:"החל מ-<b>$5</b> · לא נמצא? <b>החזר מלא.</b> משלמים רק אחרי אישור.",
+he:{gline:"חיפשתם בגוגל, שאלתם את ChatGPT — ועדיין כלום? תנו לנו הזדמנות: נמצא, או שלא תשלמו כלום.",sw_q:"להציג את האתר בעברית?",sw_auto:"נעבור בעוד {s} שניות",sw_no:"להישאר באנגלית",lg_terms:"תקנון",lg_refund:"מדיניות ביטולים",lg_privacy:"פרטיות",t4h:"פרויקט",t4amt:"הצעת מחיר",t4short:"$?",t4p:"עסקים, רכש, לוגיסטיקה, רילוקיישן.",t4a:"תארו את המשימה — הצעת מחיר תוך 24 שע'",t4b:"בדרך כלל $150–500, מסוכם מראש",t4c:"חוקר ייעודי, שיחות ומיילים בשמכם",d_text_project:"נלמד את המשימה ונענה ל-{email} תוך 24 שעות עם היקף, לוח זמנים ומחיר קבוע. ההחלטה שלכם — ללא התחייבות.",
+ eyebrow:"החל מ-<b>$10</b> · לא נמצא? <b>החזר מלא.</b> משלמים רק אחרי אישור.",
  rv_h:"דרגו את החיפוש",rv_sub:"קיבלתם תשובה? ספרו איך היה — 20 שניות, וזה עוזר לבא אחריכם להחליט.",
  rv_empty:"FindOrFree חדש. הביקורות הראשונות של לקוחות יופיעו כאן — בכנות, בלי עריכה, לפי הסדר.",
  rv_rate:"הדירוג שלכם",rv_text:"כמה מילים (לא חובה)",rv_name:"שם או ראשי תיבות (לא חובה)",rv_btn:"שליחת ביקורת",rv_thanks:"תודה!",
@@ -341,7 +344,7 @@ he:{sw_q:"להציג את האתר בעברית?",sw_auto:"נעבור בעוד {
  demo_q:"בקשה · ספרדית",demo_msg:"«צריך ספק אריחי פורצלן בטורקיה שמשלח לארגנטינה, עם מינימום הזמנה נמוך.»",demo_tag:"תשובה · 2 שע' 14 דק'",demo_ans:"3 יצרנים מאומתים בקוטהיה ובילג'יק, אנשי ייצוא דוברי אנגלית, מינימום הזמנה ממשטח אחד, מחירי FOB משוערים, אפשרויות שילוח לבואנוס איירס.",demo_time:"עובדים על הבקשה הבאה…",
  how_h:"איך זה עובד",how_sub:"שלושה צעדים. בלי הרשמה, בלי אפליקציה, בלי להמתין על הקו.",
  s1h:"תארו מה למצוא",s1p:"במילים שלכם, בשפה שלכם. הוסיפו פרטים, קישורים, תמונות אם יש.",
- s2h:"שלמו מחיר קבוע",s2p:"$5, $15 או $30 לפי המורכבות. המחיר ידוע לפני שמתחילים. בלי הפתעות לפי שעה.",
+ s2h:"שלמו מחיר קבוע",s2p:"$10, $25 או $60 לפי המורכבות. המחיר ידוע לפני שמתחילים. בלי הפתעות לפי שעה.",
  s3h:"קבלו תשובה מאומתת",s3p:"אנחנו מחפשים בשפות, שווקים ומקורות שונים, בודקים ידנית ושולחים תשובה ברורה למייל.",
  pr_h:"מחירים פשוטים וקבועים",pr_sub:"בחרו רמה. לא בטוחים? בחרו «סטנדרט» — אם זה פשוט יותר, נחזיר את ההפרש.",
  t1h:"חיפוש מהיר",t1p:"דבר אחד ספציפי.",t1a:"מוצר, איש קשר, מחיר או עובדה",t1b:"תשובה תוך כשעה",t1c:"עד 3 מקורות מאומתים",
@@ -362,8 +365,8 @@ he:{sw_q:"להציג את האתר בעברית?",sw_auto:"נעבור בעוד {
  q3:"איך משלמים?",a3:"בכרטיס אשראי דרך קישור תשלום מאובטח שנשלח אחרי אישור הבקשה. בלי הרשמה.",
  q4:"מה אתם לא עושים?",a4:"לא מחפשים מידע אישי על אנשים פרטיים, שום דבר לא חוקי, ולא מקבלים החלטות רפואיות/משפטיות שדורשות מומחה מורשה. כל השאר — תשאלו.",
  contact:"קשר:"},
-es:{sw_q:"¿Ver este sitio en español?",sw_auto:"Cambiamos en {s} s",sw_no:"Seguir en inglés",lg_terms:"Términos",lg_refund:"Reembolsos",lg_privacy:"Privacidad",t4h:"Proyecto",t4amt:"Presupuesto",t4short:"$?",t4p:"Negocios, compras, logística, mudanza.",t4a:"Describe la tarea — presupuesto en 24 h",t4b:"Normalmente $100–500, acordado antes",t4c:"Investigador dedicado, llamadas y correos en tu nombre",d_text_project:"Estudiaremos tu tarea y responderemos a {email} en 24 horas con alcance, plazo y precio fijo. Tú decides, sin compromiso.",
- eyebrow:"Desde <b>$5</b> · ¿No se encuentra? <b>Reembolso total.</b> Pagas solo tras la confirmación.",
+es:{gline:"¿Buscaste en Google, preguntaste a ChatGPT y aún nada? Danos una oportunidad: lo encontramos o no pagas nada.",sw_q:"¿Ver este sitio en español?",sw_auto:"Cambiamos en {s} s",sw_no:"Seguir en inglés",lg_terms:"Términos",lg_refund:"Reembolsos",lg_privacy:"Privacidad",t4h:"Proyecto",t4amt:"Presupuesto",t4short:"$?",t4p:"Negocios, compras, logística, mudanza.",t4a:"Describe la tarea — presupuesto en 24 h",t4b:"Normalmente $150–500, acordado antes",t4c:"Investigador dedicado, llamadas y correos en tu nombre",d_text_project:"Estudiaremos tu tarea y responderemos a {email} en 24 horas con alcance, plazo y precio fijo. Tú decides, sin compromiso.",
+ eyebrow:"Desde <b>$10</b> · ¿No se encuentra? <b>Reembolso total.</b> Pagas solo tras la confirmación.",
  rv_h:"Valora tu búsqueda",rv_sub:"¿Ya tienes tu respuesta? Cuéntanos cómo fue — 20 segundos que ayudan al siguiente a decidirse.",
  rv_empty:"FindOrFree es nuevo. Las primeras reseñas de clientes aparecerán aquí — sinceras, sin editar, según lleguen.",
  rv_rate:"Tu valoración",rv_text:"Unas palabras (opcional)",rv_name:"Nombre o iniciales (opcional)",rv_btn:"Enviar reseña",rv_thanks:"¡Gracias!",
@@ -375,7 +378,7 @@ es:{sw_q:"¿Ver este sitio en español?",sw_auto:"Cambiamos en {s} s",sw_no:"Seg
  demo_q:"Solicitud · español",demo_msg:"«Necesito un proveedor de azulejos porcelánicos en Turquía que envíe a Argentina, pedido mínimo bajo.»",demo_tag:"Respuesta · 2 h 14 min",demo_ans:"3 fabricantes verificados en Kütahya y Bilecik, contactos de exportación que hablan inglés, pedido mínimo desde 1 palé, precios FOB orientativos, opciones de envío a Buenos Aires.",demo_time:"Trabajando en la siguiente solicitud…",
  how_h:"Cómo funciona",how_sub:"Tres pasos. Sin cuenta, sin app, sin esperas al teléfono.",
  s1h:"Describe qué buscar",s1p:"Con tus palabras y en tu idioma. Añade detalles, enlaces o fotos si los tienes.",
- s2h:"Paga un precio fijo",s2p:"$5, $15 o $30 según la complejidad. Conoces el precio antes de empezar. Sin sorpresas por hora.",
+ s2h:"Paga un precio fijo",s2p:"$10, $25 o $60 según la complejidad. Conoces el precio antes de empezar. Sin sorpresas por hora.",
  s3h:"Recibe una respuesta verificada",s3p:"Buscamos en varios idiomas, mercados y fuentes, lo comprobamos a mano y te enviamos una respuesta clara por email.",
  pr_h:"Precios fijos y simples",pr_sub:"Elige el nivel. ¿Dudas? Elige Estándar: si resulta más simple, te devolvemos la diferencia.",
  t1h:"Búsqueda rápida",t1p:"Una cosa concreta.",t1a:"Un producto, contacto, precio o dato",t1b:"Respuesta en ~1 hora",t1c:"Hasta 3 fuentes verificadas",
@@ -396,8 +399,8 @@ es:{sw_q:"¿Ver este sitio en español?",sw_auto:"Cambiamos en {s} s",sw_no:"Seg
  q3:"¿Cómo pago?",a3:"Con tarjeta (Visa, Mastercard y más) mediante un enlace de pago seguro que enviamos tras confirmar tu solicitud. Sin cuenta.",
  q4:"¿Qué no hacen?",a4:"No buscamos datos personales de particulares, nada ilegal, ni decisiones médicas/legales que requieran un profesional colegiado. Todo lo demás, pregunta.",
  contact:"Contacto:"},
-de:{sw_q:"Diese Seite auf Deutsch anzeigen?",sw_auto:"Wechsel in {s} Sek.",sw_no:"Auf Englisch bleiben",lg_terms:"AGB",lg_refund:"Erstattung",lg_privacy:"Datenschutz",t4h:"Projekt",t4amt:"Auf Anfrage",t4short:"$?",t4p:"Business, Einkauf, Logistik, Umzug.",t4a:"Aufgabe beschreiben — Angebot in 24 Std.",t4b:"Meist $100–500, vorab vereinbart",t4c:"Eigener Rechercheur, Anrufe und E-Mails in Ihrem Namen",d_text_project:"Wir prüfen Ihre Aufgabe und antworten an {email} innerhalb von 24 Stunden mit Umfang, Zeitplan und Festpreis. Sie entscheiden — unverbindlich.",
- eyebrow:"Ab <b>$5</b> · Nicht gefunden? <b>Volle Erstattung.</b> Zahlung erst nach Bestätigung.",
+de:{gline:"Bei Google gesucht, ChatGPT gefragt – und immer noch nichts? Geben Sie uns eine Chance: Wir finden es, oder Sie zahlen nichts.",sw_q:"Diese Seite auf Deutsch anzeigen?",sw_auto:"Wechsel in {s} Sek.",sw_no:"Auf Englisch bleiben",lg_terms:"AGB",lg_refund:"Erstattung",lg_privacy:"Datenschutz",t4h:"Projekt",t4amt:"Auf Anfrage",t4short:"$?",t4p:"Business, Einkauf, Logistik, Umzug.",t4a:"Aufgabe beschreiben — Angebot in 24 Std.",t4b:"Meist $150–500, vorab vereinbart",t4c:"Eigener Rechercheur, Anrufe und E-Mails in Ihrem Namen",d_text_project:"Wir prüfen Ihre Aufgabe und antworten an {email} innerhalb von 24 Stunden mit Umfang, Zeitplan und Festpreis. Sie entscheiden — unverbindlich.",
+ eyebrow:"Ab <b>$10</b> · Nicht gefunden? <b>Volle Erstattung.</b> Zahlung erst nach Bestätigung.",
  rv_h:"Bewerten Sie Ihre Suche",rv_sub:"Antwort erhalten? Erzählen Sie, wie es lief — 20 Sekunden, die dem Nächsten die Entscheidung erleichtern.",
  rv_empty:"FindOrFree ist neu. Die ersten Kundenbewertungen erscheinen hier — ehrlich, unbearbeitet, der Reihe nach.",
  rv_rate:"Ihre Bewertung",rv_text:"Ein paar Worte (optional)",rv_name:"Name oder Initialen (optional)",rv_btn:"Bewertung senden",rv_thanks:"Danke!",
@@ -409,7 +412,7 @@ de:{sw_q:"Diese Seite auf Deutsch anzeigen?",sw_auto:"Wechsel in {s} Sek.",sw_no
  demo_q:"Anfrage · Spanisch",demo_msg:"«Ich brauche einen Lieferanten für Feinsteinzeug in der Türkei, der nach Argentinien liefert, mit niedriger Mindestbestellmenge.»",demo_tag:"Antwort · 2 Std. 14 Min.",demo_ans:"3 geprüfte Hersteller in Kütahya und Bilecik, englischsprachige Exportkontakte, Mindestbestellung ab 1 Palette, FOB-Richtpreise, Versandoptionen nach Buenos Aires.",demo_time:"Nächste Anfrage in Arbeit…",
  how_h:"So funktioniert es",how_sub:"Drei Schritte. Kein Konto, keine App, keine Warteschleife.",
  s1h:"Beschreiben Sie, was zu finden ist",s1p:"In Ihren Worten, in Ihrer Sprache. Details, Links, Fotos — falls vorhanden.",
- s2h:"Festpreis zahlen",s2p:"$5, $15 oder $30 je nach Aufwand. Der Preis steht vor Beginn fest. Keine Stunden-Überraschungen.",
+ s2h:"Festpreis zahlen",s2p:"$10, $25 oder $60 je nach Aufwand. Der Preis steht vor Beginn fest. Keine Stunden-Überraschungen.",
  s3h:"Geprüfte Antwort erhalten",s3p:"Wir suchen in mehreren Sprachen, Märkten und Quellen, prüfen von Hand und senden eine klare Antwort per E-Mail.",
  pr_h:"Einfache Festpreise",pr_sub:"Wählen Sie die Stufe. Unsicher? Nehmen Sie Standard — ist es einfacher, erstatten wir die Differenz.",
  t1h:"Schnellsuche",t1p:"Eine konkrete Sache.",t1a:"Produkt, Kontakt, Preis oder Fakt",t1b:"Antwort in ~1 Stunde",t1c:"Bis zu 3 geprüfte Quellen",
