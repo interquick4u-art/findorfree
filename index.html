@@ -5,6 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FindOrFree — No find, no pay. We find anything, in any language</title>
 <meta name="description" content="FindOrFree: a paid human-verified search service. No find, no pay. Tell us what to find — a product, a supplier, a contact, a fact — in any language. Answer within hours. Money back if we fail.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="canonical" href="https://findorfree.com/">
+<meta name="theme-color" content="#0b1020">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FindOrFree">
+<meta property="og:title" content="FindOrFree — No find, no pay">
+<meta property="og:description" content="We find anything, anywhere in the world, in any language: a trusted pro, a home, a car, a supplier, a fact. Fixed price from $10. Not found — full refund.">
+<meta property="og:url" content="https://findorfree.com/">
+<meta property="og:image" content="https://findorfree.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FindOrFree — No find, no pay">
+<meta name="twitter:description" content="We find anything, anywhere, in any language. From $10. Not found — full refund.">
+<meta name="twitter:image" content="https://findorfree.com/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600&family=Heebo:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -72,6 +89,11 @@ h2{font-family:var(--display);font-size:clamp(28px,4vw,40px);letter-spacing:-.02
 @media(max-width:1000px){#pricing .grid3{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){#pricing .grid3{grid-template-columns:1fr}}
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.card .n .ic,.honest .ic,.eyebrow .ic{width:22px;height:22px;flex:none;vertical-align:-5px}
+.card .n .ic{color:var(--accent)}
+.honest{display:flex;align-items:center;gap:10px}.honest .ic{color:var(--ok)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px}.eyebrow .ic{width:18px;height:18px;color:var(--ok)}
+.done-ic svg{width:56px;height:56px;margin:0 auto 6px;display:block}
 .card .n{width:38px;height:38px;border-radius:12px;background:rgba(255,179,71,.15);color:var(--accent);display:grid;place-items:center;font-weight:700;margin-bottom:14px;font-family:var(--display);font-size:18px}
 .card h3{margin:0 0 8px;font-size:19px}
 .card p{margin:0;color:var(--muted);font-size:15px}
@@ -135,7 +157,7 @@ footer{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--muted);f
 <main class="wrap">
 <section class="hero">
   <div>
-    <div class="eyebrow">💸 <span data-i18n="eyebrow"></span></div>
+    <div class="eyebrow"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M7 12h.01M17 12h.01"/></svg><span data-i18n="eyebrow"></span></div>
     <h1 data-i18n="h1"></h1>
     <p class="lead" data-i18n="lead"></p>
     <p class="gline" data-i18n="gline"></p>
@@ -153,12 +175,12 @@ footer{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--muted);f
 <section id="what">
   <h2 data-i18n="cat_h"></h2><p class="sub" data-i18n="cat_sub"></p>
   <div class="grid4">
-    <div class="card"><div class="n">🛠️</div><h3 data-i18n="c1h"></h3><p data-i18n="c1p"></p></div>
-    <div class="card"><div class="n">🏠</div><h3 data-i18n="c2h"></h3><p data-i18n="c2p"></p></div>
-    <div class="card"><div class="n">🚗</div><h3 data-i18n="c3h"></h3><p data-i18n="c3p"></p></div>
-    <div class="card"><div class="n">🔎</div><h3 data-i18n="c4h"></h3><p data-i18n="c4p"></p></div>
+    <div class="card"><div class="n"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0 5 5l-9.4 9.4a2.1 2.1 0 0 1-3-3l9.4-9.4z"/><path d="M14.7 6.3L17 4l3 3-2.3 2.3"/><path d="M4 20l1-1"/></svg></div><h3 data-i18n="c1h"></h3><p data-i18n="c1p"></p></div>
+    <div class="card"><div class="n"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></div><h3 data-i18n="c2h"></h3><p data-i18n="c2p"></p></div>
+    <div class="card"><div class="n"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16l1.5-5h11L19 16"/><path d="M3 16h18v3H3z"/><circle cx="7.5" cy="19" r="1.5"/><circle cx="16.5" cy="19" r="1.5"/><path d="M7 11l1-3h8l1 3"/></svg></div><h3 data-i18n="c3h"></h3><p data-i18n="c3p"></p></div>
+    <div class="card"><div class="n"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/></svg></div><h3 data-i18n="c4h"></h3><p data-i18n="c4p"></p></div>
   </div>
-  <p class="honest">🤝 <span data-i18n="honest"></span></p>
+  <p class="honest"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11V7a5 5 0 0 1 10 0v4"/><path d="M4 11h16l-1.5 8h-13z"/><path d="M9 15h6"/></svg><span data-i18n="honest"></span></p>
 </section>
 
 <section id="how">
@@ -218,7 +240,7 @@ footer{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--muted);f
       <p class="note" data-i18n="f_note"></p>
     </div>
     <div class="done" id="done">
-      <div style="font-size:48px">🔎</div>
+      <div class="done-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#4ad295" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg></div>
       <h3 data-i18n="d_h"></h3>
       <p class="sub" style="margin:0 auto 10px" id="d_text"></p>
       <div class="alt" id="alt"></div>
