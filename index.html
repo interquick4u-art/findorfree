@@ -23,6 +23,7 @@
 <meta name="twitter:description" content="We find anything, anywhere, in any language. From $19. Not found — full refund.">
 <meta name="twitter:image" content="https://findorfree.com/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600&family=Heebo:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -153,102 +154,102 @@ footer{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--muted);f
 <body>
 <header><div class="wrap nav">
   <div class="logo"><svg viewBox="0 0 32 32" fill="none"><circle cx="14" cy="14" r="9" stroke="#ffb347" stroke-width="3.2"/><path d="M21 21l7 7" stroke="#ff7a59" stroke-width="3.6" stroke-linecap="round"/><circle cx="14" cy="14" r="3" fill="#ffb347"/></svg><span>Find<span style="color:var(--accent)">Or</span>Free</span><small class="tag-line">no find · no pay</small></div>
-  <div class="lang" id="lang"></div>
+  <div class="lang" id="lang"><button class="on" data-l="en">English</button><button class="" data-l="ru">Русский</button><button class="" data-l="he">עברית</button><button class="" data-l="es">Español</button><button class="" data-l="de">Deutsch</button><select class="" aria-label="Language"><option value="">🌐</option><option value="fr">Français</option><option value="it">Italiano</option><option value="pt">Português</option><option value="uk">Українська</option><option value="tr">Türkçe</option><option value="ar">العربية</option><option value="zh">中文</option><option value="ja">日本語</option></select></div>
 </div></header>
 
 <main class="wrap">
 <section class="hero">
   <div>
-    <div class="eyebrow"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M7 12h.01M17 12h.01"/></svg><span data-i18n="eyebrow"></span></div>
-    <h1 data-i18n="h1"></h1>
-    <p class="lead" data-i18n="lead"></p>
-    <p class="gline" data-i18n="gline"></p>
-    <a class="cta" href="#request" data-i18n="cta"></a>
-    <div class="badges"><span class="badge" data-i18n="b1"></span><span class="badge" data-i18n="b2"></span><span class="badge" data-i18n="b3"></span></div>
+    <div class="eyebrow"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M7 12h.01M17 12h.01"/></svg><span data-i18n="eyebrow">From <b>$19</b> · Not found? <b>Full refund.</b> Pay only after we confirm.</span></div>
+    <h1 data-i18n="h1">Can't find it? <em>We will.</em></h1>
+    <p class="lead" data-i18n="lead">Tell us what you need — a product, a supplier, a contact, a price, a fact — in any language. A real person verifies the answer and sends it to you within hours. If we fail, you pay nothing.</p>
+    <p class="gline" data-i18n="gline">Searched Google, asked ChatGPT — and still nothing? Give us a chance: we'll find it, or you pay nothing.</p>
+    <a class="cta" href="#request" data-i18n="cta">Start a search →</a>
+    <div class="badges"><span class="badge" data-i18n="b1">Any language</span><span class="badge" data-i18n="b2">Human-verified</span><span class="badge" data-i18n="b3">Money-back guarantee</span></div>
   </div>
   <div class="glass">
-    <div class="q" data-i18n="demo_q"></div>
-    <div class="msg" data-i18n="demo_msg"></div>
-    <div class="msg a"><span class="tag" data-i18n="demo_tag"></span><div data-i18n="demo_ans"></div></div>
-    <div class="q"><span class="typing"></span> <span data-i18n="demo_time"></span></div>
+    <div class="q" data-i18n="demo_q">Request · Spanish</div>
+    <div class="msg" data-i18n="demo_msg">«Necesito un proveedor de azulejos porcelánicos en Turquía que envíe a Argentina, pedido mínimo bajo.»</div>
+    <div class="msg a"><span class="tag" data-i18n="demo_tag">Answer · 2 h 14 min</span><div data-i18n="demo_ans">3 verified manufacturers in Kütahya and Bilecik, English-speaking export contacts, minimum order from 1 pallet, indicative FOB prices, shipping options to Buenos Aires.</div></div>
+    <div class="q"><span class="typing"></span> <span data-i18n="demo_time">Working on the next request…</span></div>
   </div>
 </section>
 
 <section id="what">
-  <h2 data-i18n="cat_h"></h2><p class="sub" data-i18n="cat_sub"></p>
+  <h2 data-i18n="cat_h">Find anything — anywhere in the world</h2><p class="sub" data-i18n="cat_sub">Americans in the US, Europeans in Europe, Australians in Australia, anyone anywhere: we search locally, in the local language, and answer in yours.</p>
   <div class="grid4">
-    <div class="card"><div class="n"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0 5 5l-9.4 9.4a2.1 2.1 0 0 1-3-3l9.4-9.4z"/><path d="M14.7 6.3L17 4l3 3-2.3 2.3"/><path d="M4 20l1-1"/></svg></div><h3 data-i18n="c1h"></h3><p data-i18n="c1p"></p></div>
-    <div class="card"><div class="n"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></div><h3 data-i18n="c2h"></h3><p data-i18n="c2p"></p></div>
-    <div class="card"><div class="n"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16l1.5-5h11L19 16"/><path d="M3 16h18v3H3z"/><circle cx="7.5" cy="19" r="1.5"/><circle cx="16.5" cy="19" r="1.5"/><path d="M7 11l1-3h8l1 3"/></svg></div><h3 data-i18n="c3h"></h3><p data-i18n="c3p"></p></div>
-    <div class="card"><div class="n"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/></svg></div><h3 data-i18n="c4h"></h3><p data-i18n="c4p"></p></div>
+    <div class="card"><div class="n"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0 5 5l-9.4 9.4a2.1 2.1 0 0 1-3-3l9.4-9.4z"/><path d="M14.7 6.3L17 4l3 3-2.3 2.3"/><path d="M4 20l1-1"/></svg></div><h3 data-i18n="c1h">Trusted pros</h3><p data-i18n="c1p">Electrician in Texas, tiler in Melbourne, notary in Lisbon, Russian-speaking dentist in Berlin. Licence, reviews from several sites, price, language, contacts.</p></div>
+    <div class="card"><div class="n"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></div><h3 data-i18n="c2h">Homes &amp; rentals</h3><p data-i18n="c2p">An apartment to rent or buy, short or long term. Real listings, checked agents and owners, a fair price for the area, scam warnings.</p></div>
+    <div class="card"><div class="n"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16l1.5-5h11L19 16"/><path d="M3 16h18v3H3z"/><circle cx="7.5" cy="19" r="1.5"/><circle cx="16.5" cy="19" r="1.5"/><path d="M7 11l1-3h8l1 3"/></svg></div><h3 data-i18n="c3h">Cars</h3><p data-i18n="c3p">A used car with a checked history, the best rental deal, a mechanic who knows your model, the right spare part.</p></div>
+    <div class="card"><div class="n"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/></svg></div><h3 data-i18n="c4h">Anything else</h3><p data-i18n="c4p">Suppliers, products, discontinued parts, documents, facts. If it exists, we'll find it.</p></div>
   </div>
-  <p class="honest"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11V7a5 5 0 0 1 10 0v4"/><path d="M4 11h16l-1.5 8h-13z"/><path d="M9 15h6"/></svg><span data-i18n="honest"></span></p>
+  <p class="honest"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11V7a5 5 0 0 1 10 0v4"/><path d="M4 11h16l-1.5 8h-13z"/><path d="M9 15h6"/></svg><span data-i18n="honest">We don't take money from pros, agents or sellers — so our recommendation is honest.</span></p>
 </section>
 
 <section id="how">
-  <h2 data-i18n="how_h"></h2><p class="sub" data-i18n="how_sub"></p>
+  <h2 data-i18n="how_h">How it works</h2><p class="sub" data-i18n="how_sub">Three steps. No account, no app, no waiting on hold.</p>
   <div class="grid3">
-    <div class="card"><div class="n">1</div><h3 data-i18n="s1h"></h3><p data-i18n="s1p"></p></div>
-    <div class="card"><div class="n">2</div><h3 data-i18n="s2h"></h3><p data-i18n="s2p"></p></div>
-    <div class="card"><div class="n">3</div><h3 data-i18n="s3h"></h3><p data-i18n="s3p"></p></div>
+    <div class="card"><div class="n">1</div><h3 data-i18n="s1h">Describe what to find</h3><p data-i18n="s1p">Write it in your own words and language. Attach details, links, photos if you have them.</p></div>
+    <div class="card"><div class="n">2</div><h3 data-i18n="s2h">Pay a fixed price</h3><p data-i18n="s2p">$19, $39 or $89 depending on complexity. You know the price before we start. No hourly surprises.</p></div>
+    <div class="card"><div class="n">3</div><h3 data-i18n="s3h">Get a verified answer</h3><p data-i18n="s3p">We search across languages, markets and sources, check it by hand and send a clear answer to your email.</p></div>
   </div>
 </section>
 
 <section id="about">
-  <div class="card about"><div class="n"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div><h3 data-i18n="ab_h"></h3><p data-i18n="ab_p"></p></div>
+  <div class="card about"><div class="n"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div><h3 data-i18n="ab_h">Who's behind FindOrFree</h3><p data-i18n="ab_p">FindOrFree was founded and is run by Yuri. We search with AI tools and our own precise prompts, the kind most people can't write themselves, in the local language of each country. Yuri oversees every result before it goes to you. No secrets: AI does the heavy lifting, and a real person answers for the result.</p></div>
 </section>
 
 <section id="pricing">
-  <h2 data-i18n="pr_h"></h2><p class="sub" data-i18n="pr_sub"></p>
+  <h2 data-i18n="pr_h">Search levels: you know what you pay for</h2><p class="sub" data-i18n="pr_sub">Describe your task and we'll tell you the level and price before you pay. Not found? Full refund. Want to go deeper? Move up a level and pay only the difference.</p>
   <div class="grid3">
-    <div class="card price" data-tier="simple"><h3 data-i18n="t1h"></h3><div class="amt">$19</div><p data-i18n="t1p"></p><ul><li data-i18n="t1a"></li><li data-i18n="t1b"></li><li data-i18n="t1c"></li></ul><p class="tex" data-i18n="t1e"></p></div>
-    <div class="card price" data-tier="standard"><span class="pop" data-i18n="pop"></span><h3 data-i18n="t2h"></h3><div class="amt">$39</div><p data-i18n="t2p"></p><ul><li data-i18n="t2a"></li><li data-i18n="t2b"></li><li data-i18n="t2c"></li></ul><p class="tex" data-i18n="t2e"></p></div>
-    <div class="card price" data-tier="deep"><h3 data-i18n="t3h"></h3><div class="amt">$89</div><p data-i18n="t3p"></p><ul><li data-i18n="t3a"></li><li data-i18n="t3b"></li><li data-i18n="t3c"></li></ul><p class="tex" data-i18n="t3e"></p></div>
-    <div class="card price" data-tier="project"><h3 data-i18n="t4h"></h3><div class="amt" style="font-size:30px;padding:8px 0" data-i18n="t4amt"></div><p data-i18n="t4p"></p><ul><li data-i18n="t4a"></li><li data-i18n="t4b"></li><li data-i18n="t4c"></li></ul><p class="tex" data-i18n="t4e"></p></div>
+    <div class="card price" data-tier="simple"><h3 data-i18n="t1h">Level 1 · Quick find</h3><div class="amt">$19</div><p data-i18n="t1p">One specific thing, in open sources.</p><ul><li data-i18n="t1a">We search in your language and in English</li><li data-i18n="t1b">Answer within ~1 hour</li><li data-i18n="t1c">We check the contact is real and current</li></ul><p class="tex" data-i18n="t1e">E.g. a company's phone and website, where to buy an item, an answer to a specific question.</p></div>
+    <div class="card price" data-tier="standard"><span class="pop" data-i18n="pop">Most popular</span><h3 data-i18n="t2h">Level 2 · Search with checks</h3><div class="amt">$39</div><p data-i18n="t2p">Everything in Level 1, plus:</p><ul><li data-i18n="t2a">The country's local language, local sites and directories</li><li data-i18n="t2b">We check licence, reviews from several sites, price, language</li><li data-i18n="t2c">3–5 options compared, with our pick · ~3 hours</li></ul><p class="tex" data-i18n="t2e">E.g. a Russian-speaking doctor, lawyer or repairman abroad you can trust.</p></div>
+    <div class="card price" data-tier="deep"><h3 data-i18n="t3h">Level 3 · Deep search</h3><div class="amt">$89</div><p data-i18n="t3p">Everything in Level 2, plus:</p><ul><li data-i18n="t3a">Several countries and languages at once</li><li data-i18n="t3b">Videos and comments on TikTok, YouTube, Instagram</li><li data-i18n="t3c">We write to companies directly · report within 24 h</li></ul><p class="tex" data-i18n="t3e">E.g. a rare item or part, a supplier, information Google and ChatGPT can't find.</p></div>
+    <div class="card price" data-tier="project"><h3 data-i18n="t4h">Project</h3><div class="amt" style="font-size:30px;padding:8px 0" data-i18n="t4amt">from $300</div><p data-i18n="t4p">Everything in Level 3, and we stay with you until the result.</p><ul><li data-i18n="t4a">Correspondence, clarifications, several rounds</li><li data-i18n="t4b">Comparison table · price agreed before start</li><li data-i18n="t4c">Usually far less than an agent's commission</li></ul><p class="tex" data-i18n="t4e">E.g. an apartment or residence, relocation, a business supplier, a big purchase.</p></div>
   </div>
-  <p class="how" data-i18n="pr_how"></p>
+  <p class="how" data-i18n="pr_how"><b>How we search.</b> We go through the whole open internet: websites, directories, forums and, when needed, videos on TikTok, YouTube and Instagram, including what is said in them and what people write in the comments. With our own methods and AI we do in hours what would take you days and thousands of pages. Open sources only: no hacking, no private data.</p>
   <div class="trust">
-    <div><b>30+</b><span data-i18n="tr1"></span></div>
-    <div><b>&lt;24h</b><span data-i18n="tr2"></span></div>
-    <div><b>100%</b><span data-i18n="tr3"></span></div>
-    <div><b>1</b><span data-i18n="tr4"></span></div>
+    <div><b>30+</b><span data-i18n="tr1">languages we work in</span></div>
+    <div><b>&lt;24h</b><span data-i18n="tr2">typical turnaround</span></div>
+    <div><b>100%</b><span data-i18n="tr3">refund if not found</span></div>
+    <div><b>1</b><span data-i18n="tr4">fixed price, no surprises</span></div>
   </div>
 </section>
 
 <section id="examples">
-  <h2 data-i18n="ex_h"></h2><p class="sub" data-i18n="ex_sub"></p>
-  <div class="ex" id="exlist"></div>
+  <h2 data-i18n="ex_h">What people ask us to find</h2><p class="sub" data-i18n="ex_sub">Anything that can be found online — we find faster, in more languages, and double-check it.</p>
+  <div class="ex" id="exlist"><span>A supplier of a specific part in Europe</span><span>The cheapest flight + hotel combo for exact dates</span><span>A Russian-speaking dentist in Berlin</span><span>Whether this company is real and trustworthy</span><span>A replacement for a discontinued product</span><span>Visa requirements for a specific passport &amp; route</span><span>Original price of an item sold to you abroad</span><span>An apartment rental agent in a city you don't know</span><span>Where a photo was taken</span><span>A manual for an old appliance in your language</span></div>
 </section>
 
 <section id="request">
-  <h2 data-i18n="f_h"></h2><p class="sub" data-i18n="f_sub"></p>
+  <h2 data-i18n="f_h">Start your search</h2><p class="sub" data-i18n="f_sub">Fill in the form. We confirm by email within an hour and send a payment link. Work starts the moment payment arrives.</p>
   <form id="form" novalidate>
     <div id="formbody">
-      <label data-i18n="f_tier"></label>
+      <label data-i18n="f_tier">Choose a level</label>
       <div class="tiers">
-        <div class="tier" data-tier="simple"><b>$19</b><span data-i18n="t1h"></span></div>
-        <div class="tier sel" data-tier="standard"><b>$39</b><span data-i18n="t2h"></span></div>
-        <div class="tier" data-tier="deep"><b>$89</b><span data-i18n="t3h"></span></div>
-        <div class="tier" data-tier="project"><b data-i18n="t4short"></b><span data-i18n="t4h"></span></div>
+        <div class="tier" data-tier="simple"><b>$19</b><span data-i18n="t1h">Level 1 · Quick find</span></div>
+        <div class="tier sel" data-tier="standard"><b>$39</b><span data-i18n="t2h">Level 2 · Search with checks</span></div>
+        <div class="tier" data-tier="deep"><b>$89</b><span data-i18n="t3h">Level 3 · Deep search</span></div>
+        <div class="tier" data-tier="project"><b data-i18n="t4short">$300+</b><span data-i18n="t4h">Project</span></div>
       </div>
-      <label for="req" data-i18n="f_req"></label>
+      <label for="req" data-i18n="f_req">What should we find? Be as specific as you can.</label>
       <textarea id="req" name="request" required></textarea>
-      <label for="email" data-i18n="f_email"></label>
+      <label for="email" data-i18n="f_email">Your email (answer goes here)</label>
       <input id="email" name="email" type="email" required>
-      <label for="name" data-i18n="f_name"></label>
+      <label for="name" data-i18n="f_name">Your name (optional)</label>
       <input id="name" name="name" type="text">
-      <label for="deadline" data-i18n="f_when"></label>
+      <label for="deadline" data-i18n="f_when">When do you need it?</label>
       <select id="deadline" name="deadline">
-        <option value="24h" data-i18n="w1"></option>
-        <option value="3d" data-i18n="w2"></option>
-        <option value="1w" data-i18n="w3"></option>
+        <option value="24h" data-i18n="w1">Within 24 hours</option>
+        <option value="3d" data-i18n="w2">Within 3 days</option>
+        <option value="1w" data-i18n="w3">Within a week</option>
       </select>
-      <button class="btn" type="submit" data-i18n="f_btn"></button>
-      <p class="note" data-i18n="f_note"></p>
+      <button class="btn" type="submit" data-i18n="f_btn">Send my request</button>
+      <p class="note" data-i18n="f_note">You pay only after we confirm we can take the job. Not found = full refund.</p>
     </div>
     <div class="done" id="done">
       <div class="done-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#4ad295" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg></div>
-      <h3 data-i18n="d_h"></h3>
+      <h3 data-i18n="d_h">Request received!</h3>
       <p class="sub" style="margin:0 auto 10px" id="d_text"></p>
       <div class="alt" id="alt"></div>
       <pre id="summary"></pre>
@@ -257,21 +258,21 @@ footer{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--muted);f
 </section>
 
 <section id="reviews">
-  <h2 data-i18n="rv_h"></h2><p class="sub" data-i18n="rv_sub"></p>
-  <div class="rv-empty" data-i18n="rv_empty"></div>
+  <h2 data-i18n="rv_h">Rate your search</h2><p class="sub" data-i18n="rv_sub">Got your answer? Tell us how it went — it takes 20 seconds and helps the next person decide.</p>
+  <div class="rv-empty" data-i18n="rv_empty">FindOrFree is new. The first client reviews will appear here — honestly, unedited, as they come.</div>
   <form id="rvform" novalidate>
     <div id="rvbody">
-      <label style="text-align:center" data-i18n="rv_rate"></label>
+      <label style="text-align:center" data-i18n="rv_rate">Your rating</label>
       <div class="stars" id="stars"><button type="button" data-s="1">★</button><button type="button" data-s="2">★</button><button type="button" data-s="3">★</button><button type="button" data-s="4">★</button><button type="button" data-s="5">★</button></div>
-      <label for="rvtext" data-i18n="rv_text"></label>
+      <label for="rvtext" data-i18n="rv_text">A few words (optional)</label>
       <textarea id="rvtext" style="min-height:90px"></textarea>
-      <label for="rvname" data-i18n="rv_name"></label>
+      <label for="rvname" data-i18n="rv_name">Name or initials (optional)</label>
       <input id="rvname" type="text">
-      <button class="btn" type="submit" data-i18n="rv_btn"></button>
+      <button class="btn" type="submit" data-i18n="rv_btn">Send review</button>
     </div>
     <div class="done" id="rvdone">
       <div style="font-size:48px">⭐</div>
-      <h3 data-i18n="rv_thanks"></h3>
+      <h3 data-i18n="rv_thanks">Thank you!</h3>
       <p class="sub" style="margin:0 auto 10px" id="rv_dtext"></p>
       <div class="alt" id="rvalt"></div>
     </div>
@@ -279,23 +280,22 @@ footer{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--muted);f
 </section>
 
 <section class="faq" id="faq">
-  <h2 data-i18n="faq_h"></h2>
-  <details><summary data-i18n="q1"></summary><p data-i18n="a1"></p></details>
-  <details><summary data-i18n="q2"></summary><p data-i18n="a2"></p></details>
-  <details><summary data-i18n="q3"></summary><p data-i18n="a3"></p></details>
-  <details><summary data-i18n="q4"></summary><p data-i18n="a4"></p></details>
+  <h2 data-i18n="faq_h">Questions</h2>
+  <details><summary data-i18n="q1">What exactly do you do that Google can't?</summary><p data-i18n="a1">We search in languages you don't speak, on sites and marketplaces you've never heard of, call or email when needed, and verify what we find. You get one clear answer instead of 40 tabs.</p></details>
+  <details><summary data-i18n="q2">What if you can't find it? Refund rules</summary><p data-i18n="a2">Nothing found — 100% refund. Answer delivered with sources — no refund, but if something is inaccurate we fix it for free. And before you pay, we check that the task is realistic; if not, we say so and you pay nothing.</p></details>
+  <details><summary data-i18n="q3">How do I pay?</summary><p data-i18n="a3">By card (Visa, Mastercard and more) through a secure payment link we send after confirming your request. No account needed.</p></details>
+  <details><summary data-i18n="q4">What won't you do?</summary><p data-i18n="a4">We don't look for private individuals' personal data, anything illegal, or medical/legal decisions that require a licensed professional. Everything else — ask.</p></details>
 </section>
 </main>
 
 <footer class="wrap">
-  <div>© <span id="year"></span> FindOrFree</div>
-  <div id="contact"></div>
+  <div>© <span id="year">2026</span> FindOrFree</div>
+  <div id="contact">Contact: support@findorfree.com</div>
   <div class="social">Facebook: <a href="https://www.facebook.com/profile.php?id=61596478920132" target="_blank" rel="noopener">Page</a> · Groups: <a href="https://www.facebook.com/groups/1727758362068518" target="_blank" rel="noopener">RU</a> · <a href="https://www.facebook.com/groups/1972602447419863" target="_blank" rel="noopener">HE</a> · <a href="https://www.facebook.com/groups/2185194859542007" target="_blank" rel="noopener">EN</a></div>
-  <div class="legal"><a href="legal.html#terms" data-i18n="lg_terms"></a> · <a href="legal.html#refund" data-i18n="lg_refund"></a> · <a href="legal.html#privacy" data-i18n="lg_privacy"></a></div>
+  <div class="legal"><a href="legal.html#terms" data-i18n="lg_terms">Terms of Service</a> · <a href="legal.html#refund" data-i18n="lg_refund">Refund policy</a> · <a href="legal.html#privacy" data-i18n="lg_privacy">Privacy</a></div>
 </footer>
 
 <div class="swbar" id="swbar" role="dialog" aria-live="polite"><div><span id="sw_q"></span><small id="sw_t"></small></div><button class="yes" id="sw_yes" type="button"></button><button id="sw_no" type="button"></button></div>
-<script src="i18n-extra.js"></script>
 <script>
 /* ===== НАСТРОЙКИ (меняются в одном месте) ===== */
 const CONFIG = {
@@ -486,6 +486,8 @@ de:{ab_h:"Wer hinter FindOrFree steht",ab_p:"FindOrFree wurde von Yuri gegründe
 const MAIN_LANGS=["en","ru","he","es","de"];
 Object.assign(I18N, window.I18N_EXTRA||{});
 let lang="en", tier="standard";
+/* i18n-extra.js грузится после показа страницы (не тормозит первый показ); до этого меню языков — из готового HTML. */
+let extraReady=!!window.I18N_EXTRA;
 /* Сайт у всех открывается на английском. Если язык браузера другой и он у нас есть —
    внизу плашка на языке посетителя: через 10 секунд переключаем сам, можно отказаться. Выбор запоминается. */
 function savedLang(){try{const s=localStorage.getItem("fof_lang"); if(s&&I18N[s]) return s;}catch(e){} return null;}
@@ -522,7 +524,9 @@ function render(){
   document.querySelectorAll("[data-i18n]").forEach(el=>{el.innerHTML=t(el.dataset.i18n);});
   document.getElementById("exlist").innerHTML=(d.ex||I18N.en.ex).map(x=>`<span>${x}</span>`).join("");
   const extra=Object.keys(I18N).filter(k=>!MAIN_LANGS.includes(k));
-  document.getElementById("lang").innerHTML=MAIN_LANGS.map(k=>`<button class="${k===lang?'on':''}" data-l="${k}">${I18N[k].name}</button>`).join("")
+  const langEl=document.getElementById("lang");
+  if(!extraReady&&langEl.children.length){langEl.querySelectorAll("button").forEach(b=>b.classList.toggle("on",b.dataset.l===lang));}
+  else langEl.innerHTML=MAIN_LANGS.map(k=>`<button class="${k===lang?'on':''}" data-l="${k}">${I18N[k].name}</button>`).join("")
     +(extra.length?`<select class="${extra.includes(lang)?'on':''}" aria-label="Language"><option value="">🌐${extra.includes(lang)?' '+I18N[lang].name:''}</option>${extra.map(k=>`<option value="${k}"${k===lang?' selected':''}>${I18N[k].name}</option>`).join("")}</select>`:"");
   document.getElementById("contact").textContent=t("contact")+" "+CONFIG.email;
   document.getElementById("year").textContent=new Date().getFullYear();
@@ -614,7 +618,11 @@ document.getElementById("rvform").addEventListener("submit",async e=>{
   d.scrollIntoView({behavior:"smooth",block:"center"});
 });
 
-lang=detect(); render(); selTier("standard"); offerSwitch();
+lang=detect(); render(); selTier("standard");
+(function(){const s=document.createElement("script"); s.src="i18n-extra.js"; s.async=true;
+  s.onload=()=>{Object.assign(I18N,window.I18N_EXTRA||{}); extraReady=true; lang=detect(); render(); offerSwitch();};
+  s.onerror=()=>{extraReady=true; render(); offerSwitch();};
+  document.head.appendChild(s);})();
 </script>
 </body>
 </html>
