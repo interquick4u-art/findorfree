@@ -35,6 +35,11 @@ a{color:var(--accent)}
 footer{border-top:1px solid var(--line);margin-top:50px;padding:24px 0 40px;color:var(--muted);font-size:13px}
 [data-l]{display:none}
 html[lang=he] [data-l=he],html[lang=en] [data-l=en],html[lang=ru] [data-l=ru]{display:block}
+.cf label{display:block;font-size:14px;color:var(--muted);margin:12px 0 4px}
+.cf input,.cf textarea{width:100%;background:#0e1530;border:1px solid var(--line);border-radius:10px;color:var(--ink);padding:10px 12px;font:inherit}
+.cf textarea{min-height:70px}
+.cf button{margin-top:14px;background:var(--accent);color:#1a1200;border:0;border-radius:999px;padding:11px 20px;font-weight:600;font:inherit;font-weight:600;cursor:pointer}
+.cf .msg{margin-top:10px;font-size:14px}
 </style>
 </head>
 <body>
@@ -49,11 +54,22 @@ html[lang=he] [data-l=he],html[lang=en] [data-l=en],html[lang=ru] [data-l=ru]{di
 <div data-l="he">
 <h1>תקנון ומדיניות</h1>
 <p class="muted">עודכן לאחרונה: 15 בנובמבר 2026</p>
-<div class="tabs"><a href="#terms">תקנון השימוש</a><a href="#refund">מדיניות ביטולים והחזרים</a><a href="#privacy">מדיניות פרטיות</a><a href="#contact">פרטי העסק</a></div>
+<div class="tabs"><a href="#cancel">ביטול עסקה</a><a href="#terms">תקנון השימוש</a><a href="#refund">מדיניות ביטולים והחזרים</a><a href="#privacy">מדיניות פרטיות</a><a href="#contact">פרטי העסק</a></div>
 
 <div class="card" id="contact">
 <h3>פרטי העסק</h3>
 <p>שם העסק: י. ג. שיפוצים (FindOrFree)<br>עוסק מורשה מס' 319246708<br>כתובת: באר שבע, ישראל<br>דוא"ל לפניות לקוחות: <a href="mailto:support@findorfree.com">support@findorfree.com</a><br>אתר: findorfree.com</p>
+</div>
+<div class="card cf" id="cancel">
+<h3>ביטול עסקה</h3>
+<p>רוצים לבטל הזמנה? מלאו את הטופס ונאשר בדוא"ל תוך יום עסקים. אפשר גם לכתוב ל־support@findorfree.com.</p>
+<form class="cancelform" novalidate data-ok="הבקשה התקבלה. נאשר את הביטול בדוא&quot;ל תוך יום עסקים." data-err="השליחה לא הצליחה. כתבו לנו ל־support@findorfree.com." data-lang="he">
+<label for="ce-he">הדוא"ל שאיתו הזמנתם</label><input id="ce-he" name="email" type="email" required>
+<label for="co-he">מה הוזמן ומתי (או מספר הבקשה)</label><textarea id="co-he" name="order" required></textarea>
+<label for="cr-he">סיבה (לא חובה)</label><input id="cr-he" name="reason" type="text">
+<button type="submit">שליחת בקשת ביטול</button>
+<p class="msg" role="status"></p>
+</form>
 </div>
 
 <h2 id="terms">תקנון השימוש</h2>
@@ -108,11 +124,22 @@ html[lang=he] [data-l=he],html[lang=en] [data-l=en],html[lang=ru] [data-l=ru]{di
 <div data-l="en">
 <h1>Terms & Policies</h1>
 <p class="muted">Last updated: November 15, 2026</p>
-<div class="tabs"><a href="#terms-en">Terms of Service</a><a href="#refund-en">Refund & Cancellation</a><a href="#privacy-en">Privacy Policy</a><a href="#contact-en">Business details</a></div>
+<div class="tabs"><a href="#cancel-en">Cancel an order</a><a href="#terms-en">Terms of Service</a><a href="#refund-en">Refund & Cancellation</a><a href="#privacy-en">Privacy Policy</a><a href="#contact-en">Business details</a></div>
 
 <div class="card" id="contact-en">
 <h3>Business details</h3>
 <p>Business name: Y.G. Shiputsim (י. ג. שיפוצים), trading as FindOrFree<br>Israeli licensed dealer (Osek Murshe) No. 319246708<br>Address: Beer Sheva, Israel<br>Customer email: <a href="mailto:support@findorfree.com">support@findorfree.com</a><br>Website: findorfree.com</p>
+</div>
+<div class="card cf" id="cancel-en">
+<h3>Cancel an order</h3>
+<p>Want to cancel an order? Fill in the form and we will confirm by email within one business day. You can also write to support@findorfree.com.</p>
+<form class="cancelform" novalidate data-ok="Request received. We will confirm the cancellation by email within one business day." data-err="Sending failed. Please write to support@findorfree.com." data-lang="en">
+<label for="ce-en">Email you ordered with</label><input id="ce-en" name="email" type="email" required>
+<label for="co-en">What you ordered and when (or request number)</label><textarea id="co-en" name="order" required></textarea>
+<label for="cr-en">Reason (optional)</label><input id="cr-en" name="reason" type="text">
+<button type="submit">Send cancellation request</button>
+<p class="msg" role="status"></p>
+</form>
 </div>
 
 <h2 id="terms-en">Terms of Service</h2>
@@ -165,11 +192,22 @@ html[lang=he] [data-l=he],html[lang=en] [data-l=en],html[lang=ru] [data-l=ru]{di
 <div data-l="ru">
 <h1>Условия и правила</h1>
 <p class="muted">Обновлено: 15 ноября 2026</p>
-<div class="tabs"><a href="#terms-ru">Условия пользования</a><a href="#refund-ru">Отмена и возврат</a><a href="#privacy-ru">Конфиденциальность</a><a href="#contact-ru">Данные бизнеса</a></div>
+<div class="tabs"><a href="#cancel-ru">Отмена заказа</a><a href="#terms-ru">Условия пользования</a><a href="#refund-ru">Отмена и возврат</a><a href="#privacy-ru">Конфиденциальность</a><a href="#contact-ru">Данные бизнеса</a></div>
 
 <div class="card" id="contact-ru">
 <h3>Данные бизнеса</h3>
 <p>Название: י. ג. שיפוצים (Y.G. Shiputsim), бренд FindOrFree<br>Осек мурше (зарегистрированный предприниматель, Израиль) № 319246708<br>Адрес: Беэр-Шева, Израиль<br>Почта для клиентов: <a href="mailto:support@findorfree.com">support@findorfree.com</a><br>Сайт: findorfree.com</p>
+</div>
+<div class="card cf" id="cancel-ru">
+<h3>Отмена заказа</h3>
+<p>Хотите отменить заказ? Заполните форму, и мы подтвердим отмену по почте в течение рабочего дня. Можно также написать на support@findorfree.com.</p>
+<form class="cancelform" novalidate data-ok="Запрос получен. Подтвердим отмену по почте в течение рабочего дня." data-err="Не удалось отправить. Напишите нам на support@findorfree.com." data-lang="ru">
+<label for="ce-ru">Почта, с которой вы заказывали</label><input id="ce-ru" name="email" type="email" required>
+<label for="co-ru">Что заказано и когда (или номер заявки)</label><textarea id="co-ru" name="order" required></textarea>
+<label for="cr-ru">Причина (не обязательно)</label><input id="cr-ru" name="reason" type="text">
+<button type="submit">Отправить запрос на отмену</button>
+<p class="msg" role="status"></p>
+</form>
 </div>
 
 <h2 id="terms-ru">Условия пользования</h2>
@@ -222,6 +260,15 @@ let l='he';try{const s=localStorage.getItem('fof_lang');if(s==='en'||s==='ru'||s
 const q=new URLSearchParams(location.search).get('lang');if(['he','en','ru'].includes(q))l=q;
 setL(l);document.getElementById('y').textContent=new Date().getFullYear();
 function go(){const h=location.hash.slice(1).replace(/-(en|ru)$/,'');if(!h)return;const lg=document.documentElement.lang;const el=document.getElementById(lg==='he'?h:h+'-'+lg);if(el)el.scrollIntoView();}
+
+document.querySelectorAll('.cancelform').forEach(f=>f.addEventListener('submit',async e=>{e.preventDefault();
+const m=f.querySelector('.msg'),em=f.email.value.trim(),od=f.order.value.trim();
+if(!/\S+@\S+\.\S+/.test(em)){f.email.focus();return}if(!od){f.order.focus();return}
+const b=f.querySelector('button');b.disabled=true;const fd=new FormData();
+fd.append('access_key','0ad34af6-e6b2-4814-a5aa-7f0a5641ce1d');fd.append('subject','[FindOrFree] CANCELLATION request');fd.append('from_name','FindOrFree website');
+fd.append('email',em);fd.append('order',od);fd.append('reason',f.reason.value.trim());fd.append('language',f.dataset.lang);fd.append('sent_at',new Date().toISOString());
+let ok=false;try{const r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Accept':'application/json'},body:fd});let j={};try{j=await r.json()}catch(_){}ok=r.ok&&j.success!==false}catch(_){}
+m.textContent=ok?f.dataset.ok:f.dataset.err;if(ok)f.reset();b.disabled=false}));
 setTimeout(go,50);document.querySelector('.lang').addEventListener('click',()=>setTimeout(go,50));
 </script>
 </body>
