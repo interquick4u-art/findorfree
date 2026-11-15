@@ -341,7 +341,7 @@ footer{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--muted);f
 
 <footer class="wrap">
   <div>© <span id="year">2026</span> FindOrFree</div>
-  <div id="contact">Contact: support@findorfree.com</div>
+  <div id="contact">Contact: support@findorfree.com · +972-52-672-1224 · 19 Greenfield St, Beer Sheva, Israel</div>
   <div class="social"><a href="https://t.me/findorfree" target="_blank" rel="noopener">Telegram</a> · <a href="https://www.tiktok.com/@findorfree" target="_blank" rel="noopener">TikTok</a> · <a href="https://www.youtube.com/@FindOrFree" target="_blank" rel="noopener">YouTube</a> · <a href="https://www.instagram.com/findorfree" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.pinterest.com/findorfree" target="_blank" rel="noopener">Pinterest</a> · <a href="https://www.facebook.com/profile.php?id=61596478920132" target="_blank" rel="noopener">Facebook</a> · Facebook groups: <a href="https://www.facebook.com/groups/1727758362068518" target="_blank" rel="noopener">RU</a> · <a href="https://www.facebook.com/groups/1972602447419863" target="_blank" rel="noopener">HE</a> · <a href="https://www.facebook.com/groups/2185194859542007" target="_blank" rel="noopener">EN</a></div>
   <div class="legal"><a href="legal.html#terms" data-i18n="lg_terms">Terms of Service</a> · <a href="legal.html#refund" data-i18n="lg_refund">Refund policy</a> · <a href="legal.html#privacy" data-i18n="lg_privacy">Privacy</a> · <a href="legal.html#cancel" data-i18n="lg_cancel">Cancel an order</a> · <a href="tips/">Travel tips</a> · <a href="find-rental-apartment-abroad.html">Apartment abroad</a> · <a href="find-rare-product.html">Rare products</a> · <a href="find-supplier-abroad.html">Suppliers</a> · <a href="apartment-prague.html">Prague</a> · <a href="apartment-lisbon.html">Lisbon</a> · <a href="apartment-berlin.html">Berlin</a> · <a href="apartment-dubai.html">Dubai</a> · <a href="apartment-madrid.html">Madrid</a> · <a href="apartment-tel-aviv.html">Tel Aviv</a> · <a href="apartment-limassol.html">Limassol</a><br>🌐 <a href="ru/kvartira-za-granitsey.html" lang="ru">Квартира за границей</a> · <a href="he/dira-behul.html" lang="he">דירה בחו"ל</a> · <a href="uk/kvartyra-za-kordonom.html" lang="uk">Квартира за кордоном</a> · <a href="es/piso-en-el-extranjero.html" lang="es">Piso en el extranjero</a> · <a href="pt/apartamento-no-estrangeiro.html" lang="pt">Apartamento no estrangeiro</a> · <a href="de/wohnung-im-ausland.html" lang="de">Wohnung im Ausland</a> · <a href="fr/appartement-a-l-etranger.html" lang="fr">Appartement à l'étranger</a> · <a href="it/appartamento-all-estero.html" lang="it">Appartamento all'estero</a></div>
 </footer>
@@ -350,7 +350,9 @@ footer{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--muted);f
 <script>
 /* ===== НАСТРОЙКИ (меняются в одном месте) ===== */
 const CONFIG = {
-  email: "support@findorfree.com",       // публичный адрес для клиентов (пересылка в InterQuick)
+  email: "support@findorfree.com",
+  phone: "+972-52-672-1224",
+  address: {he:"רחוב גרינפילד 19, באר שבע, ישראל",en:"19 Greenfield St, Beer Sheva, Israel",ru:"ул. Гринфилд 19, Беэр-Шева, Израиль"},       // публичный адрес для клиентов (пересылка в InterQuick)
   whatsapp: "",                           // например "9725XXXXXXX" — без плюса; пусто = кнопка WhatsApp скрыта
   formEndpoint: "https://api.web3forms.com/submit", // бесплатная отправка заявок на почту (Web3Forms; FormSubmit перестал отвечать 06.11.2026)
   web3formsKey: "0ad34af6-e6b2-4814-a5aa-7f0a5641ce1d",       // ключ доступа Web3Forms (приходит на interquick4u@gmail.com)
@@ -579,7 +581,7 @@ function render(){
   if(!extraReady&&langEl.children.length){langEl.querySelectorAll("button").forEach(b=>b.classList.toggle("on",b.dataset.l===lang));}
   else langEl.innerHTML=MAIN_LANGS.map(k=>`<button class="${k===lang?'on':''}" data-l="${k}">${I18N[k].name}</button>`).join("")
     +(extra.length?`<select class="${extra.includes(lang)?'on':''}" aria-label="Language"><option value="">🌐${extra.includes(lang)?' '+I18N[lang].name:''}</option>${extra.map(k=>`<option value="${k}"${k===lang?' selected':''}>${I18N[k].name}</option>`).join("")}</select>`:"");
-  document.getElementById("contact").textContent=t("contact")+" "+CONFIG.email;
+  document.getElementById("contact").textContent=t("contact")+" "+CONFIG.email+(CONFIG.phone?" · "+CONFIG.phone:"")+(CONFIG.address?" · "+(CONFIG.address[lang]||CONFIG.address.en):"");
   document.getElementById("year").textContent=new Date().getFullYear();
 }
 function setLang(l){ if(!I18N[l]) return; hideSwitch(); lang=l; try{localStorage.setItem("fof_lang",lang);}catch(e){} render(); }
