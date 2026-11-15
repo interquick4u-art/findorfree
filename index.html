@@ -104,6 +104,8 @@ h2{font-family:var(--display);font-size:clamp(28px,4vw,40px);letter-spacing:-.02
 .price:hover,.price.sel{border-color:var(--accent);transform:translateY(-3px)}
 .price .amt{font-family:var(--display);font-size:44px;font-weight:800;letter-spacing:-.03em;margin:6px 0}
 .price .amt small{font-size:16px;color:var(--muted);font-weight:500;font-family:var(--font)}
+.price .loc,.tier .loc{display:block;font-family:var(--font);font-size:14px;font-weight:500;color:var(--muted);letter-spacing:0;margin-top:2px}
+.tier .loc{font-size:11px;margin:0}
 .price ul{margin:14px 0 0;padding:0;list-style:none}
 .price li{color:var(--muted);font-size:14px;padding:5px 0;padding-inline-start:22px;position:relative}
 .price li:before{content:"✓";position:absolute;inset-inline-start:0;color:var(--ok);font-weight:700}
@@ -572,6 +574,27 @@ function offerSwitch(){
   document.getElementById("sw_no").onclick=()=>{hideSwitch(); setLang("en");};
 }
 function t(k){return I18N[lang][k]??I18N.en[k]??"";}
+/* Примерная цена в местной валюте по часовому поясу посетителя. Оплата всё равно в USD (или ₪ в Израиле). Курсы примерные, обновлять раз в месяц. */
+const LOCAL={rates:{EUR:.86,GBP:.76,CZK:21,PLN:3.65,UAH:41.5,AED:3.67,CAD:1.39,AUD:1.53,NZD:1.7,BRL:5.4,MXN:18.6,CHF:.8,TRY:41,INR:88,SGD:1.3,JPY:150,SEK:9.5,NOK:10.1,DKK:6.4,HUF:340,RON:4.35,GEL:2.7,BGN:1.68,THB:33,ZAR:17.5,ARS:1400,CLP:950,COP:3900},
+ tz:{"Europe/London":"GBP","Europe/Dublin":"EUR","Europe/Prague":"CZK","Europe/Warsaw":"PLN","Europe/Kyiv":"UAH","Europe/Kiev":"UAH","Asia/Dubai":"AED","Europe/Zurich":"CHF","Europe/Istanbul":"TRY","Asia/Kolkata":"INR","Asia/Calcutta":"INR","Asia/Singapore":"SGD","Asia/Tokyo":"JPY","Europe/Stockholm":"SEK","Europe/Oslo":"NOK","Europe/Copenhagen":"DKK","Europe/Budapest":"HUF","Europe/Bucharest":"RON","Asia/Tbilisi":"GEL","Europe/Sofia":"BGN","Asia/Bangkok":"THB","Africa/Johannesburg":"ZAR","America/Sao_Paulo":"BRL","America/Mexico_City":"MXN","America/Toronto":"CAD","America/Vancouver":"CAD","America/Montreal":"CAD","America/Edmonton":"CAD","America/Winnipeg":"CAD","America/Halifax":"CAD","America/Buenos_Aires":"ARS","America/Argentina/Buenos_Aires":"ARS","America/Santiago":"CLP","America/Bogota":"COP","Pacific/Auckland":"NZD"},
+ euro:["Berlin","Paris","Madrid","Rome","Lisbon","Amsterdam","Brussels","Vienna","Athens","Helsinki","Tallinn","Riga","Vilnius","Bratislava","Ljubljana","Zagreb","Luxembourg","Malta","Monaco","Nicosia","Asia/Nicosia","Asia/Famagusta","Atlantic/Madeira","Atlantic/Canary"],
+ word:{en:"approx.",ru:"примерно",he:"בערך",es:"aprox.",de:"ca.",fr:"env.",it:"circa",pt:"aprox.",uk:"приблизно",tr:"yaklaşık",ar:"تقريبًا",zh:"约",ja:"約"},
+ il:{en:"in Israel",ru:"в Израиле",es:"en Israel",de:"in Israel",fr:"en Israël",it:"in Israele",pt:"em Israel",uk:"в Ізраїлі",tr:"İsrail'de",ar:"في إسرائيل",zh:"以色列",ja:"イスラエル"},
+ cur:null};
+(()=>{try{const z=Intl.DateTimeFormat().resolvedOptions().timeZone||"";
+ if(z==="Asia/Jerusalem"||z==="Asia/Tel_Aviv"){LOCAL.cur="ILS";return;}
+ if(z.startsWith("Australia/")){LOCAL.cur="AUD";return;}
+ if(LOCAL.tz[z]){LOCAL.cur=LOCAL.tz[z];return;}
+ if(LOCAL.euro.some(c=>z===c||z==="Europe/"+c)) LOCAL.cur="EUR";
+}catch(e){}})();
+function localPrice(x){
+ const c=LOCAL.cur; if(!c||lang==="he") return "";
+ const loc=I18N[lang]&&I18N[lang].dir==="rtl"?"en":lang;
+ const f=(v,cc)=>new Intl.NumberFormat(loc,{style:"currency",currency:cc,currencyDisplay:"narrowSymbol",maximumFractionDigits:0}).format(v);
+ if(c==="ILS") return (LOCAL.il[lang]||LOCAL.il.en)+" "+f(CONFIG.pricesILS[x],"ILS");
+ const r=LOCAL.rates[c]; if(!r) return "";
+ return (LOCAL.word[lang]||LOCAL.word.en)+" "+f(CONFIG.prices[x]*r,c);
+}
 function money(x){return lang==="he"?"₪"+CONFIG.pricesILS[x]:"$"+CONFIG.prices[x];}
 function render(){
   const d=I18N[lang];
@@ -584,7 +607,7 @@ function render(){
   else langEl.innerHTML=MAIN_LANGS.map(k=>`<button class="${k===lang?'on':''}" data-l="${k}">${I18N[k].name}</button>`).join("")
     +(extra.length?`<select class="${extra.includes(lang)?'on':''}" aria-label="Language"><option value="">🌐${extra.includes(lang)?' '+I18N[lang].name:''}</option>${extra.map(k=>`<option value="${k}"${k===lang?' selected':''}>${I18N[k].name}</option>`).join("")}</select>`:"");
   (()=>{const c=document.getElementById("contact");c.textContent=t("contact")+" "+CONFIG.email;if(CONFIG.phone){c.append(" · ");const b=document.createElement("bdi");b.dir="ltr";b.textContent=CONFIG.phone;c.append(b);}if(CONFIG.address)c.append(" · "+(CONFIG.address[lang]||CONFIG.address.en));})();
-  ["simple","standard","deep"].forEach(x=>{document.querySelectorAll(`.price[data-tier="${x}"] .amt,.tier[data-tier="${x}"] b`).forEach(el=>{el.textContent=money(x);});});
+  ["simple","standard","deep"].forEach(x=>{document.querySelectorAll(`.price[data-tier="${x}"] .amt,.tier[data-tier="${x}"] b`).forEach(el=>{el.textContent=money(x);});const lp=localPrice(x);document.querySelectorAll(`.price[data-tier="${x}"] .amt,.tier[data-tier="${x}"] b`).forEach(el=>{let l=el.nextElementSibling;if(!(l&&l.classList.contains("loc")))l=null;if(!lp){if(l)l.remove();return;}if(!l){l=document.createElement("span");l.className="loc";el.after(l);}l.textContent=lp;});});
   document.getElementById("year").textContent=new Date().getFullYear();
 }
 function setLang(l){ if(!I18N[l]) return; hideSwitch(); lang=l; try{localStorage.setItem("fof_lang",lang);}catch(e){} render(); }
