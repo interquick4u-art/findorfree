@@ -34,41 +34,41 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#000;font-family
 @keyframes fin{from{opacity:0}to{opacity:1}}
 @keyframes fout{from{opacity:1}to{opacity:0}}
 .sh{position:absolute;inset:0}
-#sh1{background:linear-gradient(180deg,#000b 0%,#0004 30%,#0003 55%,#000c 100%);animation:fout .15s linear 3.2s both}
-#shB{background:#000a;opacity:0;animation:fin .2s linear 1.75s both,fout .15s linear 3.2s both}
-#sh2{background:linear-gradient(180deg,#000d 0%,#0005 22%,#0002 40%,#000c 72%,#000e 100%);opacity:0;animation:fin .18s linear 3.2s both}
-#shD{background:#000000d8;opacity:0;animation:fin .3s linear 7.55s both}
+#sh1{background:linear-gradient(180deg,#0009 0%,#0005 35%,#0001 60%,#0006 100%);animation:fout .15s linear 3.2s both}
+#shB{background:#0006;opacity:0;animation:fin .2s linear 1.75s both,fout .15s linear 3.2s forwards}
+#sh2{background:linear-gradient(180deg,#000b 0%,#0005 22%,#0000 40%,#0005 60%,#0008 100%);opacity:0;animation:fin .18s linear 3.2s both}
+#shD{background:#000000b0;opacity:0;animation:fin .3s linear 7.55s both}
 .flash{position:absolute;inset:0;background:#fff;opacity:0;animation:fl .35s ease-out 3.15s both}
 @keyframes fl{0%{opacity:0}30%{opacity:.9}100%{opacity:0}}
 .sc{position:absolute;left:60px;right:60px}
-.ln{display:block;font-weight:900;line-height:1.08;text-shadow:0 6px 30px #000,0 0 8px #000c;opacity:0;animation:pop .28s cubic-bezier(.2,1.5,.4,1) both}
+.ln{display:block;font-weight:900;line-height:1.08;-webkit-text-stroke:3px #000;paint-order:stroke fill;text-shadow:0 6px 30px #000,0 0 14px #000,0 0 4px #000;opacity:0;animation:pop .28s cubic-bezier(.2,1.5,.4,1) both}
 @keyframes pop{from{opacity:0;transform:translateY(40px) scale(.9)}to{opacity:1;transform:none}}
-b{background:#ffd60a;color:#111;padding:0 18px;border-radius:14px;text-shadow:none;font-weight:900}
+b{background:#ffd60a;color:#111;padding:0 18px;border-radius:14px;text-shadow:none;-webkit-text-stroke:0;font-weight:900}
 i{font-style:normal;color:#ff4d4d}
 u{text-decoration:none;color:#ffd60a}
-#A{top:330px;animation:fout .12s linear 1.7s both}
-#A .ln{font-size:92px;margin-bottom:26px}
+#A{top:300px;animation:fout .12s linear 1.7s both}
+#A .ln{font-size:118px;margin-bottom:30px}
 #A .ln:nth-child(1){animation:none;opacity:1}
-#A .ln:nth-child(2){animation-delay:.45s}#A .ln:nth-child(3){animation-delay:.95s;font-size:98px}
-#B{top:560px;text-align:center;animation:fout .12s linear 3.17s both}
-#B .ln{font-size:84px;margin-bottom:20px}
-#B .ln:nth-child(1){animation-delay:1.8s}#B .ln:nth-child(2){animation-delay:2.1s}#B .ln:nth-child(3){animation-delay:2.5s;font-size:${l==='ru'&&v.pre?96:150}px;margin-top:20px}
+#A .ln:nth-child(2){animation-delay:.45s}#A .ln:nth-child(3){animation-delay:.95s;font-size:124px}
+#B{top:480px;text-align:center;animation:fout .12s linear 3.17s both}
+#B .ln{font-size:100px;margin-bottom:20px}
+#B .ln:nth-child(1){animation-delay:1.8s}#B .ln:nth-child(2){animation-delay:2.1s}#B .ln:nth-child(3){animation-delay:2.5s;font-size:${v.pre?112:190}px;margin-top:20px}
 #C{top:120px;animation:fout .15s linear 7.5s both}
 .chip{display:inline-block;font-size:36px;font-weight:700;background:#fff;color:#111;border-radius:50px;padding:14px 34px;opacity:0;animation:pop .25s ease 3.3s both}
 .num{font-size:${v.pre?150:230}px;font-weight:900;line-height:1;margin-top:26px;color:#ffd60a;text-shadow:0 8px 40px #000,0 0 10px #000;opacity:0;animation:pop .25s ease 3.4s both;font-variant-numeric:tabular-nums}
 .lab{font-size:44px;font-weight:800;margin-top:10px;text-shadow:0 4px 20px #000,0 0 8px #000;opacity:0;animation:pop .25s ease 3.55s both}
-#cards{position:absolute;left:50px;right:50px;top:${n===4?930:1010}px;animation:fout .15s linear 7.5s both}
+#cards{position:absolute;left:50px;right:50px;top:${n===4?860:960}px;animation:fout .15s linear 7.5s both}
 .card{display:flex;align-items:center;gap:20px;background:#fffffff2;color:#111;border-radius:30px;padding:24px 28px;margin-bottom:20px;box-shadow:0 14px 40px #0009;opacity:0;animation:cin .3s cubic-bezier(.2,1.4,.4,1) both}
 @keyframes cin{from{opacity:0;transform:translateX(-120px)}to{opacity:1;transform:none}}
-.ct{flex:1;min-width:0}.c1{font-size:39px;font-weight:800;line-height:1.15}.c2{font-size:32px;font-weight:600;color:#555;margin-top:6px;line-height:1.2}
-.note{background:#fff3cdf5}.note .c2{color:#4a3b00;font-size:34px;font-weight:700;margin:0}
-.bd{font-size:46px;font-weight:900;background:#16a34a;color:#fff;border-radius:22px;padding:14px 24px;white-space:nowrap;opacity:0;animation:stamp .25s cubic-bezier(.2,1.8,.4,1) both}
+.ct{flex:1;min-width:0}.c1{font-size:45px;font-weight:800;line-height:1.15}.c2{font-size:35px;font-weight:600;color:#555;margin-top:6px;line-height:1.2}
+.note{background:#fff3cdf5}.note .c2{color:#4a3b00;font-size:38px;font-weight:700;margin:0}
+.bd{font-size:56px;font-weight:900;background:#16a34a;color:#fff;border-radius:22px;padding:14px 24px;white-space:nowrap;opacity:0;animation:stamp .25s cubic-bezier(.2,1.8,.4,1) both}
 .warn{background:#d97706;animation-delay:5.3s}
 @keyframes stamp{from{opacity:0;transform:scale(2.2) rotate(-12deg)}to{opacity:1;transform:rotate(-4deg)}}
-.src{position:absolute;left:50px;right:50px;bottom:120px;font-size:24px;font-weight:600;color:#fffc;text-shadow:0 2px 8px #000;opacity:0;animation:fin .3s linear 3.6s both,fout .15s linear 7.5s both}
-#D{top:470px;text-align:center}
-#D .ln{font-size:80px;margin-bottom:60px;line-height:1.2}
-#D .ln:nth-child(1){animation-delay:7.65s}#D .ln:nth-child(2){animation-delay:8.3s;font-size:62px;font-weight:800}
+.src{position:absolute;left:50px;right:50px;bottom:150px;font-size:26px;font-weight:700;color:#fff;text-shadow:0 2px 8px #000,0 0 4px #000;opacity:0;animation:fin .3s linear 3.6s both,fout .15s linear 7.5s forwards}
+#D{top:520px;text-align:center}
+#D .ln{font-size:96px;margin-bottom:60px;line-height:1.2}
+#D .ln:nth-child(1){animation-delay:7.65s}#D .ln:nth-child(2){animation-delay:8.3s;font-size:68px;font-weight:800}
 .cta{display:inline-block;margin-top:30px;font-size:84px;font-weight:900;background:#ffd60a;color:#111;border-radius:40px;padding:26px 50px;opacity:0;animation:pop .3s cubic-bezier(.2,1.6,.4,1) 8.8s both}
 .offer{font-size:46px;font-weight:800;margin-top:44px;color:#fff;opacity:0;animation:pop .3s ease 9.15s both}
 </style></head><body>
