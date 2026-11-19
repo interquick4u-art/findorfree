@@ -95,7 +95,7 @@ function S(id,o,tr){const e=$(id);e.style.opacity=o;if(tr!==undefined)e.style.tr
 window.setT=t=>{
  // --- A: pain + box typing
  const inA=t<TL.B, inE2=t>=TL.box2;
- const sl=k(t,0,0.2);S('pain',inA?1-k(t,TL.B-0.12,TL.B):0,'scale('+(1.18-0.18*eo(sl))+')');
+ const sl=k(t,0,0.2);S('pain',inA?1-k(t,TL.B-0.12,TL.B):0,'scale('+(1.06-0.06*eo(sl))+')');
  let boxO=0,boxT='none',txt='';
  if(inA){boxO=1-k(t,TL.B-0.12,TL.B);const n=Math.floor(cl((t-TL.typ0)/(TL.typ1-TL.typ0))*(Q.length-1))+(t>=TL.typ0?1:0);txt=Q.slice(0,n);
   const p=k(t,TL.enter,TL.enter+0.16);boxT='scale('+(1-0.03*Math.sin(p*Math.PI))+')';}
