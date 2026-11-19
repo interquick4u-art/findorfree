@@ -705,5 +705,18 @@ lang=detect(); render(); selTier("standard");
   s.onerror=()=>{extraReady=true; render(); offerSwitch();};
   document.head.appendChild(s);})();
 </script>
+<script id="paid-js">
+/* Возврат со страницы оплаты PayPlus: ?paid=1 — успех, ?paid=0 — не прошло */
+(()=>{const q=new URLSearchParams(location.search).get("paid");if(q!=="1"&&q!=="0")return;
+const T={en:["✅ Payment received. Thank you! We have started on your request and will reply by email.","Payment didn't go through. No money was taken. Try again with the link from our email, or write to support@findorfree.com."],
+ru:["✅ Оплата получена, спасибо! Мы уже начали ваш поиск и ответим на почту.","Оплата не прошла, деньги не списаны. Попробуйте ещё раз по ссылке из письма или напишите на support@findorfree.com."],
+he:["✅ התשלום התקבל, תודה! התחלנו לעבוד על הבקשה ונענה במייל.","התשלום לא עבר, לא חויבתם. נסו שוב מהקישור במייל או כתבו ל-support@findorfree.com."]};
+const L=(typeof lang!=="undefined"&&T[lang])?lang:((navigator.language||"en").slice(0,2) in T?(navigator.language||"en").slice(0,2):"en");
+const d=document.createElement("div");d.setAttribute("role","status");d.dir=L==="he"?"rtl":"ltr";
+d.style.cssText="position:fixed;left:12px;right:12px;top:12px;z-index:9999;padding:"+(L==="he"?"14px 16px 14px 44px":"14px 44px 14px 16px")+";border-radius:14px;font:600 15px/1.5 system-ui,sans-serif;box-shadow:0 8px 30px rgba(0,0,0,.4);"+(q==="1"?"background:#1f7a4a;color:#fff":"background:#7a2e1f;color:#fff");
+d.textContent=T[L][q==="1"?0:1];const x=document.createElement("button");x.type="button";x.textContent="×";x.setAttribute("aria-label","close");
+x.style.cssText="position:absolute;top:8px;"+(L==="he"?"left":"right")+":10px;background:none;border:0;color:#fff;font-size:22px;cursor:pointer";x.onclick=()=>d.remove();d.append(x);document.body.append(d);
+try{history.replaceState(null,"",location.pathname+location.hash);}catch(e){}})();
+</script>
 </body>
 </html>
