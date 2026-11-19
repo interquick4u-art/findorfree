@@ -19,7 +19,7 @@ function events(v,l){const d=v[l];const ev=[];const n=d.q.length;
  ev.push(['enter',TL.enter]);
  v.wins.forEach((w,i)=>{const t=TL.B+TL.win*i;ev.push(['whoosh',t]);
   for(let k=0;k<6;k++)ev.push(['tick',t+0.14+k*0.045]);ev.push(['click',t+0.56]);});
- ev.push(['riser',TL.C]);ev.push(['hit',TL.D]);ev.push(['stamp',TL.stamp]);ev.push(['whoosh',TL.E]);ev.push(['pop',TL.E+0.2]);ev.push(['whoosh2',TL.box2]);
+ ev.push(['riser',TL.C]);ev.push(['hit',TL.D]);ev.push(['stamp',TL.stamp]);ev.push(['slam',0.0]);[0.75,0.95,1.12].forEach(x=>ev.push(['pop',TL.D+x]));ev.push(['shim',TL.D+1.35]);ev.push(['whoosh',TL.E]);ev.push(['pop',TL.E+0.2]);ev.push(['whoosh2',TL.box2]);
  const step=0.05;for(let i=0;TL.typ2+i*step<TL.end-0.03&&i<d.q2.length;i++)if(d.q2[i]!==' ')ev.push(['key',TL.typ2+i*step]);
  return ev;}
 function html(v,l){const d=v[l];
@@ -34,7 +34,7 @@ body{background:radial-gradient(1200px 900px at 50% 38%,#1b2a66 0%,#0e1530 55%,#
 .grid{position:absolute;inset:0;background-image:linear-gradient(#ffffff0a 2px,transparent 2px),linear-gradient(90deg,#ffffff0a 2px,transparent 2px);background-size:90px 90px}
 .abs{position:absolute}
 i{font-style:normal;color:#ff5a4d}
-#pain{left:60px;right:60px;top:${l==='ru'?200:250}px;font-size:${l==='ru'?84:104}px;font-weight:900;line-height:1.12;text-shadow:0 6px 30px #000}
+#pain{transform-origin:0 50%;left:60px;right:60px;top:${l==='ru'?200:250}px;font-size:${l==='ru'?84:104}px;font-weight:900;line-height:1.12;text-shadow:0 6px 30px #000}
 #box{left:60px;width:960px;top:560px;min-height:470px;background:#fff;border-radius:52px;border:9px solid #ff7a59;padding:44px 50px;box-shadow:0 0 0 14px #ff7a5933,0 30px 80px #000a}
 .find{font-size:36px;font-weight:900;letter-spacing:6px;color:#ff7a59;margin-bottom:18px}
 .q{font-size:${d.fs}px;font-weight:800;color:#0b1020;line-height:1.13;word-break:break-word}
@@ -95,7 +95,7 @@ function S(id,o,tr){const e=$(id);e.style.opacity=o;if(tr!==undefined)e.style.tr
 window.setT=t=>{
  // --- A: pain + box typing
  const inA=t<TL.B, inE2=t>=TL.box2;
- S('pain',inA?1-k(t,TL.B-0.12,TL.B):0);
+ const sl=k(t,0,0.2);S('pain',inA?1-k(t,TL.B-0.12,TL.B):0,'scale('+(1.18-0.18*eo(sl))+')');
  let boxO=0,boxT='none',txt='';
  if(inA){boxO=1-k(t,TL.B-0.12,TL.B);const n=Math.floor(cl((t-TL.typ0)/(TL.typ1-TL.typ0))*(Q.length-1))+(t>=TL.typ0?1:0);txt=Q.slice(0,n);
   const p=k(t,TL.enter,TL.enter+0.16);boxT='scale('+(1-0.03*Math.sin(p*Math.PI))+')';}

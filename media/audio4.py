@@ -65,7 +65,10 @@ for k,t in ev:
     elif k=='riser':add(t,riser(1.1),0.8)
     elif k=='hit':add(t,hit(),0.75)
     elif k=='stamp':add(t,cash(),0.9)
-    elif k=='pop':add(t,pop(),0.5)
+    elif k=='pop':add(t,pop(),0.42)
+    elif k=='slam':add(t,tone(70,int(SR*0.25),18)*1.2+np.pad(bp(noise(int(SR*0.05)),300,5000)*env(int(SR*0.05),0.0005,70),(0,int(SR*0.2))),0.8)
+    elif k=='shim':
+        for j,f in enumerate([2637,3136,3951,4699]):add(t+j*0.11,bell(f,0.7,7),0.13)
 # soft room tone so silence isn't digital zero
 buf+=bp(noise(len(buf)),80,900)*0.004
 x=buf[:int(SR*D)];x=np.tanh(x*1.3);x/=max(1e-9,np.abs(x).max());x*=0.93
