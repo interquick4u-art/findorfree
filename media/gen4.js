@@ -41,7 +41,27 @@ pharm:{img:'pharm.png',price:'24/7',title:'Dubai · 208 pharmacies',
  ru:{pain:'3 ночи в Дубае. <i>У ребёнка температура.</i>',find:'НАЙДИТЕ МНЕ',q:'Аптека, открытая прямо сейчас, Дубай',btn:'ИСКАТЬ',
   hdr:'Ищем на 4 языках',chk:'Проверяем часы работы…',found:'НАЙДЕНО',sub:'Больше всего: Аль-Барша, Дейра',
   src:'zavis.ai, индекс от 10.11.2026 · фото: иллюстрация',
-  g1:'Не нашли?',g2:'Вернём деньги.',q2:'Сиденье водителя для Volvo 940 1994 года',fs:82}},};
+  g1:'Не нашли?',g2:'Вернём деньги.',q2:'Сиденье водителя для Volvo 940 1994 года',fs:82}},
+w124:{img:'w124.png',price:'38 zł',title:'Kierunkowskaz W124 · Żory',
+ wins:[['PL','Polski','kierunkowskaz W124 przedni'],['DE','Deutsch','Blinker vorne W124'],['NL','Nederlands','knipperlicht W124 voor'],['GB','English','W124 front indicator']],
+ en:{pain:'Dealer: <i>“A 1980s Mercedes? No parts.”</i>',find:'FIND ME',q:'Front right indicator for my Mercedes W124',btn:'SEARCH',
+  hdr:'Searching in 4 languages',chk:'Checking listings…',found:'FOUND',sub:'New part · seller in Poland',
+  src:'otomoto.pl, listed 17 Nov 2026 · about €9 · photo: illustration',
+  g1:'Not found?',g2:'Full refund.',q2:'2-room flat in Valencia old town',fs:86},
+ ru:{pain:'В сервисе: <i>«На Mercedes 80-х деталей нет»</i>',find:'НАЙДИТЕ МНЕ',q:'Передний правый поворотник на Mercedes W124',btn:'ИСКАТЬ',
+  hdr:'Ищем на 4 языках',chk:'Проверяем объявления…',found:'НАЙДЕНО',sub:'Новая деталь · продавец в Польше',
+  src:'otomoto.pl, объявление от 17.11.2026 · фото: иллюстрация',
+  g1:'Не нашли?',g2:'Вернём деньги.',q2:'Двушка в старом городе Валенсии',fs:78}},
+valencia:{img:'valencia.png',price:'€1,650',title:'El Pilar · 71 m² · balcony',
+ wins:[['ES','Español','piso 2 habitaciones Ciutat Vella'],['GB','English','2 room flat Valencia old town'],['RU','Русский','квартира Валенсия старый город'],['DE','Deutsch','Wohnung Valencia Altstadt']],
+ en:{pain:'Moving to Valencia? <i>Rents are a maze.</i>',find:'FIND ME',q:'2-room flat in Valencia old town, monthly',btn:'SEARCH',
+  hdr:'Searching in 4 languages',chk:'Checking listings…',found:'FOUND',sub:'2 rooms · per month · old town',
+  src:'habitaclia.com, checked 20 Nov 2026 · photo: illustration',
+  g1:'Not found?',g2:'Full refund.',q2:'Front right indicator for my Mercedes W124',fs:86},
+ ru:{pain:'Переезд в Валенсию? <i>С арендой запутаться легко.</i>',find:'НАЙДИТЕ МНЕ',q:'Двушка в старом городе Валенсии, помесячно',btn:'ИСКАТЬ',
+  hdr:'Ищем на 4 языках',chk:'Проверяем объявления…',found:'НАЙДЕНО',sub:'2 комнаты · в месяц · старый город',
+  src:'habitaclia.com, 20.11.2026 · фото: иллюстрация',
+  g1:'Не нашли?',g2:'Вернём деньги.',q2:'Передний поворотник на Mercedes W124',fs:78}},};
 // ---- timeline (seconds) ----
 const TL={typ0:0.12,typ1:1.38,enter:1.52,B:1.7,win:0.75,C:4.7,D:5.8,stamp:6.35,E:8.4,box2:8.85,typ2:9.2,end:10};
 function events(v,l){const d=v[l];const ev=[];const n=d.q.length;
