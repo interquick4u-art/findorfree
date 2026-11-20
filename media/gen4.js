@@ -35,11 +35,11 @@ lego:{img:'lego.png',price:'$1,349',title:'LEGO 10179 · Sakai, Japan',
 pharm:{img:'pharm.png',price:'24/7',title:'Dubai · 208 pharmacies',
  wins:[['GB','English','24 hour pharmacy Dubai'],['DE','Deutsch','Apotheke 24 Stunden Dubai'],['RU','Русский','круглосуточная аптека Дубай'],['FR','Français','pharmacie 24h/24 Dubaï']],
  en:{pain:'3 am in Dubai. <i>Kid has a fever.</i>',find:'FIND ME',q:'Pharmacy open right now in Dubai',btn:'SEARCH',
-  hdr:'Searching in 4 languages',chk:'Checking opening hours…',found:'FOUND',sub:'Most in Al Barsha and Deira',
+  hdr:'Searching in 4 languages',chk:'Checking opening hours…',found:'FOUND',sub:'Most 24/7 spots: Al Barsha, Deira',
   src:'zavis.ai after-hours index, 10 Nov 2026 · photo: illustration',
   g1:'Not found?',g2:'Full refund.',q2:'Driver seat for my 1994 Volvo 940',fs:94},
  ru:{pain:'3 ночи в Дубае. <i>У ребёнка температура.</i>',find:'НАЙДИТЕ МНЕ',q:'Аптека, открытая прямо сейчас, Дубай',btn:'ИСКАТЬ',
-  hdr:'Ищем на 4 языках',chk:'Проверяем часы работы…',found:'НАЙДЕНО',sub:'Больше всего в Аль-Барше и Дейре',
+  hdr:'Ищем на 4 языках',chk:'Проверяем часы работы…',found:'НАЙДЕНО',sub:'Больше всего: Аль-Барша, Дейра',
   src:'zavis.ai, индекс от 10.11.2026 · фото: иллюстрация',
   g1:'Не нашли?',g2:'Вернём деньги.',q2:'Сиденье водителя для Volvo 940 1994 года',fs:82}},};
 // ---- timeline (seconds) ----
