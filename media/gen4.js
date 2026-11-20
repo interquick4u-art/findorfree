@@ -189,6 +189,10 @@ window.setT=t=>{
  // --- E: guarantee + cta + box again (loop)
  const g=k(t,TL.E+0.1,TL.E+0.35),c=k(t,TL.E+0.3,TL.E+0.58);
  S('g',g,'translateY('+(1-back(g))*60+'px)');S('cta',cl(c*3),'scale('+(c<1?0.5+0.5*back(c):1+0.03*Math.sin((t-TL.E)*8))+')');
+brompton:{img:'brompton.png',price:'€800',title:'Brompton C Line · Belém',
+ wins:[['PT','Português','Brompton usada Lisboa'],['GB','English','used Brompton Lisbon'],['ES','Español','Brompton segunda mano Lisboa'],['FR','Français','Brompton occasion Lisbonne']],
+ en:{pain:'New Brompton in the shop: <i>“€2,000+”</i>',find:'FIND ME',q:'Used Brompton folding bike in Lisbon',btn:'SEARCH',hdr:'Searching in 4 languages',chk:'Checking listings…',found:'FOUND',sub:'Used · 2 gears · black/coral',src:'olx.pt, listed 17 Nov 2026 · Belém, Lisbon · photo: illustration',g1:'Not found?',g2:'Full refund.',q2:'Front right indicator for my Mercedes W124',fs:86},
+ ru:{pain:'Новый Brompton в магазине: <i>«от €2 000»</i>',find:'НАЙДИТЕ МНЕ',q:'Б/у складной Brompton в Лиссабоне',btn:'ИСКАТЬ',hdr:'Ищем на 4 языках',chk:'Проверяем объявления…',found:'НАЙДЕНО',sub:'Б/у · 2 скорости · чёрный/коралл',src:'olx.pt, объявление от 17.11.2026 · Белен, Лиссабон · фото: иллюстрация',g1:'Не нашли?',g2:'Вернём деньги.',q2:'Передний поворотник на Mercedes W124',fs:78}},
 };
 </script></body></html>`;}
 (async()=>{const want=process.argv[2];const stills=process.argv[3]==='stills';
