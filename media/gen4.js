@@ -11,7 +11,27 @@ volvo:{img:'seat.png',price:'€120',title:'Fahrersitz Volvo 940',
  ru:{pain:'В сервисе: <i>«Снято с производства»</i>',find:'НАЙДИТЕ МНЕ',q:'Сиденье водителя для Volvo 940 1994 года',btn:'ИСКАТЬ',
   hdr:'Ищем на 4 языках',chk:'Проверяем объявления…',found:'НАЙДЕНО',sub:'Дортмунд · объявление на немецком',
   src:'kleinanzeigen.de, 19.11.2026 · 56 объявлений с сиденьями Volvo 940 · фото: иллюстрация',
-  g1:'Не нашли?',g2:'Вернём деньги.',q2:'Такси из аэропорта Анталии в 3 ночи',fs:82}}};
+  g1:'Не нашли?',g2:'Вернём деньги.',q2:'Такси из аэропорта Анталии в 3 ночи',fs:82}},
+taxi:{img:'taxi.png',price:'€75',title:'Havalimanı → Kemer, 7/24',
+ wins:[['TR','Türkçe','gece transfer Antalya Kemer'],['DE','Deutsch','Nachttransfer Antalya Kemer'],['RU','Русский','трансфер Анталья Кемер ночью'],['GB','English','Antalya airport night transfer']],
+ en:{pain:'Landing at 3 am. <i>No taxi price.</i>',find:'FIND ME',q:'Taxi from Antalya airport to Kemer at 3 am',btn:'SEARCH',
+  hdr:'Searching in 4 languages',chk:'Checking prices…',found:'FOUND',sub:'Fixed price per car · up to 6 people · no night extra',
+  src:'kingsworldtransfer.com, 20 Nov 2026 · Mercedes Vito, 45–55 min · photo: illustration',
+  g1:'Not found?',g2:'Full refund.',q2:'LEGO Millennium Falcon 10179, retired',fs:86},
+ ru:{pain:'Прилёт в 3 ночи. <i>Цену такси никто не знает.</i>',find:'НАЙДИТЕ МНЕ',q:'Такси из аэропорта Анталии в Кемер в 3 ночи',btn:'ИСКАТЬ',
+  hdr:'Ищем на 4 языках',chk:'Сверяем цены…',found:'НАЙДЕНО',sub:'Цена за машину · до 6 человек · без ночной доплаты',
+  src:'kingsworldtransfer.com, 20.11.2026 · Mercedes Vito, 45–55 мин · фото: иллюстрация',
+  g1:'Не нашли?',g2:'Вернём деньги.',q2:'LEGO Millennium Falcon 10179, снят с продажи',fs:78}},
+lego:{img:'lego.png',price:'$1,349',title:'LEGO 10179 · Sakai, Japan',
+ wins:[['DE','Deutsch','LEGO 10179 gebraucht'],['IT','Italiano','LEGO 10179 usato'],['PL','Polski','LEGO 10179 używany'],['GB','English','LEGO 10179 used']],
+ en:{pain:'Store: <i>“Retired in 2009.”</i>',find:'FIND ME',q:'LEGO Millennium Falcon 10179, the big one',btn:'SEARCH',
+  hdr:'Searching in 4 languages',chk:'Checking listings…',found:'FOUND',sub:'Used, no box · seller in Japan · ships to Germany',
+  src:'ebay.de, 20 Nov 2026 · retail price €549.99 in 2007 · photo: illustration',
+  g1:'Not found?',g2:'Full refund.',q2:'Taxi from Antalya airport at 3 am',fs:86},
+ ru:{pain:'В магазине: <i>«Сняли с продажи в 2009-м»</i>',find:'НАЙДИТЕ МНЕ',q:'LEGO Millennium Falcon 10179, большой',btn:'ИСКАТЬ',
+  hdr:'Ищем на 4 языках',chk:'Проверяем объявления…',found:'НАЙДЕНО',sub:'Б/у, без коробки · продавец в Японии · доставка в Германию',
+  src:'ebay.de, 20.11.2026 · в 2007 году стоил €549,99 · фото: иллюстрация',
+  g1:'Не нашли?',g2:'Вернём деньги.',q2:'Такси из аэропорта Анталии в 3 ночи',fs:80}},};
 // ---- timeline (seconds) ----
 const TL={typ0:0.12,typ1:1.38,enter:1.52,B:1.7,win:0.75,C:4.7,D:5.8,stamp:6.35,E:8.4,box2:8.85,typ2:9.2,end:10};
 function events(v,l){const d=v[l];const ev=[];const n=d.q.length;
