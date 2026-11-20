@@ -31,7 +31,17 @@ lego:{img:'lego.png',price:'$1,349',title:'LEGO 10179 · Sakai, Japan',
  ru:{pain:'В магазине: <i>«Сняли с продажи в 2009-м»</i>',find:'НАЙДИТЕ МНЕ',q:'LEGO Millennium Falcon 10179, большой',btn:'ИСКАТЬ',
   hdr:'Ищем на 4 языках',chk:'Проверяем объявления…',found:'НАЙДЕНО',sub:'Б/у, без коробки · из Японии',
   src:'ebay.de, 20.11.2026 · в 2007 году стоил €549,99 · фото: иллюстрация',
-  g1:'Не нашли?',g2:'Вернём деньги.',q2:'Такси из аэропорта Анталии в 3 ночи',fs:80}},};
+  g1:'Не нашли?',g2:'Вернём деньги.',q2:'Такси из аэропорта Анталии в 3 ночи',fs:80}},
+pharm:{img:'pharm.png',price:'24/7',title:'Dubai · 208 pharmacies',
+ wins:[['GB','English','24 hour pharmacy Dubai'],['DE','Deutsch','Apotheke 24 Stunden Dubai'],['RU','Русский','круглосуточная аптека Дубай'],['FR','Français','pharmacie 24h/24 Dubaï']],
+ en:{pain:'3 am in Dubai. <i>Kid has a fever.</i>',find:'FIND ME',q:'Pharmacy open right now in Dubai',btn:'SEARCH',
+  hdr:'Searching in 4 languages',chk:'Checking opening hours…',found:'FOUND',sub:'Most in Al Barsha and Deira',
+  src:'zavis.ai after-hours index, 10 Nov 2026 · photo: illustration',
+  g1:'Not found?',g2:'Full refund.',q2:'Driver seat for my 1994 Volvo 940',fs:94},
+ ru:{pain:'3 ночи в Дубае. <i>У ребёнка температура.</i>',find:'НАЙДИТЕ МНЕ',q:'Аптека, открытая прямо сейчас, Дубай',btn:'ИСКАТЬ',
+  hdr:'Ищем на 4 языках',chk:'Проверяем часы работы…',found:'НАЙДЕНО',sub:'Больше всего в Аль-Барше и Дейре',
+  src:'zavis.ai, индекс от 10.11.2026 · фото: иллюстрация',
+  g1:'Не нашли?',g2:'Вернём деньги.',q2:'Сиденье водителя для Volvo 940 1994 года',fs:82}},};
 // ---- timeline (seconds) ----
 const TL={typ0:0.12,typ1:1.38,enter:1.52,B:1.7,win:0.75,C:4.7,D:5.8,stamp:6.35,E:8.4,box2:8.85,typ2:9.2,end:10};
 function events(v,l){const d=v[l];const ev=[];const n=d.q.length;
