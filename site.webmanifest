@@ -1,0 +1,12 @@
+{
+  "name": "FindOrFree — No find, no pay",
+  "short_name": "FindOrFree",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b1020",
+  "theme_color": "#0b1020",
+  "icons": [
+    {"src": "/favicon.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png"}
+  ]
+}
