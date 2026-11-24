@@ -89,7 +89,7 @@ vespa:{img:'vespa.png',price:'€3,600',title:'Vespa Primavera · Lisbon',
 jura:{img:'jura.png',price:'800 zł',title:'Jura E6 · Tychy, Poland',
  wins:[['PL','Polski','Jura E6 ekspres używany'],['DE','Deutsch','Jura E6 gebraucht'],['CZ','Čeština','Jura E6 kávovar bazar'],['GB','English','used Jura E6 Poland']],
  en:{pain:'New Jura E6: <i>“2,600 zł”</i>',find:'FIND ME',q:'Used Jura E6 coffee machine',btn:'SEARCH',hdr:'Searching in 4 languages',chk:'Checking listings…',found:'FOUND',sub:'Used · whole machine · about €190',src:'olx.pl, listed 12 Nov 2026 · photo: illustration',g1:'Not found?',g2:'Full refund.',q2:'A cheap used caravan in Europe',fs:86},
- ru:{pain:'Новая Jura E6: <i>«2 600 злотых»</i>',find:'НАЙДИТЕ МНЕ',q:'Б/у кофемашина Jura E6',btn:'ИСКАТЬ',hdr:'Ищем на 4 языках',chk:'Проверяем объявления…',found:'НАЙДЕНО',sub:'Б/у · целая машина · около 190 €',src:'olx.pl, объявление от 12.11.2026 · фото: иллюстрация',g1:'Не нашли?',g2:'Вернём деньги.',q2:'Недорогой б/у жилой прицеп в Европе',fs:78}},};
+ ru:{pain:'Новая Jura E6: <i>«2&nbsp;600&nbsp;злотых»</i>',find:'НАЙДИТЕ МНЕ',q:'Б/у кофемашина Jura E6',btn:'ИСКАТЬ',hdr:'Ищем на 4 языках',chk:'Проверяем объявления…',found:'НАЙДЕНО',sub:'Б/у · целая машина · около 190 €',src:'olx.pl, объявление от 12.11.2026 · фото: иллюстрация',g1:'Не нашли?',g2:'Вернём деньги.',q2:'Недорогой б/у жилой прицеп в Европе',fs:78}},};
 // ---- timeline (seconds) ----
 const TL={typ0:0.12,typ1:1.38,enter:1.52,B:1.7,win:0.75,C:4.7,D:5.8,stamp:6.35,E:8.4,box2:8.85,typ2:9.2,end:10};
 function events(v,l){const d=v[l];const ev=[];const n=d.q.length;
