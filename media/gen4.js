@@ -139,6 +139,32 @@ i{font-style:normal;color:#ff5a4d}
 #g u{text-decoration:none;color:#ffb347}
 #cta{left:0;right:0;top:385px;text-align:center;opacity:0}
 #cta span{display:inline-block;font-size:76px;font-weight:900;background:#ff7a59;color:#fff;border-radius:44px;padding:18px 54px;box-shadow:0 16px 50px #ff7a5977}
+${process.env.DARK==='1'?'':`
+/* light theme = site palette «A · Доверие» (24.11.2026) */
+html,body{color:#0f1d3a;background:#ffffff}
+body{background:radial-gradient(1200px 900px at 50% 38%,#ffffff 0%,#fbfaf7 60%,#f3f4f6 100%)}
+.grid{background-image:linear-gradient(#0f1d3a08 2px,transparent 2px),linear-gradient(90deg,#0f1d3a08 2px,transparent 2px)}
+i{color:#f97316}
+#pain{text-shadow:none}
+#box{border-color:#f97316;box-shadow:0 0 0 14px #f9731622,0 24px 60px rgba(15,29,58,.12)}
+.find{color:#c76a00}.q{color:#0f1d3a}.car{background:#f97316}
+#btn{background:#f97316;box-shadow:0 16px 40px #f9731655}
+#cnt{color:#c76a00}
+.win{background:#ffffff;border:4px solid #e5e7eb;box-shadow:0 24px 70px rgba(15,29,58,.14)}
+.bar{background:#0f1d3a}.tab{background:#ffffff;color:#0f1d3a}.cc{background:#0f1d3a}
+.sf{border-color:#f97316}.mag{border-color:#0f1d3a}.wq{color:#0f1d3a}
+.row{background:#f9fafb;border-color:transparent}.th{background:#e5e7eb}.l1{background:#d1d5db!important}.l2{background:#e5e7eb!important}
+#rip{border-color:#f97316}
+#pb{background:#e5e7eb}#pf{background:linear-gradient(90deg,#f59e0b,#f97316)}
+#big{color:#f97316;text-shadow:none}
+#found span{background:#0b7a55;box-shadow:0 20px 50px #0b7a5555}
+.chk:after{border-color:#0b7a55}
+#ph{border-color:#ffffff;box-shadow:0 0 0 4px #e5e7eb,0 24px 70px rgba(15,29,58,.18)}
+#price{background:#f97316;box-shadow:0 16px 44px rgba(15,29,58,.25)}
+#ttl{color:#0f1d3a}#sub{color:#55627d}#src{color:#55627d}
+#g u{color:#f97316}
+#cta span{background:#f97316;box-shadow:0 16px 44px #f9731655}
+`}
 </style></head><body><div class="grid"></div>
 <div class="abs" id="pain">${d.pain}</div>
 <div class="abs" id="box"><div class="find">${d.find}</div><div class="q"><span id="qt"></span><span class="car" id="car"></span></div></div>
@@ -169,7 +195,7 @@ window.setT=t=>{
   const n=t>=TL.typ2?Math.floor((t-TL.typ2)/0.05)+1:0;txt=Q2.slice(0,n);}
  S('box',boxO,boxT);$('qt').textContent=txt;$('car').style.opacity=(Math.floor(t*4)%2===0||txt.length>0&&t<TL.typ1+0.1||t>=TL.typ2)?1:0.15;
  const bp=k(t,TL.enter,TL.enter+0.18);S('btn',inA?1-k(t,TL.B-0.12,TL.B):0,'scale('+(1-0.12*Math.sin(bp*Math.PI))+')');
- $('btn').style.background=bp>0&&bp<1?'#ffb347':'#ff7a59';
+ $('btn').style.background=bp>0&&bp<1?'#f59e0b':'#f97316';
  // --- B: windows
  const inB=t>=TL.B&&t<TL.D;
  const hO=inB?k(t,TL.B,TL.B+0.15)*(1-k(t,TL.D-0.12,TL.D)):0;
@@ -184,7 +210,7 @@ window.setT=t=>{
   S('w'+i,o,tr);
   const n=Math.floor(cl((t-t0-0.12)/0.3)*w[2].length);$('wq'+i).textContent=t>=t0?w[2].slice(0,n):'';
   for(let r=0;r<4;r++){const e=$('r'+i+'_'+r);const rp=k(t,t0+0.3+r*0.05,t0+0.42+r*0.05);e.style.opacity=rp;e.style.transform='translateY('+(1-rp)*40+'px)';
-   const hit=r===1&&t>=t0+0.56;e.style.borderColor=hit?'#ff7a59':'transparent';e.style.background=hit?'#fff1ec':'#fff';}
+   const hit=r===1&&t>=t0+0.56;e.style.borderColor=hit?'#f97316':'transparent';e.style.background=hit?'#fff4e6':'#f9fafb';}
   if(t>=t0&&t<t0+TL.win+(last?0.3:0)){const m=eo(k(t,t0+0.2,t0+0.54));cx=880-m*420;cy=1420-m*(1420-915);co=k(t,t0+0.15,t0+0.25)*(last?1-k(t,TL.C,TL.C+0.2):1);
    const c=k(t,t0+0.56,t0+0.8);if(c>0&&c<1){ro=1-c;rs=0.4+c*1.3;}}
  });
