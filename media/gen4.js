@@ -80,8 +80,8 @@ tote:{img:'tote.png',price:'$1.35',title:'Cotton canvas tote · India',
  ru:{pain:'Сумки с логотипом? <i>У местных дорого.</i>',find:'НАЙДИТЕ МНЕ',q:'500 хлопковых сумок с логотипом',btn:'ИСКАТЬ',hdr:'Ищем на 4 языках',chk:'Проверяем поставщиков…',found:'НАЙДЕНО',sub:'От $1.35 · от 500 шт · канвас 12 oz',src:'alibaba.com, цена поставщика $1.35–3.50, 22.11.2026 · фото: иллюстрация',g1:'Не нашли?',g2:'Вернём деньги.',q2:'Целый дом в Японии дешевле машины',fs:78}},
 caravan:{img:'caravan.png',price:'10,683 lei',title:'Used Lord caravan · Romania',
  wins:[['RO','Română','rulotă second hand ieftină'],['DE','Deutsch','Wohnwagen gebraucht günstig'],['PL','Polski','przyczepa kempingowa używana'],['GB','English','cheap used caravan Europe']],
- en:{pain:'A home on wheels? <i>“Way too expensive.”</i>',find:'FIND ME',q:'A cheap used caravan in Europe',btn:'SEARCH',hdr:'Searching in 4 languages',chk:'Checking listings…',found:'FOUND',sub:'Used · whole caravan · about €2,100',src:'olx.ro, listed 24 Nov 2026 · photo: illustration',g1:'Not found?',g2:'Full refund.',q2:'Used Vespa Primavera in Lisbon',fs:86},
- ru:{pain:'Дом на колёсах? <i>«Это очень дорого»</i>',find:'НАЙДИТЕ МНЕ',q:'Недорогой б/у жилой прицеп в Европе',btn:'ИСКАТЬ',hdr:'Ищем на 4 языках',chk:'Проверяем объявления…',found:'НАЙДЕНО',sub:'Б/у · целый прицеп · около 2 100 €',src:'olx.ro, объявление от 24.11.2026 · фото: иллюстрация',g1:'Не нашли?',g2:'Вернём деньги.',q2:'Б/у Vespa Primavera в Лиссабоне',fs:78}},
+ en:{pain:'A caravan? <i>“Too expensive.”</i>',find:'FIND ME',q:'A cheap used caravan in Europe',btn:'SEARCH',hdr:'Searching in 4 languages',chk:'Checking listings…',found:'FOUND',sub:'Used · whole caravan · about €2,100',src:'olx.ro, listed 24 Nov 2026 · photo: illustration',g1:'Not found?',g2:'Full refund.',q2:'Used Vespa Primavera in Lisbon',fs:86},
+ ru:{pain:'Дом на колёсах? <i>«Дорого»</i>',find:'НАЙДИТЕ МНЕ',q:'Недорогой б/у жилой прицеп в Европе',btn:'ИСКАТЬ',hdr:'Ищем на 4 языках',chk:'Проверяем объявления…',found:'НАЙДЕНО',sub:'Б/у · целый прицеп · около 2 100 €',src:'olx.ro, объявление от 24.11.2026 · фото: иллюстрация',g1:'Не нашли?',g2:'Вернём деньги.',q2:'Б/у Vespa Primavera в Лиссабоне',fs:78}},
 vespa:{img:'vespa.png',price:'€3,600',title:'Vespa Primavera 2023 · Lisbon',
  wins:[['PT','Português','Vespa Primavera usada Lisboa'],['ES','Español','Vespa Primavera segunda mano'],['IT','Italiano','Vespa Primavera usata'],['GB','English','used Vespa Lisbon']],
  en:{pain:'New Vespa Primavera: <i>“€5,390”</i>',find:'FIND ME',q:'Used Vespa Primavera in Lisbon',btn:'SEARCH',hdr:'Searching in 4 languages',chk:'Checking listings…',found:'FOUND',sub:'2023 · 11,087 km · private seller',src:'standvirtual.com, checked 24 Nov 2026 · photo: illustration',g1:'Not found?',g2:'Full refund.',q2:'A cheap used caravan in Europe',fs:86},
@@ -168,7 +168,7 @@ i{color:#f97316}
 #found span{background:#0b7a55;box-shadow:0 20px 50px #0b7a5555}
 .chk:after{border-color:#0b7a55}
 #ph{border-color:#ffffff;box-shadow:0 0 0 4px #e5e7eb,0 24px 70px rgba(15,29,58,.18)}
-#price{background:#f97316;box-shadow:0 16px 44px rgba(15,29,58,.25)}
+#price{background:#f97316;box-shadow:0 16px 44px rgba(15,29,58,.25);top:1005px;font-size:150px}
 #ttl{color:#0f1d3a}#sub{color:#55627d}#src{color:#55627d}
 #g u{color:#f97316}
 #cta span{background:#f97316;box-shadow:0 16px 44px #f9731655}
