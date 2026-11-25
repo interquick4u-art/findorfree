@@ -8,7 +8,7 @@ from datetime import datetime, timezone
 
 SITE = "https://findorfree.com"
 UA = "FindOrFree-uptime-check (+https://findorfree.com)"
-KEY_PAGES = ["/", "/ru/", "/he/", "/legal.html", "/tips/", "/apartment-prague.html"]
+KEY_PAGES = ["/", "/ru/kvartira-za-granitsey.html", "/he/dira-behul.html", "/legal.html", "/tips/", "/apartment-prague.html"]
 problems, notes = [], []
 
 def get(url, data=None, timeout=25, tries=3):
