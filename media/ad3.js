@@ -121,7 +121,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;font-family:M,Montserrat,'N
 <div id="sub"></div>
 <div id="pb"></div>
 <script>
-const SC=${JSON.stringify(SC)},DUR=${DUR},CH=${JSON.stringify(chunks(l))},URL='${v.url}';
+const SC=${JSON.stringify(SC)},DUR=${DUR},CH=${JSON.stringify(chunks(l).map(c=>({a:c.a,b:c.b,w:[...c]})))},URL='${v.url}';
 const cl=x=>Math.max(0,Math.min(1,x)),ease=x=>1-Math.pow(1-x,3);
 const back=x=>{const c=1.7;x=cl(x);return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
 const imgs=[...document.querySelectorAll('[data-site]')];
@@ -147,7 +147,7 @@ window.setT=function(t){
  });
  // subtitles
  const c=CH.find(c=>t>=c.a&&t<c.b);const sb=document.getElementById('sub');
- sb.innerHTML=c?'<div>'+c.map(w=>'<span class="'+(t>=w.t&&t<w.e?'on':(t>=w.e?'done':''))+'">'+w.w+'</span>').join(' ')+'</div>':'';
+ sb.innerHTML=c?'<div>'+c.w.map(w=>'<span class="'+(t>=w.t&&t<w.e?'on':(t>=w.e?'done':''))+'">'+w.w+'</span>').join(' ')+'</div>':'';
  // like at 2/3
  const lk=document.getElementById('like');const lq=(t-25.9)/2;lk.style.opacity=lq>0&&lq<1?Math.min(1,lq*6,(1-lq)*6):0;
  lk.style.transform='translateY('+(-lq*120)+'px) scale('+(lq>0?0.6+0.4*back(cl(lq*3)):0)+')';
