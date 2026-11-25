@@ -55,7 +55,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;font-family:M,Montserrat,'N
 #sub{position:absolute;left:60px;right:60px;top:1590px;text-align:center;z-index:20}
 #sub div{display:inline-block;background:#0f1d3aE6;color:#fff;font-size:58px;font-weight:900;line-height:1.2;border-radius:28px;padding:16px 30px;max-width:960px}
 #sub span{opacity:.55}#sub span.on{opacity:1;color:#ffb347}#sub span.done{opacity:1}
-#like{position:absolute;left:70px;top:1400px;width:150px;height:150px;border-radius:50%;background:#f43f5e;color:#fff;font-size:86px;display:flex;align-items:center;justify-content:center;opacity:0;z-index:21;box-shadow:0 14px 40px #f43f5e88}
+#like{position:absolute;left:70px;top:1640px;width:150px;height:150px;border-radius:50%;background:#f43f5e;color:#fff;font-size:86px;display:flex;align-items:center;justify-content:center;opacity:0;z-index:21;box-shadow:0 14px 40px #f43f5e88}
 #pb{position:absolute;left:0;bottom:0;height:14px;background:#f97316;width:0;z-index:30}
 .logo{font-size:56px;font-weight:900}.logo span{color:#f97316}
 </style></head><body>
