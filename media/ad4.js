@@ -106,7 +106,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;font-family:M,Montserrat,'N
  <div class="a h1 g" data-in="0.3" style="top:410px">Первый вариант</div>
  <div class="a" data-in="1.4" data-stamp="1" style="top:560px"><span class="free">БЕСПЛАТНО</span></div>
  <div class="a h2 n" data-in="2.0" style="top:820px;font-weight:900">Понравился — тогда платите</div>
- <div class="a" data-in="2.8" data-pop="1" style="top:1050px"><span class="pill" style="background:#0b7a55;color:#fff;font-size:64px">Не нашли? Вернём деньги</span></div>
+ <div class="a" data-in="2.8" data-pop="1" style="top:1050px"><span class="pill" style="background:#0b7a55;color:#fff;font-size:54px">Не нашли? Вернём деньги</span></div>
 </div>
 <!-- 7. action -->
 <div class="sc" id="s6" style="background:${BG[6]}"><div class="dots"></div>
