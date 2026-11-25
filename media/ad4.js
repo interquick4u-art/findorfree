@@ -62,11 +62,11 @@ html,body{width:1080px;height:1920px;overflow:hidden;font-family:M,Montserrat,'N
 </style></head><body>
 <!-- 1. punch -->
 <div class="sc" id="s0" style="background:${BG[0]}"><div class="dots"></div>
- <div class="a logo n" data-in="0" style="top:110px">Find<span>Or</span>Free</div>
- <div class="a row" data-in="0" data-pop="1" style="top:260px"><b>Маклер</b><span style="position:relative">≈ месячная аренда<i class="strike" data-strike="1.2"></i></span></div>
- <div class="a row us" data-in="0.45" data-pop="1" style="top:520px"><b>Мы</b><span class="o">от&nbsp;$300</span></div>
- <div class="a" data-in="0.9" data-pop="1" style="top:820px"><span class="pill" style="background:#0b7a55;color:#fff;font-size:72px">🎁 Первый вариант — бесплатно</span></div>
- <div class="a h2 n" data-in="1.4" style="top:1060px;font-weight:900">Не переплачивайте маклерам!</div>
+ <div class="a logo n" data-in="0" style="top:150px">Find<span>Or</span>Free</div>
+ <div class="a row" data-in="0" data-pop="1" style="top:320px;border-color:#e11d48;background:#fff1f3"><b>Маклер</b><span style="color:#e11d48;font-size:64px">≈ месяц аренды</span></div>
+ <div class="a row us" data-in="0.45" data-pop="1" style="top:560px"><b>Мы</b><span class="o">от&nbsp;$300</span></div>
+ <div class="a" data-in="0.9" data-pop="1" style="top:820px"><span class="pill" style="background:#0b7a55;color:#fff;font-size:60px;white-space:normal">🎁 Первый вариант — бесплатно</span></div>
+ <div class="a h2 n" data-in="1.4" style="top:1080px;font-weight:900">Не переплачивайте маклерам!</div>
 </div>
 <!-- 2. why so expensive -->
 <div class="sc" id="s1" style="background:${BG[1]}"><div class="dots"></div>
