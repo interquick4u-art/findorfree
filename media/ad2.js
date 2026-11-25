@@ -41,6 +41,8 @@ html,body{width:1080px;height:1920px;overflow:hidden;font-family:M,Montserrat,'N
 .cta{display:inline-block;background:#f97316;color:#fff;border-radius:40px;padding:30px 80px;font-size:96px;font-weight:900;box-shadow:0 18px 50px #f9731677}
 .logo{font-size:70px;font-weight:900}.logo span{color:#f97316}
 .wl .logo span{color:#0f1d3a}
+.badge,.free{white-space:nowrap}
+${l==='ru'?'.free{font-size:112px;padding:14px 46px}.badge{font-size:80px}':''}
 #pb{position:absolute;left:0;bottom:0;height:14px;background:#0f1d3a;width:0;z-index:9}
 </style></head><body>
 <div class="sc" id="s0" style="background:${BG[0]}"><div class="dots"></div>
