@@ -54,7 +54,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;font-family:M,Montserrat,'N
  <div class="a logo w" data-in="0.1" style="top:240px">Find<span>Or</span>Free</div>
  <div class="a h2 w" data-in="0.5" style="top:400px">${v.s2b}</div>
  ${v.ch.map((c,i)=>`<div class="chip" data-in="${1.2+i*0.35}" data-pop="1" style="left:${i%2?570:70}px;top:${720+Math.floor(i/2)*170}px">${c}</div>`).join('')}
- <div class="a p o" data-in="3.6" style="top:1300px;font-weight:900">${v.hum}</div>
+ <div class="a p o" data-in="3.6" style="top:1300px;font-weight:900;font-size:42px">${v.hum}</div>
 </div>
 <div class="sc" id="s2" style="background:${BG[2]}">
  <div class="a h1 n" data-in="0.1" style="top:260px">${v.s3a}</div>
