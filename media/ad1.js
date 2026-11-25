@@ -39,7 +39,7 @@ body{background:radial-gradient(1200px 900px at 50% 38%,#ffffff 0%,#fbfaf7 60%,#
 .ln{height:30px;border-radius:15px;background:#e5e7eb;margin:28px 30px 0}
 .box{left:80px;right:80px;height:190px;border:6px solid #f97316;border-radius:40px;background:#fff;box-shadow:0 0 0 14px #f9731622;padding:34px 40px}
 .box small{font-size:28px;font-weight:800;letter-spacing:4px;color:#c76a00}
-.box div{font-size:46px;font-weight:800;margin-top:14px;white-space:nowrap}
+.box div{font-size:40px;font-weight:800;margin-top:14px;white-space:nowrap}
 .car{display:inline-block;width:5px;height:50px;background:#f97316;vertical-align:-8px;margin-left:4px}
 .chip{position:absolute;width:430px;height:110px;border-radius:26px;background:#fff;border:4px solid #e5e7eb;font-size:40px;font-weight:800;display:flex;align-items:center;padding:0 28px;gap:18px;opacity:0;box-shadow:0 14px 40px rgba(15,29,58,.10)}
 .chip i{font-style:normal;width:54px;height:54px;border-radius:50%;background:#0b7a55;color:#fff;font-size:34px;display:flex;align-items:center;justify-content:center}
@@ -72,11 +72,11 @@ body{background:radial-gradient(1200px 900px at 50% 38%,#ffffff 0%,#fbfaf7 60%,#
  <div class="a c logo" data-in="0.1" style="top:200px">Find<span>Or</span>Free</div>
  <div class="a c h2" data-in="0.5" style="top:320px">${v.s3a}</div>
  <div class="a c p m" data-in="0.9" style="top:410px">${v.s3b}</div>
- <div class="a box" data-in="1.3" style="top:560px"><small>FIND ME</small><div id="typ"></div></div>
- <div class="chip" data-in="3.6" style="left:80px;top:860px"><i>✓</i>${v.langs[0]}</div>
- <div class="chip" data-in="3.9" style="left:570px;top:860px"><i>✓</i>${v.langs[1]}</div>
- <div class="chip" data-in="4.2" style="left:80px;top:1010px"><i>✓</i>${v.langs[2]}</div>
- <div class="chip" data-in="4.5" style="left:570px;top:1010px"><i>✓</i>${v.langs[3]}</div>
+ <div class="a box" data-in="1.3" style="top:620px"><small>FIND ME</small><div id="typ"></div></div>
+ <div class="chip" data-in="3.6" style="left:80px;top:900px"><i>✓</i>${v.langs[0]}</div>
+ <div class="chip" data-in="3.9" style="left:570px;top:900px"><i>✓</i>${v.langs[1]}</div>
+ <div class="chip" data-in="4.2" style="left:80px;top:1050px"><i>✓</i>${v.langs[2]}</div>
+ <div class="chip" data-in="4.5" style="left:570px;top:1050px"><i>✓</i>${v.langs[3]}</div>
  <div class="a c" data-in="5.4" data-pop="1" style="top:1280px"><span class="pill">✓ ${v.found}</span></div>
 </div>
 <div class="sc" id="s3">
