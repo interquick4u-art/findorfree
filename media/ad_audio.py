@@ -32,8 +32,10 @@ for bt in np.arange(2.0, dur - 1, 1.0):
     out[s:s + L] += 0.12 * np.exp(-tl * 25) * np.sin(2 * np.pi * (90 - 40 * tl / 0.18) * tl)
 rng = np.random.default_rng(1)
 def add(at, sig):
-    s = int(at * SR); e = min(N, s + len(sig))
-    if s < N: out[s:e] += sig[:e - s]
+    s = int(at * SR)
+    if s < 0: sig = sig[-s:]; s = 0
+    e = min(N, s + len(sig))
+    if s < N and e > s: out[s:e] += sig[:e - s]
 for e in d['ev']:
     k = e['k']; at = e['t']
     if k == 'whoosh':
