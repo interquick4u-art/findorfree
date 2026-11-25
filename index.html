@@ -133,6 +133,11 @@ label{display:block;font-size:14px;color:var(--muted);margin:16px 0 6px;font-wei
 input,textarea,select{width:100%;background:#fff;border:1px solid var(--line);color:var(--ink);border-radius:12px;padding:13px 14px;font-size:16px;font-family:inherit}
 textarea{min-height:130px;resize:vertical}
 input:focus,textarea:focus,select:focus{outline:2px solid var(--accent);border-color:transparent}
+.step{display:flex;align-items:center;gap:10px;font-size:17px;color:var(--ink);font-weight:600;margin:20px 0 8px}
+.step i,.stepn{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--accent);color:#1a1200;font-style:normal;font-weight:800;font-size:17px}
+.btn .stepn{background:#fff;width:28px;height:28px;font-size:15px;margin-right:6px;vertical-align:middle}
+label.opt{font-size:14px;margin-top:22px}
+#req{min-height:120px;font-size:17px}#email{font-size:17px}
 .tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
 .tier{border:2px solid var(--line);border-radius:14px;padding:12px;cursor:pointer;text-align:center;background:#fff}
 .tier.sel{border-color:var(--accent);background:#fff7ea}
@@ -254,17 +259,6 @@ h2{font-weight:800}
   </div>
 </section>
 
-<section id="what">
-  <h2 data-i18n="cat_h">Find anything — anywhere in the world</h2><p class="sub" data-i18n="cat_sub">Americans in the US, Europeans in Europe, Australians in Australia, anyone anywhere: we search locally, in the local language, and answer in yours.</p>
-  <div class="grid4">
-    <div class="card"><div class="n"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0 5 5l-9.4 9.4a2.1 2.1 0 0 1-3-3l9.4-9.4z"/><path d="M14.7 6.3L17 4l3 3-2.3 2.3"/><path d="M4 20l1-1"/></svg></div><h3 data-i18n="c1h">Trusted pros</h3><p data-i18n="c1p">Electrician in Texas, tiler in Melbourne, notary in Lisbon, Russian-speaking dentist in Berlin. Licence, reviews from several sites, price, language, contacts.</p></div>
-    <div class="card"><div class="n"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></div><h3 data-i18n="c2h">Homes &amp; rentals</h3><p data-i18n="c2p">An apartment to rent or buy, short or long term. Real listings, checked agents and owners, a fair price for the area, scam warnings.</p></div>
-    <div class="card"><div class="n"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16l1.5-5h11L19 16"/><path d="M3 16h18v3H3z"/><circle cx="7.5" cy="19" r="1.5"/><circle cx="16.5" cy="19" r="1.5"/><path d="M7 11l1-3h8l1 3"/></svg></div><h3 data-i18n="c3h">Cars</h3><p data-i18n="c3p">A used car with a checked history, the best rental deal, a mechanic who knows your model, the right spare part.</p></div>
-    <div class="card"><div class="n"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/></svg></div><h3 data-i18n="c4h">Anything else</h3><p data-i18n="c4p">Suppliers, products, discontinued parts, documents, facts. If it exists, we'll find it.</p></div>
-  </div>
-  <p class="honest"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11V7a5 5 0 0 1 10 0v4"/><path d="M4 11h16l-1.5 8h-13z"/><path d="M9 15h6"/></svg><span data-i18n="honest">We don't take money from pros, agents or sellers — so our recommendation is honest.</span></p>
-</section>
-
 <section id="how">
   <h2 data-i18n="how_h">How it works</h2><p class="sub" data-i18n="how_sub">Three steps. No account, no app, no waiting on hold.</p>
   <div class="grid3">
@@ -272,6 +266,46 @@ h2{font-weight:800}
     <div class="card"><div class="n">2</div><h3 data-i18n="s2h">See the first find — free</h3><p data-i18n="s2pf">We search and send you one found option in full: what it is, the price, where, the link. Free, no card needed.</p></div>
     <div class="card"><div class="n">3</div><h3 data-i18n="s3h">Like it? Get all the options</h3><p data-i18n="s3p">Pay a fixed $19, $39 or $89 and get every option we found, checked by hand, with our pick. Nothing found = you pay nothing. The first 10 searches are free.</p></div>
   </div>
+</section>
+
+<section id="request">
+  <h2 data-i18n="f_h">Start your search</h2><p class="sub" data-i18n="f_sub">Fill in the form. Within an hour we confirm by email, then send your first find free. You pay only if you want the rest.</p>
+  <form id="form" novalidate>
+    <div id="formbody">
+      <label class="step" for="req"><i>1</i><span data-i18n="f_req">What should we find? Be as specific as you can.</span></label>
+      <textarea id="req" name="request" required></textarea>
+      <label class="step" for="email"><i>2</i><span data-i18n="f_email">Your email (answer goes here)</span></label>
+      <input id="email" name="email" type="email" required>
+      <label class="opt" data-i18n="f_tier">Level — optional. Not sure? Leave it, we will suggest one</label>
+      <div class="tiers">
+        <div class="tier" data-tier="simple"><b>$19</b><span data-i18n="t1h">Level 1 · Quick find</span></div>
+        <div class="tier sel" data-tier="standard"><b>$39</b><span data-i18n="t2h">Level 2 · Search with checks</span></div>
+        <div class="tier" data-tier="deep"><b>$89</b><span data-i18n="t3h">Level 3 · Deep search</span></div>
+        <div class="tier" data-tier="project"><b data-i18n="t4short">$300+</b><span data-i18n="t4h">Project</span></div>
+      </div>
+      <details class="more"><summary data-i18n="f_more">+ Name and deadline (optional)</summary>
+      <label for="name" data-i18n="f_name">Your name (optional)</label>
+      <input id="name" name="name" type="text">
+      <label for="deadline" data-i18n="f_when">When do you need it?</label>
+      <select id="deadline" name="deadline">
+        <option value="24h" data-i18n="w1">Within 24 hours</option>
+        <option value="3d" data-i18n="w2">Within 3 days</option>
+        <option value="1w" data-i18n="w3">Within a week</option>
+      </select>
+      </details>
+      <label class="agree" for="agree"><i class="stepn">3</i><input id="agree" name="agree" type="checkbox" value="yes: accepted Terms + Refund policy, asked to start right after payment" required><span data-i18n="f_agree">I have read and agree to the <a href="legal.html#terms-en" target="_blank" rel="noopener">Terms</a> and the <a href="legal.html#refund-en" target="_blank" rel="noopener">Refund policy</a>. I ask you to start right after payment, and I understand the answer is information prepared for my request.</span></label>
+      <button class="btn" type="submit"><i class="stepn">4</i> <span data-i18n="f_btn">Get my first find free</span></button>
+      <p class="note priv" data-i18n="f_priv">We use your email and request only to do this search and reply to you. No marketing. <a href="legal.html#privacy-en" target="_blank" rel="noopener">Privacy policy</a></p>
+      <p class="note" data-i18n="f_note">No card needed now. You pay only after you've seen the first find. Nothing found = $0.</p>
+    </div>
+    <div class="done" id="done">
+      <div class="done-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#4ad295" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg></div>
+      <h3 data-i18n="d_h">Request received!</h3>
+      <p class="sub" style="margin:0 auto 10px" id="d_text"></p>
+      <div class="alt" id="alt"></div>
+      <pre id="summary"></pre>
+    </div>
+  </form>
 </section>
 
 <section id="found">
@@ -302,51 +336,6 @@ h2{font-weight:800}
   </div>
 </section>
 
-<section id="examples">
-  <h2 data-i18n="ex_h">What people ask us to find</h2><p class="sub" data-i18n="ex_sub">Anything that can be found online — we find faster, in more languages, and double-check it.</p>
-  <div class="ex" id="exlist"><span>A supplier of a specific part in Europe</span><span>The cheapest flight + hotel combo for exact dates</span><span>A Russian-speaking dentist in Berlin</span><span>Whether this company is real and trustworthy</span><span>A replacement for a discontinued product</span><span>Visa requirements for a specific passport &amp; route</span><span>Original price of an item sold to you abroad</span><span>An apartment rental agent in a city you don't know</span><span>Where a photo was taken</span><span>A manual for an old appliance in your language</span></div>
-</section>
-
-<section id="request">
-  <h2 data-i18n="f_h">Start your search</h2><p class="sub" data-i18n="f_sub">Fill in the form. Within an hour we confirm by email, then send your first find free. You pay only if you want the rest.</p>
-  <form id="form" novalidate>
-    <div id="formbody">
-      <label data-i18n="f_tier">Choose a level</label>
-      <div class="tiers">
-        <div class="tier" data-tier="simple"><b>$19</b><span data-i18n="t1h">Level 1 · Quick find</span></div>
-        <div class="tier sel" data-tier="standard"><b>$39</b><span data-i18n="t2h">Level 2 · Search with checks</span></div>
-        <div class="tier" data-tier="deep"><b>$89</b><span data-i18n="t3h">Level 3 · Deep search</span></div>
-        <div class="tier" data-tier="project"><b data-i18n="t4short">$300+</b><span data-i18n="t4h">Project</span></div>
-      </div>
-      <label for="req" data-i18n="f_req">What should we find? Be as specific as you can.</label>
-      <textarea id="req" name="request" required></textarea>
-      <label for="email" data-i18n="f_email">Your email (answer goes here)</label>
-      <input id="email" name="email" type="email" required>
-      <details class="more"><summary data-i18n="f_more">+ Name and deadline (optional)</summary>
-      <label for="name" data-i18n="f_name">Your name (optional)</label>
-      <input id="name" name="name" type="text">
-      <label for="deadline" data-i18n="f_when">When do you need it?</label>
-      <select id="deadline" name="deadline">
-        <option value="24h" data-i18n="w1">Within 24 hours</option>
-        <option value="3d" data-i18n="w2">Within 3 days</option>
-        <option value="1w" data-i18n="w3">Within a week</option>
-      </select>
-      </details>
-      <label class="agree" for="agree"><input id="agree" name="agree" type="checkbox" value="yes: accepted Terms + Refund policy, asked to start right after payment" required><span data-i18n="f_agree">I have read and agree to the <a href="legal.html#terms-en" target="_blank" rel="noopener">Terms</a> and the <a href="legal.html#refund-en" target="_blank" rel="noopener">Refund policy</a>. I ask you to start right after payment, and I understand the answer is information prepared for my request.</span></label>
-      <button class="btn" type="submit" data-i18n="f_btn">Get my first find free</button>
-      <p class="note priv" data-i18n="f_priv">We use your email and request only to do this search and reply to you. No marketing. <a href="legal.html#privacy-en" target="_blank" rel="noopener">Privacy policy</a></p>
-      <p class="note" data-i18n="f_note">No card needed now. You pay only after you've seen the first find. Nothing found = $0.</p>
-    </div>
-    <div class="done" id="done">
-      <div class="done-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#4ad295" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg></div>
-      <h3 data-i18n="d_h">Request received!</h3>
-      <p class="sub" style="margin:0 auto 10px" id="d_text"></p>
-      <div class="alt" id="alt"></div>
-      <pre id="summary"></pre>
-    </div>
-  </form>
-</section>
-
 
 <section class="faq" id="faq">
   <h2 data-i18n="faq_h">Questions</h2>
@@ -357,6 +346,22 @@ h2{font-weight:800}
   <details><summary data-i18n="q3">How do I pay?</summary><p data-i18n="a3">By card (Visa, Mastercard and more) through a secure payment link we send together with your first find. No account needed.</p></details>
   <details><summary data-i18n="q4">What won't you do?</summary><p data-i18n="a4">We don't look for private individuals' personal data, anything illegal, or medical/legal decisions that require a licensed professional. Everything else — ask.</p></details>
 </section>
+<section id="what">
+  <h2 data-i18n="cat_h">Find anything — anywhere in the world</h2><p class="sub" data-i18n="cat_sub">Americans in the US, Europeans in Europe, Australians in Australia, anyone anywhere: we search locally, in the local language, and answer in yours.</p>
+  <div class="grid4">
+    <div class="card"><div class="n"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0 5 5l-9.4 9.4a2.1 2.1 0 0 1-3-3l9.4-9.4z"/><path d="M14.7 6.3L17 4l3 3-2.3 2.3"/><path d="M4 20l1-1"/></svg></div><h3 data-i18n="c1h">Trusted pros</h3><p data-i18n="c1p">Electrician in Texas, tiler in Melbourne, notary in Lisbon, Russian-speaking dentist in Berlin. Licence, reviews from several sites, price, language, contacts.</p></div>
+    <div class="card"><div class="n"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></div><h3 data-i18n="c2h">Homes &amp; rentals</h3><p data-i18n="c2p">An apartment to rent or buy, short or long term. Real listings, checked agents and owners, a fair price for the area, scam warnings.</p></div>
+    <div class="card"><div class="n"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16l1.5-5h11L19 16"/><path d="M3 16h18v3H3z"/><circle cx="7.5" cy="19" r="1.5"/><circle cx="16.5" cy="19" r="1.5"/><path d="M7 11l1-3h8l1 3"/></svg></div><h3 data-i18n="c3h">Cars</h3><p data-i18n="c3p">A used car with a checked history, the best rental deal, a mechanic who knows your model, the right spare part.</p></div>
+    <div class="card"><div class="n"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/></svg></div><h3 data-i18n="c4h">Anything else</h3><p data-i18n="c4p">Suppliers, products, discontinued parts, documents, facts. If it exists, we'll find it.</p></div>
+  </div>
+  <p class="honest"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11V7a5 5 0 0 1 10 0v4"/><path d="M4 11h16l-1.5 8h-13z"/><path d="M9 15h6"/></svg><span data-i18n="honest">We don't take money from pros, agents or sellers — so our recommendation is honest.</span></p>
+</section>
+
+<section id="examples">
+  <h2 data-i18n="ex_h">What people ask us to find</h2><p class="sub" data-i18n="ex_sub">Anything that can be found online — we find faster, in more languages, and double-check it.</p>
+  <div class="ex" id="exlist"><span>A supplier of a specific part in Europe</span><span>The cheapest flight + hotel combo for exact dates</span><span>A Russian-speaking dentist in Berlin</span><span>Whether this company is real and trustworthy</span><span>A replacement for a discontinued product</span><span>Visa requirements for a specific passport &amp; route</span><span>Original price of an item sold to you abroad</span><span>An apartment rental agent in a city you don't know</span><span>Where a photo was taken</span><span>A manual for an old appliance in your language</span></div>
+</section>
+
 <section id="reviews">
   <h2 data-i18n="rv_h">Rate your search</h2><p class="sub" data-i18n="rv_sub">Got your answer? Tell us how it went — it takes 20 seconds and helps the next person decide.</p>
   <div class="rv-empty" data-i18n="rv_empty">FindOrFree is new. The first client reviews will appear here — honestly, unedited, as they come.</div>
@@ -442,7 +447,7 @@ en:{pr_cmp:"<b>For comparison.</b> A relocation service in Spain asks about <b>�
  ex_h:"What people ask us to find",ex_sub:"Anything that can be found online — we find faster, in more languages, and double-check it.",
  ex:["A supplier of a specific part in Europe","The cheapest flight + hotel combo for exact dates","A Russian-speaking dentist in Berlin","Whether this company is real and trustworthy","A replacement for a discontinued product","Visa requirements for a specific passport & route","Original price of an item sold to you abroad","An apartment rental agent in a city you don't know","Where a photo was taken","A manual for an old appliance in your language"],
  f_h:"Start your search",f_sub:"Fill in the form. Within an hour we confirm by email, then send your first find free. You pay only if you want the rest.",
- f_tier:"Choose a level",f_req:"What should we find? Be as specific as you can.",f_email:"Your email (answer goes here)",f_name:"Your name (optional)",f_when:"When do you need it?",
+ f_tier:"Level — optional. Not sure? Leave it, we will suggest one",f_req:"What should we find? Be as specific as you can.",f_email:"Your email (answer goes here)",f_name:"Your name (optional)",f_when:"When do you need it?",
  w1:"Within 24 hours",w2:"Within 3 days",w3:"Within a week",f_btn:"Get my first find free",f_note:"No card needed now. You pay only after you've seen the first find. Nothing found = $0.",
  d_h:"Request received!",d_text:"We'll reply to {email} within an hour, then send your first find free. If you like it, you'll get a payment link for {price} to unlock all the options.",
  d_fallback:"Our automatic sending didn't go through from this page. Send the request yourself with one tap — the text is ready below:",
@@ -476,7 +481,7 @@ ru:{pr_cmp:"<b>Для сравнения.</b> Служба переезда в �
  ex_h:"Что нас просят найти",ex_sub:"Всё, что можно найти онлайн — мы находим быстрее, на большем числе языков и перепроверяем.",
  ex:["Поставщика конкретной детали в Европе","Самое дешёвое сочетание перелёт + отель на точные даты","Русскоговорящего стоматолога в Берлине","Реальна ли эта компания и можно ли ей доверять","Замену снятому с производства товару","Визовые требования для конкретного паспорта и маршрута","Реальную цену вещи, которую вам продали за границей","Агента по аренде в незнакомом городе","Где сделана фотография","Инструкцию к старой технике на вашем языке"],
  f_h:"Заказать поиск",f_sub:"Заполните форму. В течение часа подтвердим по почте, а затем пришлём первую находку бесплатно. Платите, только если хотите остальные варианты.",
- f_tier:"Выберите уровень",f_req:"Что нужно найти? Как можно конкретнее.",f_email:"Ваша почта (сюда придёт ответ)",f_name:"Ваше имя (необязательно)",f_when:"Когда нужно?",
+ f_tier:"Уровень — можно не выбирать. Не знаете? Пропустите, мы подскажем",f_req:"Что нужно найти? Как можно конкретнее.",f_email:"Ваша почта (сюда придёт ответ)",f_name:"Ваше имя (необязательно)",f_when:"Когда нужно?",
  w1:"В течение 24 часов",w2:"В течение 3 дней",w3:"В течение недели",f_btn:"Получить первую находку бесплатно",f_note:"Карта сейчас не нужна. Платите только после того, как увидите первую находку. Ничего не нашли — $0.",
  d_h:"Запрос получен!",d_text:"Ответим на {email} в течение часа, а потом пришлём первую находку бесплатно. Если подойдёт — пришлём ссылку на оплату {price}, и вы получите все варианты.",
  d_fallback:"Автоматическая отправка с этой страницы не прошла. Отправьте запрос сами одним нажатием — текст уже готов:",
@@ -510,7 +515,7 @@ he:{pr_cmp:"<b>להשוואה.</b> שירות רילוקיישן בספרד גו
  ex_h:"מה מבקשים מאיתנו למצוא",ex_sub:"כל מה שאפשר למצוא אונליין — אנחנו מוצאים מהר יותר, ביותר שפות, ובודקים פעמיים.",
  ex:["ספק של חלק ספציפי באירופה","השילוב הזול ביותר של טיסה + מלון לתאריכים מדויקים","רופא שיניים דובר רוסית בברלין","האם החברה הזו אמיתית ואמינה","תחליף למוצר שהופסק ייצורו","דרישות ויזה לדרכון ומסלול ספציפיים","המחיר המקורי של פריט שקניתם בחו\"ל","סוכן שכירות בעיר לא מוכרת","איפה צולמה תמונה","הוראות הפעלה למכשיר ישן בשפה שלכם"],
  f_h:"להתחיל חיפוש",f_sub:"מלאו את הטופס. תוך שעה נאשר במייל, ואחר כך נשלח את הממצא הראשון בחינם. משלמים רק אם רוצים את שאר האפשרויות.",
- f_tier:"בחרו רמה",f_req:"מה למצוא? כמה שיותר ספציפי.",f_email:"המייל שלכם (לכאן תגיע התשובה)",f_name:"שם (לא חובה)",f_when:"מתי צריך?",
+ f_tier:"רמה — לא חובה. לא בטוחים? דלגו, נציע לכם",f_req:"מה למצוא? כמה שיותר ספציפי.",f_email:"המייל שלכם (לכאן תגיע התשובה)",f_name:"שם (לא חובה)",f_when:"מתי צריך?",
  w1:"תוך 24 שעות",w2:"תוך 3 ימים",w3:"תוך שבוע",f_btn:"לקבל ממצא ראשון בחינם",f_note:"לא צריך כרטיס אשראי עכשיו. משלמים רק אחרי שרואים את הממצא הראשון. לא מצאנו = ₪0.",
  d_h:"הבקשה התקבלה!",d_text:"נענה ל-{email} תוך שעה, ואז נשלח את הממצא הראשון בחינם. אם מתאים — תקבלו קישור לתשלום {price} ואת כל האפשרויות.",
  d_fallback:"השליחה האוטומטית מהעמוד הזה לא עברה. שלחו את הבקשה בעצמכם בלחיצה אחת — הטקסט מוכן למטה:",
@@ -544,7 +549,7 @@ es:{pr_cmp:"<b>Para comparar.</b> Un servicio de reubicación en España cobra u
  ex_h:"Qué nos piden encontrar",ex_sub:"Todo lo que se puede encontrar en línea: lo hallamos más rápido, en más idiomas y lo verificamos.",
  ex:["Un proveedor de una pieza concreta en Europa","El combo vuelo + hotel más barato para fechas exactas","Un dentista que hable ruso en Berlín","Si esta empresa es real y de confianza","Un sustituto de un producto descontinuado","Requisitos de visado para un pasaporte y ruta","El precio real de algo que te vendieron en el extranjero","Un agente de alquiler en una ciudad desconocida","Dónde se tomó una foto","El manual de un aparato antiguo en tu idioma"],
  f_h:"Empieza tu búsqueda",f_sub:"Rellena el formulario. En una hora te confirmamos por email y luego te enviamos el primer hallazgo gratis. Pagas solo si quieres el resto.",
- f_tier:"Elige un nivel",f_req:"¿Qué debemos encontrar? Sé lo más específico posible.",f_email:"Tu email (aquí llega la respuesta)",f_name:"Tu nombre (opcional)",f_when:"¿Para cuándo?",
+ f_tier:"Nivel: opcional. ¿No estás seguro? Déjalo, te lo sugerimos",f_req:"¿Qué debemos encontrar? Sé lo más específico posible.",f_email:"Tu email (aquí llega la respuesta)",f_name:"Tu nombre (opcional)",f_when:"¿Para cuándo?",
  w1:"En 24 horas",w2:"En 3 días",w3:"En una semana",f_btn:"Recibir mi primer hallazgo gratis",f_note:"No necesitas tarjeta ahora. Pagas solo después de ver el primer hallazgo. Sin resultado = $0.",
  d_h:"¡Solicitud recibida!",d_text:"Responderemos a {email} en una hora y luego te enviaremos el primer hallazgo gratis. Si te sirve, recibirás un enlace de pago de {price} para ver todas las opciones.",
  d_fallback:"El envío automático desde esta página no funcionó. Envía la solicitud tú mismo con un toque — el texto ya está listo:",
@@ -578,7 +583,7 @@ de:{pr_cmp:"<b>Zum Vergleich.</b> Ein Relocation-Service in Spanien verlangt run
  ex_h:"Was wir finden sollen",ex_sub:"Alles, was online zu finden ist — wir finden es schneller, in mehr Sprachen und prüfen es doppelt.",
  ex:["Einen Lieferanten für ein bestimmtes Teil in Europa","Die günstigste Flug+Hotel-Kombination für feste Daten","Einen russischsprachigen Zahnarzt in Berlin","Ob diese Firma echt und vertrauenswürdig ist","Ersatz für ein eingestelltes Produkt","Visabestimmungen für einen bestimmten Pass und Route","Den echten Preis einer im Ausland gekauften Sache","Einen Mietmakler in einer fremden Stadt","Wo ein Foto aufgenommen wurde","Eine Anleitung für ein altes Gerät in Ihrer Sprache"],
  f_h:"Suche starten",f_sub:"Füllen Sie das Formular aus. Innerhalb einer Stunde bestätigen wir per E-Mail und schicken dann Ihren ersten Fund gratis. Sie zahlen nur, wenn Sie den Rest möchten.",
- f_tier:"Stufe wählen",f_req:"Was sollen wir finden? So konkret wie möglich.",f_email:"Ihre E-Mail (hierhin kommt die Antwort)",f_name:"Ihr Name (optional)",f_when:"Bis wann?",
+ f_tier:"Stufe – optional. Unsicher? Einfach weiterlassen, wir schlagen eine vor",f_req:"Was sollen wir finden? So konkret wie möglich.",f_email:"Ihre E-Mail (hierhin kommt die Antwort)",f_name:"Ihr Name (optional)",f_when:"Bis wann?",
  w1:"Innerhalb von 24 Stunden",w2:"Innerhalb von 3 Tagen",w3:"Innerhalb einer Woche",f_btn:"Ersten Fund gratis erhalten",f_note:"Jetzt keine Karte nötig. Sie zahlen erst, nachdem Sie den ersten Fund gesehen haben. Nichts gefunden = $0.",
  d_h:"Anfrage erhalten!",d_text:"Wir antworten an {email} innerhalb einer Stunde und schicken dann Ihren ersten Fund gratis. Wenn er passt, erhalten Sie einen Zahlungslink über {price} für alle Optionen.",
  d_fallback:"Der automatische Versand von dieser Seite hat nicht funktioniert. Senden Sie die Anfrage selbst mit einem Tipp — der Text ist fertig:",
