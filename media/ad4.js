@@ -1,16 +1,15 @@
 // FindOrFree ad v4 (approved 7-frame storyboard, 36 s, light theme). node ad4.js ru [stills|partK/N]
-// needs: Montserrat.ttf, yuri.jpg, vespa.png, site_ru/00.png + 02..19.png (cap.js), voice files placed by ad3_mix.py (events json 'voice')
+// needs: Montserrat.ttf, yuri.jpg, flat.jpg (bezrealitky 1092980 photo), site_ru/00.png + 02..19.png (cap.js), voice files placed by ad3_mix.py (events json 'voice')
 const fs=require('fs');const {chromium}=require('playwright');
 const DUR=36;
 const SC=[[0,3],[3,7],[7,12],[12,16.4],[16.4,24.2],[24.2,30],[30,36]];
 const BG=['#ffffff','#fff4ec','#ffffff','#f3f6fb','#ffffff','#eefaf4','#ffffff'];
 // voice placements: [file, start in file, end in file, start on timeline]
-const VO=[['v0.wav',0,5.06,0.3],['v0.wav',5.08,9.68,7.0],['v2.wav',0.78,5.08,12.2],['v4.wav',0,6.5,16.6],['v6.wav',0,4.0,24.3],['v3.wav',0,4.68,30.2]];
+const VO=[['v0.wav',0,5.06,0.3],['v0.wav',5.08,9.68,7.0],['v2.wav',0.78,5.08,12.2],['v6.wav',0,4.0,24.3],['v3.wav',0,4.68,30.2]];
 const SUB=[
  [['Не',0],['переплачивайте',.12],['маклерам!',.78],['Агентство',1.38],['берёт',1.9],['за',2.18],['поиск',2.3],['квартиры',2.72],['1&nbsp;450&nbsp;€.',3.24],5.0],
  [['Мы',.04],['ищем',.14],['только',.4],['без',.56],['маклеров,',.82],['объявления',1.36],['хозяев.',1.92],['От',2.62],['$300,',2.76],['в',3.56],['5&nbsp;раз',3.74],['дешевле.',4.06],4.55],
  [['Мы',.08],['ищем',.26],['за',.74],['вас —',.94],['на',1.8],['местных',1.9],['сайтах,',2.3],['на',3.24],['местном',3.34],['языке.',3.76],4.25],
- [['Вот',.06],['наш',.22],['поиск:',.48],['Vespa',1.38],['в',1.78],['Лиссабоне',1.92],['за',2.46],['3&nbsp;600&nbsp;€',2.94],['вместо',4.38],['5&nbsp;390&nbsp;€.',4.68],6.3],
  [['Первый',.48],['вариант —',.74],['бесплатно.',1.6],['Не',2.46],['нашли —',2.64],['вернём',3.22],['деньги.',3.46],3.9],
  [['Всё',0],['просто:',.38],['откройте',1.24],['findorfree.com',1.76],['и',3.02],['напишите,',3.64],['что',4.12],['нужно.',4.34],4.65]];
 function chunks(){const out=[];SUB.forEach((line,li)=>{const T=VO[li][3];const end=line[line.length-1];const w=line.slice(0,-1);let cur=[];
@@ -90,15 +89,15 @@ html,body{width:1080px;height:1920px;overflow:hidden;font-family:M,Montserrat,'N
  <div class="capt" data-in="0.45" data-pop="1"><b>Юрий</b><span>основатель FindOrFree</span></div>
  ${['🇪🇸 Español','🇵🇹 Português','🇨🇿 Čeština','🇩🇪 Deutsch','🇮🇹 Italiano','🇮🇱 עברית'].map((c,i)=>`<div class="chip" data-in="${1.8+i*0.25}" data-pop="1" style="left:${60+(i%3)*330}px;top:${1110+Math.floor(i/3)*125}px">${c}</div>`).join('')}
 </div>
-<!-- 5. proof -->
+<!-- 5. proof: real owner listing -->
 <div class="sc" id="s4" style="background:${BG[4]}"><div class="dots"></div>
- <div class="a" data-in="0.05" data-pop="1" style="top:170px"><span class="pill" style="background:#f97316;color:#fff;font-size:46px">НАШ ПОИСК · НОЯБРЬ 2026</span></div>
- <div class="card" data-in="0.3" data-pop="1"><div class="im"></div><div class="found" data-in="3.0" data-pop="1">✓ НАЙДЕНО</div>
-  <div class="bd"><div style="font-size:52px;font-weight:900">Vespa Primavera · Лиссабон</div>
-  <div style="font-size:46px;font-weight:800;color:#8792a8;margin-top:14px;position:relative;display:inline-block">Новая: 5&nbsp;390&nbsp;€<i class="strike" data-strike="4.3" style="height:10px"></i></div>
-  <div style="font-size:130px;font-weight:900;color:#0b7a55;line-height:1.05" id="vp">5&nbsp;390&nbsp;€</div>
-  <div style="font-size:36px;font-weight:700;color:#55627d">2023 · 11&nbsp;087&nbsp;км · частный продавец</div></div></div>
- <div class="a s" data-in="1.0" style="top:1500px">standvirtual.com · 24.11.2026 · фото: иллюстрация</div>
+ <div class="a" data-in="0.05" data-pop="1" style="top:120px"><span class="pill" style="background:#f97316;color:#fff;font-size:44px">НАШ ПОИСК · ПРАГА · 24.11.2026</span></div>
+ <div class="card" data-in="0.3" data-pop="1" style="top:250px"><div class="im" style="height:560px;background-image:url(flat.jpg)"></div><div class="found" data-in="2.2" data-pop="1">✓ НАЙДЕНО</div>
+  <div class="bd"><div style="font-size:50px;font-weight:900">3+kk · 71 м² · Карлин</div>
+  <div style="font-size:72px;font-weight:900;color:#0f1d3a;line-height:1.15">34&nbsp;400&nbsp;Kč<span style="font-size:40px;color:#55627d"> /мес (≈&nbsp;1&nbsp;370&nbsp;€)</span></div>
+  <div style="display:inline-block;margin-top:10px;background:#eefaf4;color:#0b7a55;font-size:40px;font-weight:900;border-radius:20px;padding:8px 22px">✓ от хозяина · без комиссии маклера</div></div></div>
+ <div class="a" data-in="3.4" data-pop="1" style="top:1180px"><div class="row us" style="display:block;text-align:center;padding:26px 30px"><div style="font-size:46px;font-weight:800">Без маклера вы сэкономили</div><div style="font-size:96px;font-weight:900;color:#0b7a55;line-height:1.1" id="sv">0&nbsp;Kč</div><div style="font-size:40px;font-weight:800;color:#55627d">≈ месяц аренды (≈&nbsp;1&nbsp;370&nbsp;€)</div></div></div>
+ <div class="a s" data-in="1.0" style="top:1525px">bezrealitky.cz · объявление хозяина №1092980 · фото из объявления · обычная комиссия маклера в Праге ≈ месяц аренды</div>
 </div>
 <!-- 6. no risk -->
 <div class="sc" id="s5" style="background:${BG[5]}"><div class="dots"></div>
@@ -131,7 +130,7 @@ window.setT=function(t){
    else{e.style.opacity=p;e.style.transform='translateY('+((1-ease(p))*60)+'px)';}});
   s.querySelectorAll('[data-strike]').forEach(e=>{e.style.width=(108*ease(cl((lt-parseFloat(e.dataset.strike))/0.4)))+'%';});
   if(i===3){s.querySelector('.photo').style.backgroundSize=(100+lt*2)+'% auto';}
-  if(i===4){const q=ease(cl((lt-3.0)/1.2));document.getElementById('vp').innerHTML=Math.round(5390-(5390-3600)*q).toLocaleString('ru-RU').replace(/\\s/g,'&nbsp;')+'&nbsp;€';}
+  if(i===4){const q=ease(cl((lt-3.6)/1.4));document.getElementById('sv').innerHTML=Math.round(34400*q).toLocaleString('ru-RU').replace(/\\s/g,'&nbsp;')+'&nbsp;Kč';}
   if(i===6){let k=lt<1.3?0:Math.min(imgs.length-1,1+Math.floor((lt-1.3)/0.16));imgs.forEach((im,j)=>im.style.display=j===k?'block':'none');
    const tp=s.querySelector('.tap');const q=cl((lt-0.6)/0.6);tp.style.opacity=lt>0.6&&lt<1.3?1-q:0;tp.style.transform='scale('+(0.6+q*0.8)+')';}
  });
@@ -147,7 +146,7 @@ function events(){const ev=[];SC.forEach(([a],i)=>{if(i)ev.push({t:a,k:'whoosh'}
  ev.push({t:4.2,k:'pop'},{t:4.9,k:'pop'},{t:5.4,k:'tick'});
  ev.push({t:7.5,k:'tick'},{t:8.4,k:'tick'},{t:9.0,k:'tick'},{t:10.4,k:'rise'},{t:10.4,k:'pop'});
  ev.push({t:12.05,k:'pop'},{t:12.45,k:'pop'});for(let i=0;i<6;i++)ev.push({t:12+1.8+i*0.25,k:'tick'});
- ev.push({t:16.45,k:'pop'},{t:16.4+2.8,k:'rise'},{t:16.4+3.0,k:'found'},{t:16.4+4.3,k:'tick'},{t:22.5,k:'pop'});
+ ev.push({t:16.45,k:'pop'},{t:16.7,k:'pop'},{t:16.4+2.2,k:'found'},{t:16.4+3.2,k:'rise'},{t:16.4+3.4,k:'pop'},{t:16.4+5.0,k:'found'},{t:22.5,k:'pop'});
  ev.push({t:24.25,k:'pop'},{t:24.2+1.4,k:'pop'},{t:24.2+1.45,k:'found'},{t:24.2+2.8,k:'pop'});
  ev.push({t:30.05,k:'pop'},{t:30.6,k:'tick'});for(let i=0;i<18;i++)ev.push({t:30+1.3+i*0.16,k:'key'});ev.push({t:31.2,k:'pop'},{t:31.8,k:'pop'});
  return {dur:DUR,ev,vo:VO};}

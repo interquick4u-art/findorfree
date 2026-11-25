@@ -10,17 +10,17 @@ def rd(p):
     return a
 bed = rd(sys.argv[2])[:N]; bed = np.pad(bed, (0, N - len(bed)))
 voice = np.zeros(N)
-for f, a, b, st in d['vo']:
+for k, (f, a, b, st) in enumerate(d['vo']):
     v = rd(f)[int(a * SR):int(b * SR)]
     fl = int(0.02 * SR); v[:fl] *= np.linspace(0, 1, fl); v[-fl:] *= np.linspace(1, 0, fl)
-    s = int(st * SR); e = min(N, s + len(v)); voice[s:e] += v[:e - s]
+    s = int(st * SR); e = min(N, s + len(v)); voice[s:e] += v[:e - s] * [0.9, 0.75, 0.9, 0.8, 0.9][k]
 voice = voice / (np.max(np.abs(voice)) + 1e-9) * 0.9
 env = np.convolve(np.abs(voice), np.ones(int(0.25 * SR)) / int(0.25 * SR), 'same')
 env = np.clip(env / (env.max() + 1e-9) * 3, 0, 1)
 duck = 1 - 0.55 * env
 t = np.arange(N) / SR
 gain = 0.24 + 0.14 * np.clip((t - 12) / 8, 0, 1) - 0.08 * np.clip((t - 24) / 2, 0, 1)
-gain += 0.9 * np.exp(-((t - 19.6) / 0.7) ** 2)  # climax: НАЙДЕНО
+gain += 1.5 * np.exp(-((t - 21.4) / 0.8) ** 2)  # climax: savings counter
 out = bed * gain * duck + voice
 out = np.tanh(out * 1.3) / np.tanh(1.3)
 out = out / (np.max(np.abs(out)) + 1e-9) * 0.89
