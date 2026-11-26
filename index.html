@@ -617,11 +617,13 @@ function browserLang(){
   }
   return "en";
 }
-function detect(){ return savedLang()||"en"; }
+/* ?lang=ru в ссылке (реклама, наши страницы на других языках) — сразу этот язык, без плашки. */
+function urlLang(){try{let l=(new URLSearchParams(location.search).get("lang")||"").slice(0,2).toLowerCase(); if(l==="iw") l="he"; return I18N[l]?l:null;}catch(e){return null;}}
+function detect(){ return urlLang()||savedLang()||"en"; }
 let swTimer=null;
 function hideSwitch(){ clearInterval(swTimer); swTimer=null; document.getElementById("swbar").classList.remove("show"); }
 function offerSwitch(){
-  if(savedLang()) return;
+  if(savedLang()||urlLang()) return;
   const c=browserLang(); if(c==="en") return;
   const L=I18N[c], tx=k=>L[k]??I18N.en[k];
   const bar=document.getElementById("swbar"); bar.dir=L.dir; bar.lang=c;
